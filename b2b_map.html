@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAPS 実戦マーケティング | B2Bマーケティング 共通言語マップ</title>
+<style>
+:root {
+  --bg:       #F5F4F0;
+  --bg2:      #ECEAE4;
+  --bg3:      #E3E1DA;
+  --surface:  #FFFFFF;
+  --border:   rgba(60,55,45,.15);
+  --border2:  rgba(60,55,45,.28);
+  --text1:    #1E1D1A;
+  --text2:    #4A4840;
+  --text3:    #7A7870;
+  --radius:   10px;
+  --radius-sm:6px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#F5F4F0;background:var(--bg);color:var(--text1);font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;font-size:14px;line-height:1.6;padding:32px 24px;min-height:100vh;position:relative;}
+
+/* ── ナビゲーション ── */
+.page-nav{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap;}
+.page-nav button{padding:6px 18px;border-radius:20px;border:1.5px solid var(--border2);background:var(--surface);color:var(--text2);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;}
+.page-nav button.active{background:var(--text1);color:#fff;border-color:var(--text1);}
+.page{display:none;}
+.page.active{display:block;}
+
+/* ── 見出し ── */
+.page-title{font-size:20px;font-weight:600;color:var(--text1);margin-bottom:4px;}
+.page-sub{font-size:12px;color:var(--text3);margin-bottom:20px;}
+
+/* ── 凡例 ── */
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;}
+.li{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);}
+.ld{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+
+/* ── レイヤー ── */
+.layer{margin-bottom:10px;}
+.lt{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:5px;display:flex;align-items:center;gap:6px;}
+.lt-num{display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;letter-spacing:.04em;padding:1px 5px;border-radius:3px;background:var(--bg3);color:var(--text2);border:1px solid var(--border2);flex-shrink:0;line-height:1.4;}
+.band{border:1px solid var(--border2);border-radius:var(--radius);padding:11px 13px;background:var(--surface);}
+.abm-band{border:1.5px solid #C94475;background:#FDF0F5;}
+.sic-band{border:1.5px solid #4A42A8;background:#F3F2FE;}
+.sd{font-size:11px;color:var(--text3);margin-top:7px;padding-top:7px;border-top:1px dashed var(--border);line-height:1.6;}
+.chips{display:flex;flex-wrap:wrap;gap:4px;align-items:center;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.sl{font-size:10px;color:var(--text3);font-weight:600;margin-bottom:5px;}
+.eg{font-size:10px;color:var(--text3);margin-top:6px;padding-top:6px;border-top:1px dashed var(--border);line-height:1.5;}
+.eg span{color:var(--text2);}
+
+/* ── チップ ── */
+.nc{display:inline-flex;align-items:center;font-size:11.5px;font-weight:600;padding:4px 11px;border-radius:20px;margin:2px;cursor:pointer;transition:opacity .15s,transform .1s;border:1.5px solid transparent;user-select:none;}
+.nc:hover{transform:scale(1.04);opacity:.82;}
+.nc.selected{box-shadow:0 0 0 2.5px currentColor;}
+
+.c-fw     {background:#E8E6FC;color:#2E297A;border-color:#9B95D8;}
+.c-anl    {background:#ECEAE4;color:#3A3830;border-color:#A8A598;}
+.c-abm    {background:#FDE8F2;color:#6B1E38;border-color:#D97BA8;}
+.c-sic    {background:#E8E6FC;color:#241F6B;border-color:#6F69C0;}
+.c-wrt    {background:#E2EDF8;color:#0B3D72;border-color:#7AAAD8;}
+.c-cnt    {background:#DFF2E9;color:#0A3D26;border-color:#6DBF99;}
+.c-role   {background:#FEF0DC;color:#5C3700;border-color:#E8A840;}
+.c-con    {background:#FDE8E0;color:#5E2210;border-color:#E08060;}
+.c-ch     {background:#E4F2DC;color:#1E4A0A;border-color:#7DC05A;}
+.c-ops    {background:#ECEAE4;color:#3A3830;border-color:#A8A598;}
+.c-tech   {background:#E4F2DC;color:#1A4208;border-color:#5E9E38;}
+.c-intel  {background:#FDE8E8;color:#4A0808;border-color:#D87070;}
+.c-analy  {background:#E2EDF8;color:#092A52;border-color:#6898C8;}
+.c-research{background:#EDF5F0;color:#0A3020;border-color:#5A9E78;}
+.c-growth  {background:#DDEEFF;color:#0A3060;border-color:#3A7AC0;}
+
+/* ── 関係性パネル ── */
+
+
+
+
+
+
+
+
+/* ── 4象限（マップ内） ── */
+.mb{margin-top:13px;padding-top:13px;border-top:1px solid var(--border2);}
+.mt{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:10px;}
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.qu{border-radius:var(--radius-sm);padding:10px 12px;border:1px solid transparent;}
+.qu-A{background:#E2EDF8;border-color:#7AAAD8;} .qu-B{background:#FDE8E0;border-color:#E08060;}
+.qu-C{background:#DFF2E9;border-color:#6DBF99;} .qu-D{background:#ECEAE4;border-color:#A8A598;}
+.qu.hl.qu-A{border:2px solid #1A6DC8;background:#C8DFF5;}
+.qu.hl.qu-B{border:2px solid #C84820;background:#FAD0C0;}
+.qu.hl.qu-C{border:2px solid #1A8C50;background:#BFEBD4;}
+.qu.hl.qu-D{border:2px solid #7A7870;background:#DDD9D0;}
+.qb{display:inline-block;font-size:10px;font-weight:600;padding:1px 7px;border-radius:4px;margin-bottom:3px;}
+.qb-A{background:#1A6DC8;color:#fff;} .qb-B{background:#C84820;color:#fff;}
+.qb-C{background:#1A8C50;color:#fff;} .qb-D{background:#7A7870;color:#fff;}
+.qsub{font-size:10px;color:var(--text2);margin-bottom:3px;}
+.qdesc{font-size:11px;color:var(--text2);line-height:1.5;}
+.qhere{font-size:10px;font-weight:600;color:#1A6DC8;margin-left:4px;}
+.qax{display:flex;justify-content:space-between;font-size:9px;color:var(--text3);margin-bottom:7px;font-weight:600;}
+
+/* ── PASONA変遷 ── */
+.eb{margin-top:10px;padding-top:10px;border-top:1px solid var(--border2);}
+.et{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text3);margin-bottom:8px;}
+.er{display:flex;gap:8px;margin-bottom:8px;font-size:12px;line-height:1.6;}
+.ey{flex-shrink:0;font-size:10px;font-weight:600;padding:2px 6px;border-radius:4px;background:var(--surface);border:1px solid var(--border2);color:var(--text2);min-width:38px;text-align:center;}
+.etx{color:var(--text2);} .etx strong{color:var(--text1);font-weight:600;}
+.co{margin-top:8px;padding:9px 11px;background:#EEEDF8;border-left:2.5px solid #4A42A8;border-radius:0 6px 6px 0;font-size:12px;color:var(--text2);line-height:1.6;}
+.co strong{color:var(--text1);font-weight:600;}
+
+/* ── フロー ── */
+.fs{margin-top:8px;padding:12px 14px;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border2);}
+.fl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.fl-num{display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;letter-spacing:.04em;padding:1px 5px;border-radius:3px;background:var(--bg3);color:var(--text2);border:1px solid var(--border2);flex-shrink:0;line-height:1.4;}
+.fr{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin-bottom:6px;}
+.fsep{color:var(--text3);font-size:12px;}
+.fc{padding:3px 8px;border-radius:5px;font-size:11px;font-weight:600;}
+
+/* ── 4象限ページ ── */
+.matrix-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:4px;}
+.quad-card{border-radius:var(--radius);padding:20px;border:2px solid transparent;}
+.quad-card.A{background:#E2EDF8;border-color:#1A6DC8;}
+.quad-card.B{background:#FDE8E0;border-color:#C84820;}
+.quad-card.C{background:#DFF2E9;border-color:#1A8C50;}
+.quad-card.D{background:#ECEAE4;border-color:#7A7870;}
+.quad-badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:5px;margin-bottom:10px;}
+.quad-badge.A{background:#1A6DC8;color:#fff;}
+.quad-badge.B{background:#C84820;color:#fff;}
+.quad-badge.C{background:#1A8C50;color:#fff;}
+.quad-badge.D{background:#7A7870;color:#fff;}
+.quad-title{font-size:15px;font-weight:700;color:var(--text1);margin-bottom:4px;}
+.quad-axis-label{font-size:11px;color:var(--text2);margin-bottom:10px;}
+.quad-desc{font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:10px;}
+.quad-items{list-style:none;padding:0;}
+.quad-items li{font-size:12px;color:var(--text2);padding:4px 0;border-bottom:1px solid rgba(0,0,0,.06);display:flex;gap:6px;}
+.quad-items li:last-child{border-bottom:none;}
+.qi-dot{flex-shrink:0;margin-top:4px;width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.5;}
+.axis-labels{display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:var(--text3);margin-bottom:12px;padding:0 4px;}
+.kpi-row{margin-top:8px;padding:8px 10px;background:rgba(255,255,255,.6);border-radius:6px;font-size:11px;color:var(--text2);}
+.kpi-row strong{color:var(--text1);}
+/* ── パラダイムシフトページ ── */
+.shift-section{margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.shift-section:last-child{border-bottom:none;}
+.shift-num{font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+.shift-title{font-size:17px;font-weight:700;color:var(--text1);margin-bottom:14px;}
+.shift-body{font-size:13px;color:var(--text2);line-height:1.8;}
+.shift-lead{margin-bottom:16px;font-size:13px;color:var(--text2);line-height:1.8;}
+
+/* 限界グリッド */
+.limit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:start;}
+@media(max-width:600px){.limit-grid{grid-template-columns:1fr;}}
+.limit-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:16px;}
+.limit-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.limit-icon{font-size:26px;flex-shrink:0;line-height:1;}
+.limit-label{font-size:13px;font-weight:700;color:var(--text1);line-height:1.4;}
+.limit-desc{font-size:12px;color:var(--text2);line-height:1.7;}
+
+/* 比較グリッド */
+.compare-grid{display:flex;align-items:stretch;gap:8px;}
+@media(max-width:600px){.compare-grid{flex-direction:column;}.compare-arrow{transform:rotate(90deg);}}
+.compare-col{flex:1;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border2);}
+.compare-header{font-size:12px;font-weight:700;padding:10px 14px;display:flex;flex-direction:column;gap:3px;}
+.compare-sub{font-size:10px;font-weight:400;opacity:.8;}
+.old-header{background:#FDE8E0;color:#5E2210;}
+.new-header{background:#DFF2E9;color:#0A3D26;}
+.compare-item{font-size:12px;padding:8px 14px;border-top:1px solid var(--border);color:var(--text2);line-height:1.6;}
+.compare-arrow{display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--text3);flex-shrink:0;padding:0 4px;}
+
+/* ゲーティングフロー */
+.gating-flow{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+@media(max-width:600px){.gating-flow{flex-direction:column;}.gating-sep{transform:rotate(90deg);}}
+.gating-box{flex:1;border-radius:var(--radius);padding:14px 16px;}
+.gating-box.problem{background:#FEF0DC;border:1px solid #E8A840;}
+.gating-box.ai{background:#FDE8E0;border:1px solid #E08060;}
+.gating-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;color:var(--text3);}
+.gating-text{font-size:12px;color:var(--text1);line-height:1.7;}
+.gating-sep{font-size:20px;flex-shrink:0;color:#C84820;}
+.gating-solution{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:16px;}
+.gating-solution-title{font-size:12px;font-weight:700;color:var(--text1);margin-bottom:12px;}
+.gating-solution-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+@media(max-width:640px){.gating-solution-grid{grid-template-columns:1fr 1fr;}}
+.gs-item{border-radius:var(--radius-sm);padding:12px;}
+.gs-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;}
+.gs-type{font-size:11px;font-weight:600;margin-bottom:6px;}
+.gs-reason{font-size:11px;line-height:1.6;}
+.gs-open{background:#DFF2E9;border:1px solid #6DBF99;}.gs-open .gs-label{color:#0A3D26;}.gs-open .gs-type{color:#085041;}
+.gs-soft{background:#E2EDF8;border:1px solid #7AAAD8;}.gs-soft .gs-label{color:#0B3D72;}.gs-soft .gs-type{color:#092A52;}
+.gs-gate{background:#E8E6FC;border:1px solid #9B95D8;}.gs-gate .gs-label{color:#2E297A;}.gs-gate .gs-type{color:#241F6B;}
+.gs-no{background:#ECEAE4;border:1px solid #A8A598;}.gs-no .gs-label{color:#3A3830;}.gs-no .gs-type{color:#2C2B28;}
+
+/* なぜグリッド */
+.why-grid{display:flex;align-items:center;gap:10px;}
+@media(max-width:600px){.why-grid{flex-direction:column;}.why-arrow,.why-equals{transform:rotate(90deg);}}
+.why-card{flex:1;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:16px;}
+.why-card.result{background:#DFF2E9;border-color:#6DBF99;}
+.why-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-bottom:10px;}
+.why-icon.ci{background:#E8E6FC;color:#2E297A;}
+.why-icon.abm{background:#FDE8F2;color:#6B1E38;}
+.why-icon.res{background:#DFF2E9;color:#0A3D26;}
+.why-label{font-size:12px;font-weight:700;color:var(--text1);margin-bottom:8px;}
+.why-desc{font-size:11px;color:var(--text2);line-height:1.7;}
+.why-arrow,.why-equals{font-size:22px;color:var(--text3);flex-shrink:0;font-weight:300;}
+
+/* 診断 */
+.check-q{display:none;}
+.check-q.active{display:block;}
+.check-q-text{font-size:14px;font-weight:600;color:var(--text1);margin-bottom:12px;}
+.check-options{display:flex;flex-direction:column;gap:8px;margin-bottom:4px;}
+.check-btn{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:12px 16px;font-size:13px;color:var(--text2);cursor:pointer;text-align:left;transition:all .15s;font-family:inherit;}
+.check-btn:hover{background:var(--bg2);border-color:var(--text3);color:var(--text1);}
+.check-progress{font-size:11px;color:var(--text3);margin-bottom:16px;}
+.check-result-box{background:var(--surface);border-radius:var(--radius);padding:20px 24px;}
+.check-result-phase{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
+.check-result-title{font-size:18px;font-weight:700;color:var(--text1);margin-bottom:12px;}
+.check-result-desc{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:16px;}
+.check-result-next{font-size:12px;font-weight:700;color:var(--text1);margin-bottom:10px;}
+.check-result-items{list-style:none;padding:0;}
+.check-result-items li{font-size:12px;color:var(--text2);padding:6px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;line-height:1.6;}
+.check-result-items li:last-child{border-bottom:none;}
+.check-result-items li::before{content:"→";color:var(--text3);flex-shrink:0;}
+.check-retry{margin-top:16px;background:transparent;border:1px solid var(--border2);border-radius:20px;padding:8px 20px;font-size:12px;color:var(--text2);cursor:pointer;font-family:inherit;transition:all .15s;}
+.check-retry:hover{background:var(--bg2);}
+/* ── 統計データ表示 ── */
+.stat-callout{display:flex;align-items:baseline;gap:10px;padding:10px 14px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-sm);}
+.stat-num{font-size:28px;font-weight:700;color:#C84820;flex-shrink:0;line-height:1;}
+.stat-text{font-size:12px;color:var(--text1);line-height:1.6;}
+.stat-src{font-size:10px;color:var(--text3);margin-left:6px;}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;}
+@media(max-width:640px){.stat-row{grid-template-columns:1fr 1fr;}}
+.stat-box{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:14px;text-align:center;}
+.stat-box-num{font-size:30px;font-weight:700;color:#1A6DC8;line-height:1;margin-bottom:8px;}
+.stat-box-label{font-size:11px;color:var(--text2);line-height:1.6;margin-bottom:6px;}
+.stat-box-src{font-size:10px;color:var(--text3);}
+
+.paywall-note{display:flex;gap:10px;align-items:flex-start;margin-bottom:20px;padding:12px 14px;background:#E2EDF8;border:1px solid #7AAAD8;border-radius:var(--radius-sm);font-size:12px;color:var(--text2);line-height:1.7;}
+.paywall-icon{flex-shrink:0;font-size:16px;margin-top:1px;}
+.paywall-note strong{color:var(--text1);}
+.eeat-note{display:flex;gap:10px;align-items:flex-start;margin-top:14px;padding:12px 14px;background:#FEF0DC;border:1px solid #E8A840;border-radius:var(--radius-sm);font-size:12px;color:var(--text2);line-height:1.7;}
+.eeat-icon{flex-shrink:0;font-size:16px;margin-top:1px;}
+.eeat-note strong{color:var(--text1);}
+
+.stat-badge-row{display:flex;gap:8px;margin-bottom:2px;}
+.stat-badge{flex:1;background:#FDE8E0;border:1px solid #E08060;border-radius:var(--radius-sm);padding:8px 10px;display:flex;flex-direction:column;gap:2px;}
+.stat-badge-num{font-size:22px;font-weight:700;color:#C84820;line-height:1;}
+.stat-badge-text{font-size:11px;color:#5E2210;line-height:1.4;}
+.stat-badge-src{font-size:9px;color:#C84820;opacity:.7;}
+.stat-badge-src a{color:#C84820;text-decoration:underline;opacity:.9;}
+.stat-badge-src a:hover{opacity:1;}
+.stat-box a{color:var(--text3);font-size:10px;text-decoration:underline;display:block;margin-top:4px;}
+.stat-box a:hover{color:var(--text2);}
+
+
+.phase-0{border-left:4px solid #C84820;}.phase-0 .check-result-phase{color:#C84820;}
+.phase-1{border-left:4px solid #E8A840;}.phase-1 .check-result-phase{color:#BA7517;}
+.phase-2{border-left:4px solid #1A8C50;}.phase-2 .check-result-phase{color:#1A8C50;}
+
+/* ── ポップアップ ── */
+#popup{display:none;position:absolute;z-index:9999;width:340px;min-width:240px;min-height:120px;max-width:calc(100vw - 32px);background:var(--surface);border:1.5px solid var(--border2);border-radius:var(--radius);box-shadow:0 4px 24px rgba(0,0,0,.13);padding:14px 16px 12px;font-size:12px;overflow:hidden;}
+#popup-body{overflow-y:auto;overflow-x:hidden;flex:1;}
+#popup-inner{display:flex;flex-direction:column;height:100%;}
+#popup-resize{position:absolute;right:0;bottom:0;width:18px;height:18px;cursor:se-resize;display:flex;align-items:center;justify-content:center;opacity:.4;user-select:none;}
+#popup-resize:hover{opacity:.8;}
+#popup-resize svg{display:block;}
+#popup.show{display:block;}
+#popup-header{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:10px;}
+#popup-title{font-size:13px;font-weight:600;color:var(--text1);line-height:1.4;}
+#popup-close{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:1px solid var(--border2);background:var(--bg2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--text3);}
+#popup-close:hover{background:var(--bg3);}
+#popup-list .ri{display:flex;gap:7px;margin-bottom:6px;font-size:12px;line-height:1.6;}
+#popup-list .rs{color:var(--text3);flex-shrink:0;}
+#popup-list 
+#popup-list 
+#popup-extra .mb{margin-top:10px;padding-top:10px;border-top:1px solid var(--border2);}
+#popup-extra .mt{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:8px;}
+#popup-extra .mg{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+#popup-extra .eb{margin-top:10px;padding-top:10px;border-top:1px solid var(--border2);}
+#popup-extra .er{display:flex;gap:7px;margin-bottom:6px;font-size:11px;line-height:1.6;}
+#popup-extra .ey{flex-shrink:0;font-size:10px;font-weight:600;padding:2px 5px;border-radius:4px;background:var(--bg2);border:1px solid var(--border2);color:var(--text2);min-width:36px;text-align:center;}
+#popup-extra .etx{color:var(--text2);font-size:11px;}
+#popup-extra .etx strong{color:var(--text1);}
+#popup-extra .co{margin-top:7px;padding:8px 10px;background:#EEEDF8;border-left:2.5px solid #4A42A8;border-radius:0 5px 5px 0;font-size:11px;color:var(--text2);line-height:1.6;}
+#popup-extra .co strong{color:var(--text1);}
+
+.popup-tail{position:absolute;top:-7px;left:20px;width:12px;height:12px;background:var(--surface);border-left:1.5px solid var(--border2);border-top:1.5px solid var(--border2);transform:rotate(45deg);}
+.popup-tail.tail-bottom{top:auto;bottom:-7px;border-left:none;border-top:none;border-right:1.5px solid var(--border2);border-bottom:1.5px solid var(--border2);}
+
+</style>
+</head>
+<body>
+
+<div id="popup">
+  <div class="popup-tail" id="popup-tail"></div>
+  <div id="popup-inner">
+    <div id="popup-header">
+      <div id="popup-title"></div>
+      <button id="popup-close">×</button>
+    </div>
+    <div id="popup-body">
+      <div id="popup-list"></div>
+      <div id="popup-extra"></div>
+    </div>
+  </div>
+  <div id="popup-resize" title="ドラッグでサイズ変更">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+      <line x1="2" y1="10" x2="10" y2="2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="6" y1="10" x2="10" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="10" y1="10" x2="10" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div>
+
+<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0 18px;border-bottom:1.5px solid var(--border2);margin-bottom:20px;">
+  <div style="display:flex;align-items:baseline;gap:12px;">
+    <div style="font-size:18px;font-weight:700;letter-spacing:.12em;color:var(--text1);">MAPS</div>
+    <div style="font-size:10px;color:var(--text3);letter-spacing:.06em;">Marketing Advice for Practical Steps</div>
+  </div>
+  <div style="text-align:right;">
+    <div style="font-size:13px;font-weight:700;color:var(--text1);letter-spacing:.04em;">実戦マーケティング</div>
+    <div style="font-size:10px;color:var(--text3);margin-top:1px;">B2B Marketing Strategy &amp; Tactics — Common Language Map</div>
+  </div>
+</div>
+
+<div class="page-nav">
+  <button class="active" onclick="showPage('map',this)">B2Bマーケティング 共通言語マップ</button>
+  <button onclick="showPage('matrix',this)">コンテンツ企画4象限</button>
+  <button onclick="showPage('shift',this)">Goodbye MQL</button>
+  <button onclick="showPage('content',this)">コンテンツ戦略 2026</button>
+  <button onclick="showPage('hybrid',this)">ハイブリッドGTM</button>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 1: GTMマップ
+════════════════════════════════ -->
+<div class="page active" id="page-map">
+<div class="page-title">B2Bマーケティング 共通言語マップ</div>
+<div class="page-sub">用語をクリックするとポップアップで意味と関係性が表示されます</div>
+
+<div class="legend">
+  <div class="li"><div class="ld" style="background:#3A3830"></div>環境分析</div>
+  <div class="li"><div class="ld" style="background:#4A42A8"></div>戦略・FW</div>
+  <div class="li"><div class="ld" style="background:#C94475"></div>ABM横断</div>
+  <div class="li"><div class="ld" style="background:#6F69C0"></div>コンテンツ戦略</div>
+  <div class="li"><div class="ld" style="background:#2A6DB8"></div>ライティング</div>
+  <div class="li"><div class="ld" style="background:#1A8C50"></div>コンテンツ資産</div>
+  <div class="li"><div class="ld" style="background:#B87800"></div>役割・職種</div>
+  <div class="li"><div class="ld" style="background:#C84820"></div>概念・プロセス</div>
+  <div class="li"><div class="ld" style="background:#3A7AC0"></div>成長モデル</div>
+  <div class="li"><div class="ld" style="background:#3A8C18"></div>施策・チャネル / GTM Motion</div>
+  <div class="li"><div class="ld" style="background:#7A7870"></div>オペレーション / GTM Ops</div>
+  <div class="li"><div class="ld" style="background:#2A7018"></div>テクノロジー</div>
+  <div class="li"><div class="ld" style="background:#C84040"></div>インテリジェンス</div>
+  <div class="li"><div class="ld" style="background:#1A5CA8"></div>分析・リサーチ</div>
+  <div class="li"><div class="ld" style="background:#3A7A50"></div>リサーチ手法</div>
+</div>
+
+<div class="fs" style="margin-bottom:16px;padding:12px 14px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);">
+
+  <!-- ① 戦略設計の依存関係 -->
+  <div class="fl"><span class="fl-num">01</span>戦略設計の依存関係（上位が未定義なら下位は機能しない）</div>
+  <div class="fr" style="flex-wrap:wrap;margin-bottom:2px;">
+    <span class="fc c-fw">経営戦略</span><span class="fsep">→</span>
+    <span class="fc c-fw">事業戦略</span><span class="fsep">→</span>
+    <span class="fc c-fw">製品戦略</span><span class="fsep">→</span>
+    <span class="fc c-fw">GTM</span>
+  </div>
+  <div style="font-size:10px;color:var(--text3);margin-bottom:10px;line-height:1.6;padding-left:2px;">
+    ※ 製品戦略＝PdM/PMMが担うプロダクトロードマップ・機能優先度の定義。GTMはその下に位置する市場参入設計。
+  </div>
+
+  <!-- ② GTM設計に必須の定義フレームワーク -->
+  <div class="fl"><span class="fl-num">02</span>GTM設計・製品戦略に必須の定義フレームワーク（新規事業にも既存事業にも共通）</div>
+  <div class="fr" style="flex-wrap:wrap;margin-bottom:2px;">
+    <span class="fc c-anl">SWOT / 3C</span><span class="fsep">→</span>
+    <span class="fc c-anl">TAM / SAM / SOM</span><span class="fsep">→</span>
+    <span class="fc c-fw">DoV</span><span class="fsep">→</span>
+    <span class="fc c-fw">STP</span><span class="fsep">→</span>
+    <span class="fc c-fw">バリュープロポジション</span>
+  </div>
+  <div style="font-size:10px;color:var(--text3);margin-bottom:10px;line-height:1.6;padding-left:2px;">
+    ※ 製品戦略・GTMどちらを設計する際にも揃えるべき定義群。新規事業立ち上げにおいても、製品戦略の策定前に同様に必要になる。
+  </div>
+
+  <!-- ③ 新規事業立ち上げステップ（フィットジャーニー） -->
+  <div class="fl"><span class="fl-num">03</span>新規事業立ち上げステップ（フィットジャーニー）</div>
+  <div class="fr" style="flex-wrap:wrap;margin-bottom:2px;">
+    <span class="fc c-fw">ECP定義</span><span class="fsep">→</span>
+    <span class="fc c-fw">CPF</span><span class="fsep">→</span>
+    <span class="fc c-fw">PSF</span><span class="fsep">→</span>
+    <span class="fc c-fw">SPF</span><span class="fsep">→</span>
+    <span class="fc c-fw">PMF達成</span>
+  </div>
+  <div style="font-size:10px;color:var(--text3);margin-bottom:10px;line-height:1.6;padding-left:2px;">
+    ※ PMF未達のまま既存商材と同じGTM手法を適用しても機能しない。達成まで中央値2年を要する。達成のシグナルは「問い合わせがコンスタントに入り始める」「ショーン・エリステストで非常に残念が40%超」など複数の観点で確認する（⑯ リサーチ手法 参照）。
+  </div>
+
+  <!-- ④ GTM実行モデル -->
+  <div class="fl"><span class="fl-num">04</span>GTM実行モデル（Lead Based / ABM）</div>
+  <div style="overflow-x:auto;padding-bottom:4px;margin-bottom:10px;">
+    <table style="border-collapse:collapse;white-space:nowrap;">
+      <tr>
+        <td style="padding:3px 4px 3px 0;font-size:15px;font-family:monospace;vertical-align:middle;color:#888780;">┣</td>
+        <td style="padding:3px 6px 3px 0;vertical-align:middle;"><span style="font-size:10px;font-weight:500;color:#555;">Lead Based</span></td>
+        <td style="padding:3px 6px 3px 0;color:#aaa;font-size:11px;vertical-align:middle;">：</td>
+        <td style="vertical-align:middle;"><div style="display:flex;align-items:center;gap:3px;flex-wrap:nowrap;">
+          <span class="fc c-con">デマンドジェネレーション</span><span class="fsep">→</span>
+          <span class="fc c-con">TOFU / MOFU / BOFU</span><span class="fsep">→</span>
+          <span class="fc c-role">SDR</span><span class="fsep">→</span>
+          <span class="fc c-role">フィールドセールス</span><span class="fsep">→</span>
+          <span class="fc c-con">受注</span>
+        </div></td>
+      </tr>
+      <tr>
+        <td style="padding:3px 4px 3px 0;font-size:15px;font-family:monospace;vertical-align:middle;color:#C94475;">┗</td>
+        <td style="padding:3px 6px 3px 0;vertical-align:middle;"><span style="font-size:10px;font-weight:500;color:#8B1840;">ABM</span></td>
+        <td style="padding:3px 6px 3px 0;color:#aaa;font-size:11px;vertical-align:middle;">：</td>
+        <td style="vertical-align:middle;"><div style="display:flex;align-items:center;gap:3px;flex-wrap:nowrap;">
+          <span class="fc c-intel">Speeda / uSonar</span><span class="fsep">→</span>
+          <span class="fc c-abm">ICP / Tier設計</span><span class="fsep">→</span>
+          <span class="fc c-role">BDR</span><span class="fsep">→</span>
+          <span class="fc c-abm">Buying Group 構築</span><span class="fsep">→</span>
+          <span class="fc c-role">フィールドセールス</span><span class="fsep">→</span>
+          <span class="fc c-abm">アカウント価値最大化</span>
+        </div></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ⑤ コンテンツ設計フロー -->
+  <div class="fl"><span class="fl-num">05</span>コンテンツ設計フロー</div>
+  <div class="fr" style="flex-wrap:wrap;margin-bottom:4px;">
+    <span class="fc c-sic">SIC戦略設計</span><span class="fsep">→</span>
+    <span class="fc c-wrt">ライティング手法選択</span><span class="fsep">→</span>
+    <span class="fc c-cnt">コンテンツ資産制作</span><span class="fsep">→</span>
+    <span class="fc c-analy">GA4 / サーチコンソール計測</span><span class="fsep">→</span>
+    <span class="fc c-ops">MOps改善</span>
+  </div>
+  <div style="font-size:10px;color:var(--text3);line-height:1.6;padding-left:2px;">
+    ※ なぜSICか：Gartner/CEBの調査によりB2B購買の平均関与者は5〜13名。複数の役割・利害を持つBuying Group全体の合意形成を段階的に設計する手法として、<strong style="color:var(--text2);">SIC（Spark→Introduce→Confront）</strong>はグローバルのB2Bマーケティング実務で広く採用されている。
+  </div>
+
+</div>
+
+<div class="layer">
+  <div class="lt"><span class="lt-num">01</span>環境分析フレームワーク</div>
+  <div class="band"><div class="chips">
+    <span class="nc c-anl" data-id="swot" onclick="sel(this,event)">SWOT分析</span>
+    <span class="nc c-anl" data-id="3c" onclick="sel(this,event)">3C分析</span>
+    <span class="nc c-anl" data-id="tam" onclick="sel(this,event)">TAM / SAM / SOM</span>
+    <span class="nc c-anl" data-id="innovation-curve" onclick="sel(this,event)">イノベーター理論</span>
+    <span class="nc c-anl" data-id="chasm" onclick="sel(this,event)">キャズム</span>
+  </div></div>
+</div>
+
+<div class="layer">
+  <div class="lt"><span class="lt-num">02</span>戦略設計フレームワーク</div>
+  <div class="band"><div class="chips">
+    <span class="nc c-fw" data-id="burning-needs" onclick="sel(this,event)">バーニングニーズ</span>
+    <span class="nc c-fw" data-id="cpf" onclick="sel(this,event)">CPF</span>
+    <span class="nc c-fw" data-id="psf" onclick="sel(this,event)">PSF</span>
+    <span class="nc c-fw" data-id="spf" onclick="sel(this,event)">SPF</span>
+    <span class="nc c-fw" data-id="pmf" onclick="sel(this,event)">PMF</span>
+    <span class="nc c-fw" data-id="dov" onclick="sel(this,event)">DoV（価値の定義）</span>
+    <span class="nc c-fw" data-id="stp" onclick="sel(this,event)">STP</span>
+    <span class="nc c-fw" data-id="positioning-map" onclick="sel(this,event)">ポジショニングマップ</span>
+    <span class="nc c-fw" data-id="value-prop" onclick="sel(this,event)">バリュープロポジション</span>
+    <span class="nc c-fw" data-id="whole-product" onclick="sel(this,event)">ホールプロダクト</span>
+    <span class="nc c-fw" data-id="jtbd" onclick="sel(this,event)">JTBD</span>
+    <span class="nc c-fw" data-id="mgmt-strategy" onclick="sel(this,event)">経営戦略</span>
+    <span class="nc c-fw" data-id="biz-strategy" onclick="sel(this,event)">事業戦略</span>
+    <span class="nc c-fw" data-id="gtm" onclick="sel(this,event)">GTM</span>
+  </div>
+  <div class="sd" style="margin-top:6px;">⚠️ ECP（最初の顧客像）を定義してからCPF→PSF→SPF→PMFの順にフィット検証を経てGTMへ。PMF未達のまま展示会・広告・MAを動かしても機能しない。</div>
+  </div>
+</div>
+
+<div class="layer">
+  <div class="lt"><span class="lt-num">03</span>ABM — 横断的営業・マーケ運用モデル（GTMの実行モデルの一つ）</div>
+  <div class="band abm-band">
+    <div class="chips">
+      <span style="font-size:11px;color:#8B1840;font-weight:700;margin-right:4px;flex-shrink:0;">ABM ▸</span>
+      <span class="nc c-abm" data-id="abm" onclick="sel(this,event)">ABM</span>
+      <span class="nc c-abm" data-id="ecp" onclick="sel(this,event)">ECP</span>
+      <span class="nc c-abm" data-id="icp" onclick="sel(this,event)">ICP</span>
+      <span class="nc c-abm" data-id="buyer-persona" onclick="sel(this,event)">バイヤーペルソナ</span>
+      <span class="nc c-abm" data-id="dmu" onclick="sel(this,event)">DMU</span>
+      <span class="nc c-abm" data-id="buying-group" onclick="sel(this,event)">Buying Group</span>
+      <span class="nc c-abm" data-id="mobilizer" onclick="sel(this,event)">モビライザー</span>
+      <span class="nc c-abm" data-id="commercial-insight" onclick="sel(this,event)">コマーシャルインサイト</span>
+      <span class="nc c-abm" data-id="commercial-coaching" onclick="sel(this,event)">コマーシャルコーチング</span>
+      <span class="nc c-abm" data-id="collective-learning" onclick="sel(this,event)">コレクティブラーニング</span>
+      <span class="nc c-abm" data-id="buyer-map" onclick="sel(this,event)">バイヤー相関図</span>
+      <span class="nc c-abm" data-id="tier" onclick="sel(this,event)">Tier設計</span>
+      <span class="nc c-abm" data-id="coverage" onclick="sel(this,event)">カバレッジ</span>
+      <span class="nc c-abm" data-id="sequence" onclick="sel(this,event)">シーケンス</span>
+    </div>
+    <div class="sd">戦略アカウントのステータス前進を設計・管理するモデル。GTMの下に位置し、Lead BasedとABMは並列する2つの実行モデル。</div>
+  </div>
+</div>
+
+<div class="layer">
+  <div class="lt"><span class="lt-num">04</span>コンテンツ戦略フレームワーク</div>
+  <div class="band sic-band">
+    <div class="chips">
+      <span style="font-size:11px;color:#3A2F9A;font-weight:700;margin-right:4px;flex-shrink:0;">SIC ▸</span>
+      <span class="nc c-sic" data-id="sic" onclick="sel(this,event)">SICフレームワーク</span>
+      <span class="nc c-sic" data-id="commercial-insight-sic" onclick="sel(this,event)">コマーシャルインサイト（SICでの役割）</span>
+    </div>
+    <div class="sd">CEB（現Gartner）著『The Challenger Customer』で提唱。Buying Groupの合意形成を3段階で設計する。Spark（気づき）→ Introduce（論理）→ Confront（意思決定）。</div>
+  </div>
+</div>
+
+<div class="layer">
+  <div class="lt"><span class="lt-num">05</span>ライティング手法（SICの下位戦術・用途別に使い分ける）</div>
+  <div class="band"><div class="chips">
+    <span class="nc c-wrt" data-id="epic" onclick="sel(this,event)">EPIC</span>
+    <span class="nc c-wrt" data-id="pastor" onclick="sel(this,event)">PASTOR</span>
+    <span class="nc c-wrt" data-id="spiced" onclick="sel(this,event)">SPICED</span>
+    <span class="nc c-wrt" data-id="pasona" onclick="sel(this,event)">PASONA</span>
+    <span class="nc c-wrt" data-id="prep" onclick="sel(this,event)">PREP</span>
+    <span class="nc c-wrt" data-id="aida" onclick="sel(this,event)">AIDA</span>
+    <span class="nc c-wrt" data-id="fab" onclick="sel(this,event)">FAB</span>
+  </div></div>
+</div>
+
+<div class="layer">
+  <div class="lt"><span class="lt-num">06</span>コンテンツ資産タイプ — クリックすると企画4象限での位置づけが表示されます</div>
+  <div class="band"><div class="g2">
+    <div>
+      <div class="sl">エバーグリーン（長期資産 / ストック型）</div>
+      <div class="chips">
+        <span class="nc c-cnt" data-id="whitepaper" onclick="sel(this,event)">ホワイトペーパー</span>
+        <span class="nc c-cnt" data-id="case-study" onclick="sel(this,event)">導入事例</span>
+        <span class="nc c-cnt" data-id="evergreen" onclick="sel(this,event)">エバーグリーンコンテンツ（ストック型）</span>
+      </div>
+    </div>
+    <div>
+      <div class="sl">トレンド（短期・時事 / フロー型）</div>
+      <div class="chips">
+        <span class="nc c-cnt" data-id="trend-content" onclick="sel(this,event)">トレンドコンテンツ（フロー型）</span>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="layer">
+  <div class="lt"><span class="lt-num">07</span>役割・職種（Role）</div>
+  <div class="g2">
+    <div class="band">
+      <div class="sl">戦略・企画系</div>
+      <div class="chips">
+        <span class="nc c-role" data-id="cmo" onclick="sel(this,event)">CMO</span>
+        <span class="nc c-role" data-id="cro" onclick="sel(this,event)">CRO</span>
+        <span class="nc c-role" data-id="gtm-lead" onclick="sel(this,event)">GTM Lead</span>
+        <span class="nc c-role" data-id="pmm" onclick="sel(this,event)">PMM</span>
+        <span class="nc c-role" data-id="pdm" onclick="sel(this,event)">PdM</span>
+        <span class="nc c-role" data-id="gtm-eng" onclick="sel(this,event)">GTMエンジニア</span>
+      </div>
+    </div>
+    <div class="band">
+      <div class="sl">営業・マーケ実行系</div>
+      <div class="chips">
+        <span class="nc c-role" data-id="bdr" onclick="sel(this,event)">BDR</span>
+        <span class="nc c-role" data-id="sdr" onclick="sel(this,event)">SDR</span>
+        <span class="nc c-role" data-id="field-sales" onclick="sel(this,event)">フィールドセールス</span>
+        <span class="nc c-role" data-id="field-mkt" onclick="sel(this,event)">フィールドマーケティング</span>
+        <span class="nc c-role" data-id="enablement" onclick="sel(this,event)">セールスイネーブルメント</span>
+        <span class="nc c-role" data-id="cs" onclick="sel(this,event)">カスタマーサクセス</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="layer"><div class="g2">
+  <div>
+    <div class="lt"><span class="lt-num">08a</span>概念・プロセス（需要創出・購買）</div>
+    <div class="band"><div class="chips">
+      <span class="nc c-con" data-id="demand-gen" onclick="sel(this,event)">デマンドジェネレーション</span>
+      <span class="nc c-con" data-id="buyers-journey" onclick="sel(this,event)">バイヤーズジャーニー</span>
+      <span class="nc c-con" data-id="customer-journey" onclick="sel(this,event)">カスタマージャーニー</span>
+      <span class="nc c-con" data-id="white-space" onclick="sel(this,event)">ホワイトスペース</span>
+      <span class="nc c-con" data-id="poc" onclick="sel(this,event)">PoC</span>
+      <span class="nc c-con" data-id="advocacy" onclick="sel(this,event)">アドボカシー</span>
+      <span class="nc c-con" data-id="recycle" onclick="sel(this,event)">リサイクル（再循環）</span>
+      <span class="nc c-con" data-id="intent-data" onclick="sel(this,event)">インテントデータ</span>
+      <span class="nc c-con" data-id="intent-signal" onclick="sel(this,event)">インテントシグナル</span>
+      <span class="nc c-con" data-id="first-party-data" onclick="sel(this,event)">ファーストパーティデータ</span>
+      <span class="nc c-con" data-id="third-party-data" onclick="sel(this,event)">サードパーティデータ</span>
+    </div></div>
+  </div>
+  <div>
+    <div class="lt"><span class="lt-num">08b</span>概念・プロセス（成長モデル）</div>
+    <div class="band"><div class="chips">
+      <span class="nc c-growth" data-id="plg" onclick="sel(this,event)">PLG</span>
+      <span class="nc c-growth" data-id="slg" onclick="sel(this,event)">SLG</span>
+      <span class="nc c-growth" data-id="clg" onclick="sel(this,event)">CLG</span>
+      <div class="sd" style="font-size:10px;margin-top:6px;width:100%;">※ GTM Motionと混同注意 → 成長の燃料源（構造）であり、実行手段（Motion）とは異なる概念</div>
+    </div></div>
+  </div>
+  <div>
+    <div class="lt"><span class="lt-num">08c</span>概念・プロセス（商談・収益）</div>
+    <div class="band"><div class="chips">
+      <span class="nc c-con" data-id="funnel" onclick="sel(this,event)">ファネル</span>
+      <span class="nc c-con" data-id="tofu" onclick="sel(this,event)">TOFU</span>
+      <span class="nc c-con" data-id="mofu" onclick="sel(this,event)">MOFU</span>
+      <span class="nc c-con" data-id="bofu" onclick="sel(this,event)">BOFU</span>
+      <span class="nc c-con" data-id="mql-sql" onclick="sel(this,event)">MQL / SQL / SAL</span>
+      <span class="nc c-con" data-id="pipeline" onclick="sel(this,event)">パイプライン</span>
+      <span class="nc c-con" data-id="acv" onclick="sel(this,event)">ACV</span>
+      <span class="nc c-con" data-id="cac" onclick="sel(this,event)">CAC</span>
+      <span class="nc c-con" data-id="ltv" onclick="sel(this,event)">LTV</span>
+      <span class="nc c-con" data-id="ltv-cac" onclick="sel(this,event)">LTV/CAC比率</span>
+      <span class="nc c-con" data-id="nps" onclick="sel(this,event)">NPS</span>
+    </div></div>
+  </div>
+</div></div>
+
+<div class="layer"><div class="g2">
+  <div>
+    <div class="lt"><span class="lt-num">09</span>施策・チャネル</div>
+    <div class="band"><div class="chips">
+      <span class="nc c-ch" data-id="web-mkt" onclick="sel(this,event)">Webマーケティング</span>
+      <span class="nc c-ch" data-id="seo" onclick="sel(this,event)">SEO</span>
+      <span class="nc c-ch" data-id="aio" onclick="sel(this,event)">AIO</span>
+      <span class="nc c-ch" data-id="eeat" onclick="sel(this,event)">E-E-A-T</span>
+      <span class="nc c-ch" data-id="google-ads" onclick="sel(this,event)">Google広告</span>
+      <span class="nc c-ch" data-id="exhibition" onclick="sel(this,event)">展示会</span>
+    </div>
+    <div class="sl" style="margin-top:8px;">GTM Motion（実行モーション）</div>
+    <div class="chips">
+      <span class="nc c-ch" data-id="motion-inbound" onclick="sel(this,event)">Inbound-Led</span>
+      <span class="nc c-ch" data-id="motion-outbound" onclick="sel(this,event)">Outbound-Led</span>
+      <span class="nc c-ch" data-id="motion-event" onclick="sel(this,event)">Event-Led</span>
+      <span class="nc c-ch" data-id="motion-product" onclick="sel(this,event)">Product-Led</span>
+      <span class="nc c-ch" data-id="motion-partner" onclick="sel(this,event)">Partner-Led</span>
+      <span class="nc c-ch" data-id="motion-community" onclick="sel(this,event)">Community-Led</span>
+    </div></div>
+  </div>
+  <div>
+    <div class="lt"><span class="lt-num">10</span>キャンペーンマネジメント</div>
+    <div class="band"><div class="chips">
+      <span class="nc c-ops" data-id="campaign-mgmt" onclick="sel(this,event)">キャンペーン管理</span>
+      <span class="nc c-ops" data-id="mktg-calendar" onclick="sel(this,event)">マーケティングカレンダー</span>
+      <span class="nc c-ops" data-id="campaign-l2" onclick="sel(this,event)">Offering（L2）</span>
+      <span class="nc c-ops" data-id="campaign-l3" onclick="sel(this,event)">キャンペーン（L3）</span>
+      <span class="nc c-ops" data-id="campaign-l4" onclick="sel(this,event)">チャネル（L4）</span>
+      <span class="nc c-ops" data-id="campaign-l5" onclick="sel(this,event)">アクティビティ（L5）</span>
+      <span class="nc c-ops" data-id="utm" onclick="sel(this,event)">UTMパラメータ</span>
+    </div></div>
+  </div>
+</div></div>
+
+<div class="layer"><div class="g2">
+  <div>
+    <div class="lt"><span class="lt-num">11</span>オペレーション</div>
+    <div class="band"><div class="chips">
+      <span class="nc c-ops" data-id="mops" onclick="sel(this,event)">MOps</span>
+      <span class="nc c-ops" data-id="revops" onclick="sel(this,event)">RevOps</span>
+    </div></div>
+  </div>
+  <div>
+    <div class="lt"><span class="lt-num">12</span>GTM Ops / 実行自動化</div>
+    <div class="band"><div class="chips">
+      <span class="nc c-ops" data-id="clay" onclick="sel(this,event)">Clay</span>
+    </div></div>
+  </div>
+</div></div>
+
+<div class="layer">
+  <div class="lt"><span class="lt-num">13</span>テクノロジー基盤</div>
+  <div class="g3">
+    <div class="band">
+      <div class="sl">MA（マーケティングオートメーション）</div>
+      <div class="chips"><span class="nc c-tech" data-id="ma" onclick="sel(this,event)">MA</span></div>
+      <div class="eg">例：<span>Marketo Engage / HubSpot / Pardot / Eloqua</span></div>
+    </div>
+    <div class="band">
+      <div class="sl">SFA / CRM</div>
+      <div class="chips">
+        <span class="nc c-tech" data-id="sfa" onclick="sel(this,event)">SFA</span>
+        <span class="nc c-tech" data-id="crm" onclick="sel(this,event)">CRM</span>
+      </div>
+      <div class="eg">例：<span>Salesforce / HubSpot CRM / Microsoft Dynamics</span></div>
+    </div>
+    <div class="band">
+      <div class="sl">BIダッシュボード</div>
+      <div class="chips"><span class="nc c-tech" data-id="looker" onclick="sel(this,event)">Looker Studio</span></div>
+      <div class="eg">例：<span>Looker Studio / Tableau / Power BI</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="layer">
+  <div class="lt"><span class="lt-num">14</span>インテリジェンス基盤（企業データ・市場情報・インテント）</div>
+  <div class="g3">
+    <div class="band" style="border-color:#C84040;">
+      <div class="sl" style="color:#8B1A1A;">戦略インテリジェンス（市場・経済情報）</div>
+      <div class="chips"><span class="nc c-intel" data-id="speeda" onclick="sel(this,event)">Speeda</span></div>
+      <div class="eg">例：<span>Speeda / 日経テレコン / FactSet</span></div>
+      <div class="sd" style="font-size:10px;">グローバル企業情報・業界レポート・競合分析・アカウントプラン作成。ICP設計の戦略インプットを提供。</div>
+    </div>
+    <div class="band" style="border-color:#C84040;">
+      <div class="sl" style="color:#8B1A1A;">データインフラ（国内法人データ・名寄せ）</div>
+      <div class="chips"><span class="nc c-intel" data-id="usonar" onclick="sel(this,event)">uSonar</span></div>
+      <div class="eg">例：<span>uSonar / Sansan / 帝国データバンク</span></div>
+      <div class="sd" style="font-size:10px;">国内820万拠点の法人データ。CRM/SFAの名寄せ・データクレンジング・ホワイトスペース可視化を担うデータインフラ。</div>
+    </div>
+    <div class="band" style="border-color:#C84040;">
+      <div class="sl" style="color:#8B1A1A;">インテントデータ（購買関心シグナル）</div>
+      <div class="chips">
+        <span class="nc c-intel" data-id="sales-marker" onclick="sel(this,event)">Sales Marker</span>
+        <span class="nc c-intel" data-id="forcas" onclick="sel(this,event)">FORCAS</span>
+        <span class="nc c-intel" data-id="leadfeeder" onclick="sel(this,event)">Leadfeeder</span>
+      </div>
+      <div class="eg">例：<span>Sales Marker / FORCAS / Leadfeeder / ZoomInfo / Bombora（海外）</span></div>
+      <div class="sd" style="font-size:10px;">企業・担当者の検索行動・Webサイト訪問等から購買関心を推定するデータ。日本では法的制約・データカバレッジに注意が必要。</div>
+    </div>
+  </div>
+</div>
+
+<div class="layer">
+  <div class="lt"><span class="lt-num">15</span>分析・リサーチツール</div>
+  <div class="g2">
+    <div class="band">
+      <div class="sl">自社計測</div>
+      <div class="chips">
+        <span class="nc c-analy" data-id="ga4" onclick="sel(this,event)">GA4</span>
+        <span class="nc c-analy" data-id="gsc" onclick="sel(this,event)">サーチコンソール</span>
+        <span class="nc c-analy" data-id="user-insight" onclick="sel(this,event)">User Insight</span>
+      </div>
+      <div class="eg">例：<span>GA4 / Adobe Analytics / Contentsquare</span></div>
+    </div>
+    <div class="band">
+      <div class="sl">競合・市場リサーチ</div>
+      <div class="chips">
+        <span class="nc c-analy" data-id="ahrefs" onclick="sel(this,event)">Ahrefs</span>
+        <span class="nc c-analy" data-id="similarweb" onclick="sel(this,event)">Similarweb</span>
+        <span class="nc c-analy" data-id="rakko" onclick="sel(this,event)">ラッコキーワード</span>
+        <span class="nc c-analy" data-id="gtrends" onclick="sel(this,event)">Google Trends</span>
+      </div>
+      <div class="eg">例：<span>Ahrefs / Semrush / Similarweb / Moz</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="layer">
+  <div class="lt"><span class="lt-num">16</span>リサーチ手法（目的・手法・プロセス）</div>
+  <div class="g3">
+    <div class="band">
+      <div class="sl">定性リサーチ（Why・How を掘る）</div>
+      <div class="chips">
+        <span class="nc c-research" data-id="customer-interview" onclick="sel(this,event)">顧客インタビュー</span>
+        <span class="nc c-research" data-id="jtbd-interview" onclick="sel(this,event)">JTBDインタビュー</span>
+        <span class="nc c-research" data-id="win-loss" onclick="sel(this,event)">ウィン/ロス分析</span>
+      </div>
+      <div class="sd" style="font-size:10px;">少数・深掘り。「なぜ買うか・なぜ選ばないか」の文脈と動機を把握する。CPF〜PSF段階で特に重要。</div>
+    </div>
+    <div class="band">
+      <div class="sl">定量リサーチ（What・How much を測る）</div>
+      <div class="chips">
+        <span class="nc c-research" data-id="survey-research" onclick="sel(this,event)">アンケート調査</span>
+        <span class="nc c-research" data-id="nps-survey" onclick="sel(this,event)">NPS調査</span>
+        <span class="nc c-research" data-id="sean-ellis-test" onclick="sel(this,event)">ショーン・エリステスト</span>
+      </div>
+      <div class="sd" style="font-size:10px;">多数・統計的検証。定性で発見した仮説を数値で裏付ける。PMF達成度の測定にも使う。</div>
+    </div>
+    <div class="band">
+      <div class="sl">競合・市場リサーチ（Where・Who を把握する）</div>
+      <div class="chips">
+        <span class="nc c-research" data-id="competitive-intel" onclick="sel(this,event)">競合インテリジェンス</span>
+        <span class="nc c-research" data-id="battlecard" onclick="sel(this,event)">バトルカード</span>
+        <span class="nc c-research" data-id="tam-research" onclick="sel(this,event)">TAM/SAM調査</span>
+      </div>
+      <div class="sd" style="font-size:10px;">市場・競合の構造を把握する。STP・ICP設計・コマーシャルインサイト生成の根拠データになる。⑭インテリジェンス基盤・⑮リサーチツールと連動。</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /page-map -->
+
+<!-- ════════════════════════════════
+     PAGE 2: 4象限マトリクス
+════════════════════════════════ -->
+<div class="page" id="page-matrix">
+<div class="page-title">コンテンツ企画 4象限マトリクス</div>
+<div class="page-sub">「誰が作れるか」×「賞味期限」で企画判断の優先度を決める。象限Aに集中投資し、C・DはAIと型で効率化する。</div>
+
+<div style="display:flex;gap:0;">
+  <!-- 縦軸ラベル -->
+  <div style="display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:40px 0 8px;margin-right:8px;min-width:28px;">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <span style="font-size:12px;color:var(--text3);line-height:1;">↑</span>
+      <span style="font-size:10px;font-weight:600;color:var(--text3);writing-mode:vertical-lr;white-space:nowrap;">賞味期限：長い</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <span style="font-size:10px;font-weight:600;color:var(--text3);writing-mode:vertical-lr;white-space:nowrap;">賞味期限：短い</span>
+      <span style="font-size:12px;color:var(--text3);line-height:1;">↓</span>
+    </div>
+  </div>
+  <div style="flex:1;">
+    <!-- 横軸ラベル -->
+    <div style="display:flex;justify-content:space-between;font-size:10px;font-weight:600;color:var(--text3);margin-bottom:8px;padding:0 4px;">
+      <span>← 誰でも作れる</span>
+      <span>自社しか作れない →</span>
+    </div>
+    <div class="matrix-wrap">
+      <div class="quad-card C">
+    <span class="quad-badge C">C — 辞書コンテンツ</span>
+    <div class="quad-title">SEO記事・用語解説・入門ガイド</div>
+    <div class="quad-axis-label">誰でも作れる × 賞味期限：長い</div>
+    <div class="quad-desc">SEO基盤として量が必要。AIと型で効率化する領域。差別化にはならないが、検索流入の安定供給に欠かせない。</div>
+    <ul class="quad-items">
+      <li><div class="qi-dot" style="color:#1A8C50"></div>用語解説ブログ・基礎知識記事</li>
+      <li><div class="qi-dot" style="color:#1A8C50"></div>比較記事（一般的な比較軸）</li>
+      <li><div class="qi-dot" style="color:#1A8C50"></div>FAQ・How-to記事</li>
+      <li><div class="qi-dot" style="color:#1A8C50"></div>入門ガイド・チュートリアル</li>
+    </ul>
+    <div class="kpi-row"><strong>KPI：</strong>オーガニック流入数・平均掲載順位・回遊率</div>
+    <div class="kpi-row" style="margin-top:4px;"><strong>制作：</strong>AIで草稿 → 社内専門家レビューが効率的</div>
+  </div>
+
+  <div class="quad-card A">
+    <span class="quad-badge A">A — 最優先投資領域</span>
+    <div class="quad-title">一次情報コンテンツ・コマーシャルインサイト資産</div>
+    <div class="quad-axis-label">自社しか作れない × 賞味期限：長い</div>
+    <div class="quad-desc">購買基準を書き換える力を持つ唯一の領域。PMM・エンジニア・CSの三者で作る。BDRのアウトバウンド武器にもなる。</div>
+    <ul class="quad-items">
+      <li><div class="qi-dot" style="color:#1A6DC8"></div>自社市場調査レポート（n=○○の調査）</li>
+      <li><div class="qi-dot" style="color:#1A6DC8"></div>競合比較レポート（ニュートラルな自社評価含む）</li>
+      <li><div class="qi-dot" style="color:#1A6DC8"></div>カスタマーボイス（数値＋文脈がセット）</li>
+      <li><div class="qi-dot" style="color:#1A6DC8"></div>失注・失敗分析（正直に語ることで信頼が生まれる）</li>
+      <li><div class="qi-dot" style="color:#1A6DC8"></div>業界の構造的課題レポート</li>
+      <li><div class="qi-dot" style="color:#1A6DC8"></div>導入事例（定量変化＋背景がセット）</li>
+    </ul>
+    <div class="kpi-row"><strong>KPI：</strong>リード獲得数・商談化率・パイプライン貢献度（Looker Studioで可視化）</div>
+    <div class="kpi-row" style="margin-top:4px;"><strong>フレーム：</strong>EPIC / SPICED で構成 → SIC Introduce〜Confront フェーズ</div>
+  </div>
+
+  <div class="quad-card D">
+    <span class="quad-badge D">D — 作業コンテンツ</span>
+    <div class="quad-title">キャンペーンLP・時事便乗・SNS投稿</div>
+    <div class="quad-axis-label">誰でも作れる × 賞味期限：短い</div>
+    <div class="quad-desc">必要だが差別化にならない。テンプレ化とAIで量産し、人的コストを最小化する。PASONAが機能しやすい唯一の領域。</div>
+    <ul class="quad-items">
+      <li><div class="qi-dot" style="color:#7A7870"></div>期間限定キャンペーンLP</li>
+      <li><div class="qi-dot" style="color:#7A7870"></div>セール・イベント告知</li>
+      <li><div class="qi-dot" style="color:#7A7870"></div>時事ニュース便乗記事</li>
+      <li><div class="qi-dot" style="color:#7A7870"></div>SNS定期投稿</li>
+    </ul>
+    <div class="kpi-row"><strong>KPI：</strong>CVR・クリック数・申込数</div>
+    <div class="kpi-row" style="margin-top:4px;"><strong>フレーム：</strong>PASONA（新）をテンプレ化して量産</div>
+  </div>
+
+  <div class="quad-card B">
+    <span class="quad-badge B">B — タイミング資産</span>
+    <div class="quad-title">自社イベントレポート・速報調査・限定コンテンツ</div>
+    <div class="quad-axis-label">自社しか作れない × 賞味期限：短い</div>
+    <div class="quad-desc">一次性は高いが鮮度命。イベント翌日・調査完了後48時間以内の公開が原則。機動力と配信速度が成否を分ける。</div>
+    <ul class="quad-items">
+      <li><div class="qi-dot" style="color:#C84820"></div>展示会・自社イベントレポート</li>
+      <li><div class="qi-dot" style="color:#C84820"></div>速報型調査レポート（タイムリー公開）</li>
+      <li><div class="qi-dot" style="color:#C84820"></div>製品リリース・アップデート解説</li>
+      <li><div class="qi-dot" style="color:#C84820"></div>社内エキスパートのコメント・オピニオン</li>
+    </ul>
+    <div class="kpi-row"><strong>KPI：</strong>リーチ数・シェア数・指名検索の増加</div>
+    <div class="kpi-row" style="margin-top:4px;"><strong>活用：</strong>公開後はエバーグリーン化を検討 → A/Cへ転換</div>
+  </div>
+</div><!-- /matrix-wrap -->
+  </div><!-- /flex:1 -->
+</div><!-- /縦軸wrap -->
+
+<div style="margin-top:20px;padding:16px;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border2);">
+  <div style="font-size:13px;font-weight:600;color:var(--text1);margin-bottom:8px;">コンテンツフロー：象限間のつながり</div>
+  <div style="font-size:12px;color:var(--text2);line-height:1.8;">
+    <strong>C → A への昇格：</strong>辞書記事に「自社調査データ」を追加すると象限Aのエバーグリーン資産になる<br>
+    <strong>B → A への転換：</strong>速報イベントレポートを深掘りして一次情報を追加すると長期資産になる<br>
+    <strong>D → C への昇格：</strong>キャンペーンLPのFAQ部分を記事化するとSEO辞書コンテンツになる<br>
+    <strong>A がBDRの武器に：</strong>「この調査レポートをお送りしたく」がBDRのアウトバウンド起点になる
+  </div>
+</div>
+</div><!-- /page-matrix -->
+<div class="page" id="page-shift">
+<div class="page-title">なぜB2Bマーケティングは変わらざるを得ないのか</div>
+<div class="page-sub">MQL重視モデルの限界から、ABM・コマーシャルインサイト中心の世界へ</div>
+
+<div class="shift-section">
+  <div class="shift-num">01</div>
+  <div class="shift-title">MQL重視モデルの3つの構造的限界</div>
+  <div class="shift-body">
+    <p class="shift-lead">従来のデマンドジェネレーション→ファネル→MQLモデルは「個人が検索・ダウンロード・問い合わせする」という前提で設計されていた。しかし現実のB2B購買はその前提を崩している。</p>
+    <div class="limit-grid">
+      <div class="limit-card">
+        <div class="limit-header">
+          <div class="limit-icon">👥</div>
+          <div class="limit-label">Buying Groupの問題</div>
+        </div>
+        <div class="limit-desc">
+  <div class="stat-badge-row">
+    <div class="stat-badge"><span class="stat-badge-num">6〜10名</span><span class="stat-badge-text">複雑なB2B購買のBuying Group規模</span><span class="stat-badge-src">Gartner調査より</span></div>
+    <div class="stat-badge"><span class="stat-badge-num">13名</span><span class="stat-badge-text">平均関与者数（89%が複数部門にまたがる）</span><span class="stat-badge-src"><a href="https://www.forrester.com/press-newsroom/forrester-the-state-of-business-buying-2024/" target="_blank">Forrester 2024 →</a></span></div>
+  </div>
+  <p style="margin-top:10px;">1人のMQLシグナルは氷山の一角に過ぎず、残りのステークホルダーは見えないまま商談が進む。結果、終盤で「実は法務が反対していた」「予算承認が下りなかった」という失注が起きる。</p>
+</div>
+      </div>
+      <div class="limit-card">
+        <div class="limit-header">
+          <div class="limit-icon">🚧</div>
+          <div class="limit-label">フォームゲーティングの問題</div>
+        </div>
+        <div class="limit-desc">
+  <div class="stat-badge-row">
+    <div class="stat-badge"><span class="stat-badge-num">67%</span><span class="stat-badge-text">B2BバイヤーがRep-Free体験を好む（2025年調査・646名）</span><span class="stat-badge-src"><a href="https://www.gartner.com/en/newsroom/press-releases/2026-03-09-gartner-sales-survey-finds-67-percent-of-b2b-buyers-prefer-a-rep-free-experience" target="_blank">Gartner 2025 →</a></span></div>
+    <div class="stat-badge"><span class="stat-badge-num">73%</span><span class="stat-badge-text">無関係なアウトリーチを送るサプライヤーを積極的に避ける（2024年調査・632名）</span><span class="stat-badge-src"><a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-sales-survey-finds-61-percent-of-b2b-buyers-prefer-a-rep-free-buying-experience" target="_blank">Gartner 2024 →</a></span></div>
+  </div>
+  <p style="margin-top:10px;">フォームに入力することは「営業から連絡が来る」というシグナルであり、それ自体が離脱の引き金になっている（<a href="https://brixongroup.com/en/content-gating-strategies-when-b2b-content-should-be-freely-accessible-the-data-driven-guide" target="_blank" style="color:#C84820;text-decoration:underline;">76%のB2Bプロスペクトがデータの使われ方に懸念・Stanford研究</a>）。さらにAIが普及した現在、ゲーティングされたコンテンツはAIに引用されず検索流入も激減する。「リードを取るためにフォームを置く→AIにインデックスされない→そもそも見つけてもらえない→バイヤーは匿名で情報収集を続ける」という二重の矛盾が生じている。</p>
+</div>
+      </div>
+      <div class="limit-card">
+        <div class="limit-header">
+          <div class="limit-icon">📉</div>
+          <div class="limit-label">シグナルの質の問題</div>
+        </div>
+        <div class="limit-desc">
+  <div class="stat-badge-row">
+    <div class="stat-badge"><span class="stat-badge-num">74%</span><span class="stat-badge-text">の購買チームが意思決定中に不健全なコンフリクトを経験</span><span class="stat-badge-src"><a href="https://www.gartner.com/en/newsroom/press-releases/2025-05-07-gartner-sales-survey-finds-74-percent-of-b2b-buyer-teams-demonstrate-unhealthy-conflict-during-the-decision-process" target="_blank">Gartner 2024 →</a></span></div>
+    <div class="stat-badge"><span class="stat-badge-num">41%</span><span class="stat-badge-text">は正式評価前にすでに特定ベンダーを決めている（Forrester 2024 Buyers' Journey Survey）</span><span class="stat-badge-src"><a href="https://www.digitalcommerce360.com/2025/07/07/forrester-b2b-buyers-choose-vendors-before-the-buying-process-begins/" target="_blank">Forrester 2024 →</a></span></div>
+  </div>
+  <p style="margin-top:10px;">「フォームに入力した人＝検討している人」というシグナルの精度が落ちている。本当に購買を検討しているBuying Groupの多くはフォームを入力せずに匿名で情報収集し、すでに候補ベンダーを絞り込んでいる。MQLは「1人が動いた」シグナルに過ぎず、グループ全体の合意形成プロセスは見えていない。</p>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="shift-section">
+  <div class="shift-num">02</div>
+  <div class="shift-title">パラダイムシフトの全体像</div>
+  <div class="shift-body">
+    <div class="compare-grid">
+      <div class="compare-col old">
+        <div class="compare-header old-header">旧パラダイム<span class="compare-sub">Lead Based / MQL重視</span></div>
+        <div class="compare-item">個人のMQLシグナルを追う</div>
+        <div class="compare-item">フォームがリード証明の手段</div>
+        <div class="compare-item">コンテンツをゲーティングして量産</div>
+        <div class="compare-item">感情を動かすコピーライティング（PASONA）</div>
+        <div class="compare-item">SDRがMQLを受けて商談化</div>
+        <div class="compare-item">ファネルの転換率を管理する</div>
+        <div class="compare-item">マーケと営業は分業</div>
+        <div class="compare-item">デマンドジェネレーション中心</div>
+      </div>
+      <div class="compare-arrow">→</div>
+      <div class="compare-col new">
+        <div class="compare-header new-header">新パラダイム<span class="compare-sub">Account Based / インサイト重視</span></div>
+        <div class="compare-item">Buying Group全体のシグナルを追う</div>
+        <div class="compare-item">行動データ・インテントシグナルが手段</div>
+        <div class="compare-item">一次情報をオープン化しAIにも届ける</div>
+        <div class="compare-item">購買基準を書き換えるコマーシャルインサイト</div>
+        <div class="compare-item">BDRがアカウントを起点に能動的に接点を作る</div>
+        <div class="compare-item">アカウントステータスの前進を管理する</div>
+        <div class="compare-item">マーケ・営業・CSが一体（RevOps）</div>
+        <div class="compare-item">ABM中心（デマンドジェネは補完）</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding:10px 14px;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border2);font-size:11px;color:var(--text2);line-height:1.7;">
+      ⚠️ この比較は「完全移行」を示すものではない。商材・顧客規模によってLead BasedとABMを並走させるハイブリッド設計が現実解。詳細は <strong>ハイブリッドGTM</strong> タブを参照。
+    </div>
+  </div>
+</div>
+
+<div class="shift-section">
+  <div class="shift-num">03</div>
+  <div class="shift-title">コンテンツゲーティング問題：AIとフォームの矛盾</div>
+  <div class="shift-body">
+    <p class="shift-lead">2025年以降、Content Gating戦略は根本的な見直しを迫られている。Gartnerの調査（2024〜2025年）は、その根拠を定量的に示している。</p>
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-box-num">80%</div>
+        <div class="stat-box-label">購買プロセスの80%がベンダーとの直接接触なしに進む</div>
+        <span style="font-size:10px;color:var(--text3);">Gartner調査より</span>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-num">67%</div>
+        <div class="stat-box-label">B2BバイヤーがRep-Free（営業なし）の購買体験を好む</div>
+        <a href="https://www.gartner.com/en/newsroom/press-releases/2026-03-09-gartner-sales-survey-finds-67-percent-of-b2b-buyers-prefer-a-rep-free-experience" target="_blank">Gartner 2025 →</a>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-num">41%</div>
+        <div class="stat-box-label">正式評価開始前にすでに特定ベンダーを決めている</div>
+        <a href="https://www.digitalcommerce360.com/2025/07/07/forrester-b2b-buyers-choose-vendors-before-the-buying-process-begins/" target="_blank">Forrester 2024 →</a>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-num">64%</div>
+        <div class="stat-box-label">ゲーティングされたコンテンツがAI生成の回答で引用される頻度の低下率</div>
+        <a href="https://brixongroup.com/en/content-gating-strategies-when-b2b-content-should-be-freely-accessible-the-data-driven-guide" target="_blank">Semrush 2025（Brixon経由）→</a>
+      </div>
+    </div>
+    <div class="paywall-note">
+      <span class="paywall-icon">💡</span>
+      <span><strong>補足：ペイウォール・ログインウォールも同じ阻害要因</strong><br>
+      有料購読を要求する「ペイウォール」やアカウント登録を要求する「ログインウォール」も、フォームゲーティングと同様にAIにインデックスされず、バイヤーの離脱を招く。ただしこれらはGartner・Forrester・日経電子版のように<strong>情報そのものを売る情報ビジネス企業のビジネスモデル</strong>であり、製品・サービスを売るB2B企業には原則として馴染まない。自社が情報ビジネスでない場合、コンテンツは信頼と認知を作る手段と割り切り、壁を作らないことが基本戦略になる。</span>
+    </div>
+    <div class="gating-flow">
+      <div class="gating-box problem">
+        <div class="gating-label">従来の論理</div>
+        <div class="gating-text">良いコンテンツをフォームで囲う → MQLを獲得 → 商談化</div>
+      </div>
+      <div class="gating-sep">⚡</div>
+      <div class="gating-box ai">
+        <div class="gating-label">AIが変えた現実</div>
+        <div class="gating-text">ゲーティングされたコンテンツはAI検索に引用されにくくなる → そもそも発見されない → リードゼロ　<a href="https://brixongroup.com/en/content-gating-strategies-when-b2b-content-should-be-freely-accessible-the-data-driven-guide" target="_blank" style="font-size:10px;color:#C84820;opacity:.8;text-decoration:underline;">Semrush 2025 →</a></div>
+      </div>
+    </div>
+    <div class="gating-solution">
+      <div class="gating-solution-title">現代の正解：コンテンツタイプで戦略を分ける</div>
+      <div class="gating-solution-grid">
+        <div class="gs-item gs-open">
+          <div class="gs-label">フルオープン</div>
+          <div class="gs-type">象限C（辞書・SEO記事）</div>
+          <div class="gs-reason">AIにインデックスさせて発見されることが優先。フォームは逆効果。</div>
+        </div>
+        <div class="gs-item gs-soft">
+          <div class="gs-label">ソフトゲーティング</div>
+          <div class="gs-type">象限B（速報・イベントレポート）</div>
+          <div class="gs-reason">エグゼクティブサマリーは公開、詳細版のみ任意フォーム。</div>
+        </div>
+        <div class="gs-item gs-gate">
+          <div class="gs-label">選択的ゲーティング</div>
+          <div class="gs-type">象限A（市場調査・競合比較・事例）</div>
+          <div class="gs-reason">自社にしかない一次情報のみゲーティングに値する価値がある。</div>
+        </div>
+        <div class="gs-item gs-no">
+          <div class="gs-label">ゲート不要</div>
+          <div class="gs-type">象限D（キャンペーンLP・広告）</div>
+          <div class="gs-reason">CVRが目的。フォームではなく直接CTA。</div>
+        </div>
+      </div>
+    </div>
+    <div class="eeat-note">
+      <span class="eeat-icon">⚠</span>
+      <span><strong>すべての象限に共通：E-E-A-T（経験・専門性・権威性・信頼性）のないコンテンツは象限を問わず長期的な効果がない。</strong>生成AIで草稿を作ること自体は問題ないが、著者情報・実体験・専門家レビュー・独自の洞察がなければGoogleの評価は短期間で急落する。「AIは量産できるが、信頼は構築できない」。</span>
+    </div>
+  </div>
+</div>
+
+<div class="shift-section">
+  <div class="shift-num">04</div>
+  <div class="shift-title">だからABM・コマーシャルインサイトが中心になる</div>
+  <div class="shift-body">
+    <p class="shift-lead">MQLという「個人シグナル」に頼れなくなったとき、代わりに何でBuying Groupを動かすか。その答えがコマーシャルインサイトであり、それを実行するモデルがABMだ。</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon ci">CI</div>
+        <div class="why-label">コマーシャルインサイト</div>
+        <div class="why-desc">「顧客が気づいていない事実」でBuying Group全体の購買基準を書き換える。個人の感情を煽るPASONAと根本的に異なる。一次情報（市場調査・競合比較・失注分析）からしか生まれない。</div>
+      </div>
+      <div class="why-arrow">×</div>
+      <div class="why-card">
+        <div class="why-icon abm">ABM</div>
+        <div class="why-label">ABM</div>
+        <div class="why-desc">ICPで絞り込んだ戦略アカウントのBuying Groupに対して、コマーシャルインサイトを武器にBDRが能動的にアプローチする。MQLを待つのではなく、アカウントステータスの前進を設計・管理する。</div>
+      </div>
+      <div class="why-equals">=</div>
+      <div class="why-card result">
+        <div class="why-icon res">結果</div>
+        <div class="why-label">パイプラインの安定供給</div>
+        <div class="why-desc">MQL数ではなくパイプライン創出量・商談化率・LTVで測る。短期的なリード量は減っても、受注確度の高い商談が増える。フォームゲーティングに頼らず、コンテンツそのものが信頼と認知を積み上げる。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="shift-section">
+  <div class="shift-num">05</div>
+  <div class="shift-title">自社の現在地チェック</div>
+  <div class="shift-body">
+    <p class="shift-lead">以下の問いに答えることで、自社がどのフェーズにいるかを確認できます。</p>
+    <div id="check-container">
+      <div class="check-questions" id="check-q">
+        <div class="check-q active" id="q1">
+          <div class="check-q-text">Q1. 営業への案件供給は主にどちらですか？</div>
+          <div class="check-options">
+            <button class="check-btn" onclick="answer(1,'A')">マーケが生成したMQL（インバウンド中心）</button>
+            <button class="check-btn" onclick="answer(1,'B')">BDRによるアウトバウンド＋インバウンドの組み合わせ</button>
+            <button class="check-btn" onclick="answer(1,'C')">ほぼ営業個人のネットワーク・紹介</button>
+          </div>
+        </div>
+        <div class="check-q" id="q2">
+          <div class="check-q-text">Q2. コンテンツの主な目的は？</div>
+          <div class="check-options">
+            <button class="check-btn" onclick="answer(2,'A')">フォームでリードを獲得すること</button>
+            <button class="check-btn" onclick="answer(2,'B')">Buying Groupに刺さる一次情報を届けること</button>
+            <button class="check-btn" onclick="answer(2,'C')">SEOで集客すること</button>
+          </div>
+        </div>
+        <div class="check-q" id="q3">
+          <div class="check-q-text">Q3. ターゲット企業はどう選んでいますか？</div>
+          <div class="check-options">
+            <button class="check-btn" onclick="answer(3,'A')">明確なICPを定義し、Tier分類して優先度をつけている</button>
+            <button class="check-btn" onclick="answer(3,'B')">業種・規模などの大まかな条件で絞っている</button>
+            <button class="check-btn" onclick="answer(3,'C')">特に絞っていない（来た案件を対応する）</button>
+          </div>
+        </div>
+        <div class="check-q" id="q4">
+          <div class="check-q-text">Q4. 商談の進め方は？</div>
+          <div class="check-options">
+            <button class="check-btn" onclick="answer(4,'A')">担当者1名との関係構築で進める</button>
+            <button class="check-btn" onclick="answer(4,'B')">Buying Groupを意識して複数の関係者にアプローチしている</button>
+            <button class="check-btn" onclick="answer(4,'C')">決裁者に直接アプローチすることが多い</button>
+          </div>
+        </div>
+      </div>
+      <div id="check-result" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+
+
+</div><!-- /page-shift -->
+
+<div class="page" id="page-content">
+<div class="page-title">コンテンツ戦略 2026</div>
+<div class="page-sub">「囲えばリードになる」時代の終わりと、バイヤージャーニーを設計するコンテンツの新しい役割</div>
+
+<div class="cs-body">
+
+<!-- セクション01：ゲーティング戦略の再設計 -->
+<div class="shift-section">
+  <div class="shift-num">01</div>
+  <div class="shift-title">コンテンツゲーティング戦略の再設計</div>
+  <div class="shift-body">
+    <p class="shift-lead">日本のB2B企業の多くは、MAツールを導入してフォームを整備してきた。しかし2025年以降、その「フォームで囲う」という前提そのものが崩れつつある。AIによる検索行動の変化が、コンテンツゲーティングの意味を根底から変えている。</p>
+
+    <div class="paywall-note" style="background:#F0EEF8;border-color:#9B94DC;margin-bottom:20px;">
+      <span class="paywall-icon">🇯🇵</span>
+      <span><strong>日本のB2B企業に多いパターン</strong><br>
+      MAツールを導入→フォームを大量設置→リード数をKPIに設定→営業から「質が悪い」と言われる。これはツールの問題ではなく、<strong>「コンテンツの価値に関係なくゲートをかける」という設計思想の問題</strong>だ。営業主導文化の中でマーケが存在意義を示そうとフォームを増やした結果、バイヤーの離脱を招いている。</span>
+    </div>
+
+    <div class="stat-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:24px;">
+      <div class="stat-box">
+        <div class="stat-box-num" style="color:#C84820;">64%</div>
+        <div class="stat-box-label">ゲーティングされたコンテンツがAI生成の回答で引用される頻度の低下率</div>
+        <a href="https://brixongroup.com/en/content-gating-strategies-when-b2b-content-should-be-freely-accessible-the-data-driven-guide" target="_blank">Semrush 2025（Brixon経由）→</a>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-num" style="color:#C84820;">57%</div>
+        <div class="stat-box-label">アグレッシブすぎるゲーティング戦略の企業が早期リサーチ段階で失う潜在リードの割合</div>
+        <span class="stat-box-src">Salesforce 2024</span>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-num" style="color:#C84820;">76%</div>
+        <div class="stat-box-label">自分のデータがどう使われるかに懸念を持つB2Bプロスペクトの割合</div>
+        <span class="stat-box-src">Stanford Persuasive Technology Lab</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <div style="font-size:12px;font-weight:600;color:var(--text1);margin-bottom:10px;letter-spacing:.04em;">ファネル位置 × コンテンツ価値で戦略を分ける</div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:11px;min-width:520px;">
+          <thead>
+            <tr style="background:var(--bg2);">
+              <th style="padding:8px 10px;text-align:left;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border2);width:18%;">ファネル</th>
+              <th style="padding:8px 10px;text-align:left;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border2);width:22%;">推奨戦略</th>
+              <th style="padding:8px 10px;text-align:left;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border2);">コンテンツ例</th>
+              <th style="padding:8px 10px;text-align:left;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border2);width:20%;">理由</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:9px 10px;color:var(--text1);font-weight:600;">TOFU<br><span style="font-size:10px;font-weight:400;color:var(--text3);">認知・課題発見</span></td>
+              <td style="padding:9px 10px;"><span style="background:#E1F5EE;color:#0D6645;border-radius:3px;padding:2px 7px;font-weight:600;">フルオープン</span></td>
+              <td style="padding:9px 10px;color:var(--text2);">ブログ記事・辞書コンテンツ・インフォグラフィック・短尺動画</td>
+              <td style="padding:9px 10px;color:var(--text2);">AIに引用され、SEOで発見されることが最優先。フォームは逆効果。</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:9px 10px;color:var(--text1);font-weight:600;">MOFU前半<br><span style="font-size:10px;font-weight:400;color:var(--text3);">比較・検討開始</span></td>
+              <td style="padding:9px 10px;"><span style="background:#FEF0DC;color:#7A4A00;border-radius:3px;padding:2px 7px;font-weight:600;">ソフトゲート</span></td>
+              <td style="padding:9px 10px;color:var(--text2);">ガイド・テンプレート・ウェビナー録画・業界比較レポート</td>
+              <td style="padding:9px 10px;color:var(--text2);">冒頭プレビューを見せ、価値を確認してからフォームへ。フィールドは3つ以内。</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:9px 10px;color:var(--text1);font-weight:600;">MOFU後半<br><span style="font-size:10px;font-weight:400;color:var(--text3);">ベンダー絞り込み</span></td>
+              <td style="padding:9px 10px;"><span style="background:#FEF0DC;color:#7A4A00;border-radius:3px;padding:2px 7px;font-weight:600;">段階的取得</span></td>
+              <td style="padding:9px 10px;color:var(--text2);">ROIシミュレーター・導入事例詳細・<strong>競合比較表</strong></td>
+              <td style="padding:9px 10px;color:var(--text2);">プログレッシブプロファイリングで関心度に応じて情報を積み上げる。</td>
+            </tr>
+            <tr>
+              <td style="padding:9px 10px;color:var(--text1);font-weight:600;">BOFU<br><span style="font-size:10px;font-weight:400;color:var(--text3);">購買意思決定</span></td>
+              <td style="padding:9px 10px;"><span style="background:#FBEAF0;color:#72243E;border-radius:3px;padding:2px 7px;font-weight:600;">戦略的ゲート</span></td>
+              <td style="padding:9px 10px;color:var(--text2);">詳細な価格試算・稟議用資料・実装ガイド・専門アセスメント</td>
+              <td style="padding:9px 10px;color:var(--text2);">ここだけゲート。CVR 79%。真剣な購買意図を持つ相手だけが通過する。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;">
+      <div class="gating-box problem" style="border-radius:var(--radius);padding:14px 16px;">
+        <div class="gating-label" style="font-size:11px;font-weight:700;color:#7A4A00;margin-bottom:8px;">❌ やりがちな失敗パターン</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;font-size:11px;color:var(--text2);line-height:1.6;">
+          <li>・TOFUコンテンツ（ブログ・辞書）にもフォームを置く</li>
+          <li>・フォームに7項目以上を要求する<span style="color:#C84820;font-size:10px;">（CVR −19.6%/Formstack）</span></li>
+          <li>・電話番号を必須にする<span style="color:#C84820;font-size:10px;">（CVR −57%）</span></li>
+          <li>・フォーム前にコンテンツのプレビューを見せない</li>
+          <li>・MAのデフォルト設定のまま全コンテンツをゲート</li>
+        </ul>
+      </div>
+      <div class="gating-box ai" style="border-radius:var(--radius);padding:14px 16px;">
+        <div class="gating-label" style="font-size:11px;font-weight:700;color:#3A2010;margin-bottom:8px;">✅ 現代の正解パターン</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;font-size:11px;color:var(--text2);line-height:1.6;">
+          <li>・TOFUは全開放。AIとSEOに拾わせる</li>
+          <li>・フォームは<strong>メール・名前・会社名</strong>の3フィールドを基本</li>
+          <li>・エグゼクティブサマリー＋冒頭5ページは無料公開</li>
+          <li>・電話番号はBOFUのみ・任意フィールドに</li>
+          <li>・プログレッシブプロファイリングで段階的に取得</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="eeat-note" style="background:#EEF4E8;border-color:#7AAD55;">
+      <span class="eeat-icon">🛠</span>
+      <span><strong>今すぐできる3つのアクション</strong><br>
+      <span style="display:block;margin-top:6px;">① <strong>自社コンテンツのゲーティングマップを作る</strong>：全コンテンツをファネル位置に配置し、現在のゲートの有無を可視化する</span>
+      <span style="display:block;margin-top:4px;">② <strong>フォームフィールドを3つに絞る</strong>：メール・名前・会社名のみ。電話番号・予算・役職は段階的に</span>
+      <span style="display:block;margin-top:4px;">③ <strong>象限C（SEO・辞書コンテンツ）を全面オープン化する</strong>：AIに引用させることが最初の一手。まずここから始める</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- セクション02：比較検討フェーズのコンテンツ戦略 -->
+<div class="shift-section">
+  <div class="shift-num">02</div>
+  <div class="shift-title">比較検討フェーズを制する：ダークファネルとレビューサイト・比較資料の役割</div>
+  <div class="shift-body">
+    <p class="shift-lead">コンテンツゲーティングを見直しTOFUをオープンにしても、それだけでは不十分な局面がある。バイヤーが「どのベンダーと話すか」を絞り込む比較検討フェーズでは、ベンダーが直接関与できない情報収集が先行している。この空間を「ダークファネル」と呼ぶ。ここを理解しないまま比較資料だけ作っても、そもそも比較リストに入れない。</p>
+
+    <!-- ダークファネル定義ボックス -->
+    <div style="margin-bottom:20px;padding:16px 18px;background:var(--bg2);border:1.5px solid var(--border2);border-radius:var(--radius);position:relative;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:13px;font-weight:700;color:var(--text1);">ダークファネル（Dark Funnel）とは</span>
+        <span style="font-size:10px;font-weight:600;background:#222;color:#aaa;border-radius:3px;padding:2px 7px;letter-spacing:.04em;">用語定義</span>
+      </div>
+      <p style="font-size:12px;color:var(--text2);line-height:1.8;margin-bottom:10px;">バイヤーがベンダーに一切接触せず、匿名で情報収集・比較・評価を行う購買プロセス上の空間のこと。レビューサイト・SNS・コミュニティ・AI検索などが舞台になる。<strong>ベンダー側からは「誰が・何を調べているか」がほぼ見えない</strong>ため「ダーク（暗闇）」と呼ばれる。</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span style="font-size:11px;color:var(--text2);background:var(--surface);border:1px solid var(--border2);border-radius:3px;padding:3px 8px;">📊 IT Review・BOXIL などのレビューサイト</span>
+        <span style="font-size:11px;color:var(--text2);background:var(--surface);border:1px solid var(--border2);border-radius:3px;padding:3px 8px;">🤖 ChatGPT・Gemini への直接質問</span>
+        <span style="font-size:11px;color:var(--text2);background:var(--surface);border:1px solid var(--border2);border-radius:3px;padding:3px 8px;">🗂 SaaSカオスマップ・業界カオスマップ</span>
+        <span style="font-size:11px;color:var(--text2);background:var(--surface);border:1px solid var(--border2);border-radius:3px;padding:3px 8px;">💬 Slack・LinkedIn・業界コミュニティ</span>
+      </div>
+      <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:11px;color:var(--text3);">購買の68%がベンダーとの直接接触なしに進む（Forrester）／バイヤーの41%が正式評価開始前にすでに候補ベンダーを決めている（Gartner）</div>
+    </div>
+
+    <!-- バイヤーの情報収集ルート -->
+    <div style="margin-bottom:20px;">
+      <div style="font-size:12px;font-weight:600;color:var(--text1);margin-bottom:12px;letter-spacing:.04em;">ダークファネル上でバイヤーが使う3つの情報ルート</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
+        <div style="background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:12px 14px;">
+          <div style="font-size:11px;font-weight:700;color:#534AB7;margin-bottom:6px;">① 第三者レビューサイト</div>
+          <div style="font-size:11px;color:var(--text2);line-height:1.6;">IT Review・BOXIL・G2・Capterra。匿名で競合を横並び比較できる。スコア・口コミ・導入事例が判断材料になる。</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:6px;border-top:1px solid var(--border);padding-top:6px;">バイヤーの74%が購買前に参照（Gartner）</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:12px 14px;">
+          <div style="font-size:11px;font-weight:700;color:#534AB7;margin-bottom:6px;">② AIへの直接質問</div>
+          <div style="font-size:11px;color:var(--text2);line-height:1.6;">「AとBどっちがいい？」「〇〇に強いツールは？」とChatGPT・Geminiに聞く。AIが引用するのはオープンなコンテンツのみ。</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:6px;border-top:1px solid var(--border);padding-top:6px;">ゲーティング済みコンテンツは64%引用減（Semrush）</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:12px 14px;">
+          <div style="font-size:11px;font-weight:700;color:#534AB7;margin-bottom:6px;">③ カオスマップ・業界コミュニティ</div>
+          <div style="font-size:11px;color:var(--text2);line-height:1.6;">SaaSカオスマップ・Slackコミュニティ・LinkedInの投稿。掲載・評判形成はベンダーが直接コントロールできない領域。</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:6px;border-top:1px solid var(--border);padding-top:6px;">購買の68%がベンダー接触前に進む（Forrester）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 比較資料の位置づけ -->
+    <div class="paywall-note" style="background:#EEF0FB;border-color:#7F77DD;margin-bottom:20px;">
+      <span class="paywall-icon">💡</span>
+      <span><strong>比較資料は「正解」だが、それだけでは足りない</strong><br>
+      自社が作る比較資料はBOFUの意思決定支援として有効だ。しかし、バイヤーがその資料にたどり着くのは、ダークファネル上の①〜③で「比較リスト入り」できた後の話。<strong>ダークファネルの整備なしには、比較対象にすら入れない</strong>リスクがある。</span>
+    </div>
+
+    <!-- 3段階のコンテンツ戦略 -->
+    <div style="margin-bottom:24px;">
+      <div style="font-size:12px;font-weight:600;color:var(--text1);margin-bottom:12px;letter-spacing:.04em;">比較検討フェーズに必要な3層のコンテンツ戦略</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--surface);border:1px solid var(--border2);border-left:3px solid #534AB7;border-radius:0 var(--radius) var(--radius) 0;">
+          <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#534AB7;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">1</div>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:var(--text1);margin-bottom:4px;">レビューサイトへの口コミ設計（上流・ダークファネル対策）</div>
+            <div style="font-size:11px;color:var(--text2);line-height:1.7;">IT Review・BOXILにレビューを蓄積する。顧客に口コミ投稿を依頼するプロセスを作り、スコアと件数を継続的に改善する。カオスマップへの掲載も確認する。<strong>これがなければ比較リストに入れない。</strong></div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--surface);border:1px solid var(--border2);border-left:3px solid #1A6DC8;border-radius:0 var(--radius) var(--radius) 0;">
+          <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#1A6DC8;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">2</div>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:var(--text1);margin-bottom:4px;">AIに引用されるオープンコンテンツの整備（AI検索対策）</div>
+            <div style="font-size:11px;color:var(--text2);line-height:1.7;">「〇〇カテゴリで強いツールは？」という質問にAIが自社を引用するには、比較・評価に関するオープンなコンテンツが必要。競合との公正な比較記事・強みを整理した解説記事をゲートなしで公開する。</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--surface);border:1px solid var(--border2);border-left:3px solid #1A8C50;border-radius:0 var(--radius) var(--radius) 0;">
+          <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#1A8C50;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">3</div>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:var(--text1);margin-bottom:4px;">自社制作の比較資料（MOFU後半〜BOFU）</div>
+            <div style="font-size:11px;color:var(--text2);line-height:1.7;">①②を経て自社に関心を持ったバイヤー向けの比較資料。<strong>自社に都合のいい比較は逆効果</strong>。Edelman研究では、公正な比較を提示するベンダーへの信頼が64%高い。弱みも含めて正直に書き、「誰には向かないか」を明示することで信頼を獲得する。</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 比較資料設計のポイント -->
+    <div style="margin-bottom:20px;">
+      <div style="font-size:12px;font-weight:600;color:var(--text1);margin-bottom:10px;letter-spacing:.04em;">「信頼される比較資料」の設計原則</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="background:#FBEAF0;border:1px solid #D4537E;border-radius:var(--radius);padding:12px 14px;">
+          <div style="font-size:11px;font-weight:700;color:#72243E;margin-bottom:8px;">❌ 信頼を失う比較資料</div>
+          <ul style="list-style:none;padding:0;margin:0;font-size:11px;color:var(--text2);line-height:1.8;display:flex;flex-direction:column;gap:2px;">
+            <li>・自社が全項目で「◎」、競合が「△」だらけ</li>
+            <li>・都合のいい比較軸だけを選んで並べる</li>
+            <li>・競合の強みや適したユースケースを書かない</li>
+            <li>・「誰にでも向いている」と謳う</li>
+          </ul>
+        </div>
+        <div style="background:#E1F5EE;border:1px solid #5DCAA5;border-radius:var(--radius);padding:12px 14px;">
+          <div style="font-size:11px;font-weight:700;color:#0D6645;margin-bottom:8px;">✅ 信頼を獲得する比較資料</div>
+          <ul style="list-style:none;padding:0;margin:0;font-size:11px;color:var(--text2);line-height:1.8;display:flex;flex-direction:column;gap:2px;">
+            <li>・自社の弱みと「向かないケース」を正直に記載</li>
+            <li>・競合が優れている点も認める</li>
+            <li>・「〇〇な場合は競合Xの方が合っている」と明示</li>
+            <li>・第三者データ（IT Review等）を引用する</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="eeat-note" style="background:#EEF4E8;border-color:#7AAD55;">
+      <span class="eeat-icon">🎯</span>
+      <span><strong>優先順位のまとめ</strong><br>
+      <span style="display:block;margin-top:6px;">① まずレビューサイト（IT Review・BOXIL）に口コミを蓄積する ← 最優先・比較リスト入りの前提条件</span>
+      <span style="display:block;margin-top:4px;">② 競合比較・強み解説のオープンコンテンツを整備する ← AIに引用させるための基盤</span>
+      <span style="display:block;margin-top:4px;">③ 正直な比較資料を作りMOFU後半でソフトゲートで提供する ← ①②ができてから初めて効果を発揮</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- セクション03：インテントデータの実態 -->
+<div class="shift-section">
+  <div class="shift-num">03</div>
+  <div class="shift-title">インテントデータの実態：「海外では当たり前」の前に知っておくべきこと</div>
+  <div class="shift-body">
+    <p class="shift-lead">「インテントデータを活用すれば、今まさに検討している企業にタイムリーにアプローチできる」——マーケティングエージェンシーや海外の成功事例でよく語られる話だ。概念自体は正しい。しかし日本のB2B企業が同じことをやろうとすると、3つの現実的な壁にぶつかる。</p>
+
+    <!-- インテントデータとは -->
+    <div style="margin-bottom:20px;padding:14px 16px;background:var(--bg2);border:1.5px solid var(--border2);border-radius:var(--radius);">
+      <div style="font-size:12px;font-weight:700;color:var(--text1);margin-bottom:8px;">インテントデータとは何か（30秒で理解する）</div>
+      <p style="font-size:12px;color:var(--text2);line-height:1.8;margin-bottom:10px;">企業・担当者がWebで調べた内容・訪問したサイト・ダウンロードしたコンテンツなどの行動から「今どんな課題に関心があるか」を推定したデータ。Bombora等の海外大手は数千サイト規模のネットワーク（コープ）でデータを収集し、「A社が今ERPを調べている」というシグナルをベンダーに提供するビジネスモデルを持つ。</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span style="font-size:11px;background:var(--surface);border:1px solid var(--border2);border-radius:3px;padding:3px 8px;color:var(--text2);">🔍 特定キーワードの検索履歴</span>
+        <span style="font-size:11px;background:var(--surface);border:1px solid var(--border2);border-radius:3px;padding:3px 8px;color:var(--text2);">📄 特定カテゴリのコンテンツDL</span>
+        <span style="font-size:11px;background:var(--surface);border:1px solid var(--border2);border-radius:3px;padding:3px 8px;color:var(--text2);">🌐 Webサイト訪問・滞在行動</span>
+        <span style="font-size:11px;background:var(--surface);border:1px solid var(--border2);border-radius:3px;padding:3px 8px;color:var(--text2);">📊 レビューサイト・比較サイトの参照</span>
+      </div>
+    </div>
+
+    <!-- 日本の3つの壁 -->
+    <div style="margin-bottom:20px;">
+      <div style="font-size:12px;font-weight:600;color:var(--text1);margin-bottom:12px;letter-spacing:.04em;">日本のB2B企業が直面する3つの現実的な壁</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;gap:12px;padding:12px 14px;background:#FEF0DC;border:1px solid #E8A840;border-radius:var(--radius);">
+          <div style="flex-shrink:0;font-size:18px;">①</div>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:#633806;margin-bottom:4px;">データカバレッジの薄さ</div>
+            <div style="font-size:11px;color:var(--text2);line-height:1.7;">Bombora等の海外大手は英語サイト中心のネットワークでデータを収集するため、<strong>日本語サイトや国内法人の行動データがほとんど入っていない</strong>。「日本法人のデータも提供できます」と言われても、実際のカバレッジ・精度を必ず確認する必要がある。</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;padding:12px 14px;background:#FEF0DC;border:1px solid #E8A840;border-radius:var(--radius);">
+          <div style="flex-shrink:0;font-size:18px;">②</div>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:#633806;margin-bottom:4px;">法的グレーゾーン</div>
+            <div style="font-size:11px;color:var(--text2);line-height:1.7;">個人情報保護法の改正・Cookie規制の強化により、<strong>第三者によるWeb行動追跡はグレーゾーンとなる場合がある</strong>。「企業単位のデータだから問題ない」という説明を鵜呑みにせず、法務・セキュリティ部門との確認が必須。</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;padding:12px 14px;background:#FEF0DC;border:1px solid #E8A840;border-radius:var(--radius);">
+          <div style="flex-shrink:0;font-size:18px;">③</div>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:#633806;margin-bottom:4px;">特定電子メール法（オプトイン原則）</div>
+            <div style="font-size:11px;color:var(--text2);line-height:1.7;">海外で一般的な「シグナルを検知したら即メール送信（Intent-triggered outreach）」は、<strong>日本ではオプトインを取得していない相手への送信が原則できない</strong>。インテントデータを取得しても、アプローチ手段が制限される。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 現実解：ファーストパーティ優先 -->
+    <div style="margin-bottom:20px;">
+      <div style="font-size:12px;font-weight:600;color:var(--text1);margin-bottom:12px;letter-spacing:.04em;">日本での現実解：ファーストパーティ優先の段階的アプローチ</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+        <div style="background:var(--surface);border:1px solid var(--border2);border-left:3px solid #1A8C50;border-radius:0 var(--radius) var(--radius) 0;padding:12px 14px;">
+          <div style="font-size:10px;font-weight:700;color:#1A8C50;margin-bottom:6px;">PHASE 1 ／ 追加コストほぼゼロ</div>
+          <div style="font-size:11px;font-weight:600;color:var(--text1);margin-bottom:4px;">ファーストパーティの可視化</div>
+          <ul style="list-style:none;padding:0;margin:0;font-size:11px;color:var(--text2);line-height:1.8;display:flex;flex-direction:column;gap:2px;">
+            <li>・GA4で訪問企業・行動を把握</li>
+            <li>・Leadfeederでサイト訪問企業を特定</li>
+            <li>・セミナー参加者をCRMに構造化</li>
+            <li>・営業・SEの定性情報をCRMへ記録</li>
+          </ul>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border2);border-left:3px solid #1A6DC8;border-radius:0 var(--radius) var(--radius) 0;padding:12px 14px;">
+          <div style="font-size:10px;font-weight:700;color:#1A6DC8;margin-bottom:6px;">PHASE 2 ／ 月額3〜20万円</div>
+          <div style="font-size:11px;font-weight:600;color:var(--text1);margin-bottom:4px;">国内SaaSでトライアル</div>
+          <ul style="list-style:none;padding:0;margin:0;font-size:11px;color:var(--text2);line-height:1.8;display:flex;flex-direction:column;gap:2px;">
+            <li>・FORCAS / uSonarで重点50社スコア試算</li>
+            <li>・MAスコアリングとシグナル連携</li>
+            <li>・ファーストパーティとの組み合わせ検証</li>
+          </ul>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border2);border-left:3px solid #534AB7;border-radius:0 var(--radius) var(--radius) 0;padding:12px 14px;">
+          <div style="font-size:10px;font-weight:700;color:#534AB7;margin-bottom:6px;">PHASE 3 ／ 月額30万円〜</div>
+          <div style="font-size:11px;font-weight:600;color:var(--text1);margin-bottom:4px;">リアルタイムインテント連携</div>
+          <ul style="list-style:none;padding:0;margin:0;font-size:11px;color:var(--text2);line-height:1.8;display:flex;flex-direction:column;gap:2px;">
+            <li>・Sales Markerで検索インテントを営業連携</li>
+            <li>・重点アカウントへパーソナライズ配信</li>
+            <li>・マーケ・セールス・SE共同GTMサイクル確立</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="eeat-note" style="background:#F0EEF8;border-color:#9B94DC;">
+      <span class="eeat-icon">⚠️</span>
+      <span><strong>海外型インテントデータ（Bombora等）導入時の判断基準</strong><br>
+      <span style="display:block;margin-top:6px;">① <strong>日本法人データのカバレッジと精度</strong>を実データで確認する（デモ・POCを必ず実施）</span>
+      <span style="display:block;margin-top:4px;">② <strong>個人情報保護法・Cookie規制</strong>との整合性を法務・セキュリティ部門と確認</span>
+      <span style="display:block;margin-top:4px;">③ <strong>特定電子メール法（オプトイン原則）</strong>に基づきアプローチ手段を設計する</span>
+      <span style="display:block;margin-top:4px;">④ <strong>費用対効果</strong>を慎重に検証してから本格導入を判断する</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+</div><!-- /cs-body -->
+</div><!-- /page-content -->
+
+<!-- ════════════════════════════════
+     PAGE 5: ハイブリッドGTM
+════════════════════════════════ -->
+<div class="page" id="page-hybrid">
+<div class="page-title">ハイブリッドGTM設計</div>
+<div class="page-sub">Lead BasedとABMは代替ではなく並走する。商材・顧客規模で使い分け、同一組織内で同時に動かす設計。</div>
+
+<div class="shift-section">
+  <div class="shift-num">01</div>
+  <div class="shift-title">商材・顧客規模によるモデル選択の基準</div>
+  <div class="shift-body">
+    <p class="shift-lead">MQLモデルの限界はABMへの「完全移行」を意味しない。複数の商材・事業テーマを持つ組織では、Lead BasedとABMを並走させるハイブリッド設計が現実解だ。判断軸は商材の単価・営業サイクル・意思決定関与者の数で決まる。</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:0;">
+      <div style="background:#ECEAE4;border:1px solid var(--border2);border-radius:var(--radius);padding:14px 16px;">
+        <div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">SMB・低単価・短サイクル</div>
+        <div style="font-size:14px;font-weight:700;color:var(--text1);margin-bottom:6px;">Lead Based 中心</div>
+        <div style="font-size:11px;color:var(--text2);line-height:1.7;">個人決裁・量が必要・短期クローズ型。デマンドジェネ → SDR → フィールドセールスが基本フロー。KPIはMQL数・CPL・ファネル転換率。</div>
+      </div>
+      <div style="background:#EEF4FB;border:1.5px solid #7AAAD8;border-radius:var(--radius);padding:14px 16px;">
+        <div style="font-size:10px;font-weight:700;color:#2A5A8A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">ミッドマーケット・中単価</div>
+        <div style="font-size:14px;font-weight:700;color:var(--text1);margin-bottom:6px;">ハイブリッド</div>
+        <div style="font-size:11px;color:var(--text2);line-height:1.7;">案件によってBuying Group規模が変わる。企業カバレッジKPIでICP適合企業を優先し、Tier判定でLead BasedとABMのどちらで動かすかを振り分ける。</div>
+      </div>
+      <div style="background:#FDF0F5;border:1.5px solid #C94475;border-radius:var(--radius);padding:14px 16px;">
+        <div style="font-size:10px;font-weight:700;color:#8B1840;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">エンタープライズ・高単価・長サイクル</div>
+        <div style="font-size:14px;font-weight:700;color:var(--text1);margin-bottom:6px;">ABM 中心</div>
+        <div style="font-size:11px;color:var(--text2);line-height:1.7;">複数関与者・長期関係構築が前提。Buying Group全体への働きかけと企業内カバレッジの管理が必須。KPIはパイプライン創出量・商談化率・LTV。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="shift-section">
+  <div class="shift-num">02</div>
+  <div class="shift-title">ハイブリッド構造における役割分担</div>
+  <div class="shift-body">
+    <p class="shift-lead">ハイブリッドGTMで最も設計が問われるのは「誰が何を担い、どこで手を渡すか」だ。デマンドジェネレーション担当だけが両モデルにまたがれる。SDRとBDRの兼務が最も機能しない。</p>
+
+    <!-- デマンドジェネ -->
+    <div style="background:#F3F2FE;border:1.5px solid #4A42A8;border-radius:var(--radius);padding:16px;margin-bottom:10px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:11px;font-weight:700;background:#4A42A8;color:#fff;padding:2px 9px;border-radius:4px;flex-shrink:0;">両モデルにまたがる</span>
+        <span style="font-size:14px;font-weight:700;color:var(--text1);">デマンドジェネレーション担当</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+        <div style="background:var(--surface);border-radius:var(--radius-sm);padding:11px 13px;border:1px solid var(--border2);">
+          <div style="font-size:10px;font-weight:700;color:#4A42A8;margin-bottom:5px;">KPI ① 企業カバレッジ</div>
+          <div style="font-size:11px;color:var(--text2);line-height:1.7;">ICP/SAM内でまだリードを持っていない企業の割合（ホワイトスペースの制御）。コンテンツ・広告・イベントでICP適合企業への認知を広げ、BDRと同じターゲットリストを共有して空中支援する。</div>
+        </div>
+        <div style="background:var(--surface);border-radius:var(--radius-sm);padding:11px 13px;border:1px solid var(--border2);">
+          <div style="font-size:10px;font-weight:700;color:#4A42A8;margin-bottom:5px;">KPI ② 企業内カバレッジ</div>
+          <div style="font-size:11px;color:var(--text2);line-height:1.7;">同一企業内の複数部門・複数役職からのリード取得率 × Buying Group/DMU構成員の接触率。MOpsが管理するMAの行動データで計測できる範囲と、BDRがSFAで把握するDMU構造を突き合わせることで完成する。</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.7;padding:9px 12px;background:var(--surface);border-radius:var(--radius-sm);border:1px dashed var(--border2);">
+        クオリフィケーション後の振り分け：<strong>ICP Tier1/2 → BDRへ情報共有（アカウント攻略に合流）　／　それ以外 → SDRへトスアップ（Lead Based継続）</strong>
+      </div>
+    </div>
+
+    <!-- SDR / BDR -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+      <div style="background:#ECEAE4;border:1px solid var(--border2);border-radius:var(--radius);padding:14px 16px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+          <span style="font-size:10px;font-weight:700;background:#7A7870;color:#fff;padding:2px 8px;border-radius:4px;flex-shrink:0;">Lead Based 専任</span>
+          <span style="font-size:13px;font-weight:700;color:var(--text1);">SDR</span>
+        </div>
+        <div style="font-size:11px;color:var(--text2);line-height:1.7;">インバウンドMQLを受けてスクリーニング・ナーチャリング・トスアップ。<strong>量・スピード・即時対応</strong>が求められる。KPIは週次。BDRとの兼務は時間軸と思考様式が真逆で両方を中途半端にする。</div>
+      </div>
+      <div style="background:#FDF0F5;border:1px solid #C94475;border-radius:var(--radius);padding:14px 16px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+          <span style="font-size:10px;font-weight:700;background:#C94475;color:#fff;padding:2px 8px;border-radius:4px;flex-shrink:0;">ABM 専任</span>
+          <span style="font-size:13px;font-weight:700;color:var(--text1);">BDR</span>
+        </div>
+        <div style="font-size:11px;color:var(--text2);line-height:1.7;">Tier1/2アカウントのDMU深耕・シーケンス設計・コマーシャルインサイト届達。<strong>アカウント理解・長期関係構築</strong>が求められる。KPIは四半期。SDRとの兼務はインバウンド処理量の圧力でアカウント深耕の質が著しく低下する。</div>
+      </div>
+    </div>
+
+    <!-- フィールドセールス -->
+    <div style="background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:14px 16px;margin-bottom:10px;">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+        <span style="font-size:10px;font-weight:700;background:#3A7AC0;color:#fff;padding:2px 8px;border-radius:4px;flex-shrink:0;">両モデル共通</span>
+        <span style="font-size:13px;font-weight:700;color:var(--text1);">フィールドセールス</span>
+      </div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.7;">MQL経由でもBDR経由でも「商談・提案・クロージング」の役割は共通。ただしABMでは<strong>1対1から1対多（Buying Group全体）へのスキル転換</strong>が必要。コマーシャルコーチングでモビライザーを武装させ、稟議を通す支援が加わる。</div>
+    </div>
+
+    <!-- MOps / RevOps -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div style="background:#ECEAE4;border:1px solid var(--border2);border-radius:var(--radius);padding:14px 16px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+          <span style="font-size:10px;font-weight:700;background:#7A7870;color:#fff;padding:2px 8px;border-radius:4px;flex-shrink:0;">マーケ内基盤</span>
+          <span style="font-size:13px;font-weight:700;color:var(--text1);">MOps</span>
+        </div>
+        <div style="font-size:11px;color:var(--text2);line-height:1.7;">MAの運用・スコアリング設計・UTM管理・企業カバレッジ/企業内カバレッジの計測。デマンドジェネレーション担当の動きを支えるマーケ内の設計・計測基盤。スコープはマーケティング部門内に収まる。</div>
+      </div>
+      <div style="background:#DFF2E9;border:1px solid #6DBF99;border-radius:var(--radius);padding:14px 16px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+          <span style="font-size:10px;font-weight:700;background:#1A8C50;color:#fff;padding:2px 8px;border-radius:4px;flex-shrink:0;">横断統合基盤</span>
+          <span style="font-size:13px;font-weight:700;color:var(--text1);">RevOps / GTMエンジニア</span>
+        </div>
+        <div style="font-size:11px;color:var(--text2);line-height:1.7;">MOpsが計測するMAデータ（企業・企業内カバレッジ）と、BDRがSFAで把握するBuying Group/DMU構造、CSが管理するLTV/NPSデータをCRM上で統合して一枚絵にする。マーケを越えた営業・CS横断の上位概念。GTMエンジニアが実装を担う。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="shift-section" style="border-bottom:none;padding-bottom:0;margin-bottom:0;">
+  <div class="shift-num">03</div>
+  <div class="shift-title">役割兼務の可否サマリー</div>
+  <div class="shift-body">
+    <div style="background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead>
+          <tr style="background:var(--bg3);">
+            <th style="padding:9px 14px;text-align:left;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border2);">役割</th>
+            <th style="padding:9px 14px;text-align:center;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border2);">SDRとの兼務</th>
+            <th style="padding:9px 14px;text-align:center;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border2);">BDRとの兼務</th>
+            <th style="padding:9px 14px;text-align:left;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border2);">理由</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:10px 14px;font-weight:600;color:var(--text1);">デマンドジェネ担当</td>
+            <td style="padding:10px 14px;text-align:center;"><span style="background:#DFF2E9;color:#0A3D26;border-radius:3px;padding:2px 9px;font-weight:600;">△ 可</span></td>
+            <td style="padding:10px 14px;text-align:center;"><span style="background:#DFF2E9;color:#0A3D26;border-radius:3px;padding:2px 9px;font-weight:600;">△ 可</span></td>
+            <td style="padding:10px 14px;color:var(--text2);">企業・企業内という「面のカバレッジ」を見る役割は両モデルに共通する</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:10px 14px;font-weight:600;color:var(--text1);">SDR</td>
+            <td style="padding:10px 14px;text-align:center;color:var(--text3);">—</td>
+            <td style="padding:10px 14px;text-align:center;"><span style="background:#FDE8E0;color:#5E2210;border-radius:3px;padding:2px 9px;font-weight:600;">✕ 困難</span></td>
+            <td style="padding:10px 14px;color:var(--text2);">量・即時対応（週次）とアカウント深耕（四半期）は時間軸・思考様式が真逆</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:10px 14px;font-weight:600;color:var(--text1);">BDR</td>
+            <td style="padding:10px 14px;text-align:center;"><span style="background:#FDE8E0;color:#5E2210;border-radius:3px;padding:2px 9px;font-weight:600;">✕ 困難</span></td>
+            <td style="padding:10px 14px;text-align:center;color:var(--text3);">—</td>
+            <td style="padding:10px 14px;color:var(--text2);">インバウンド処理量の圧力でアカウント深耕の質が著しく低下する</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 14px;font-weight:600;color:var(--text1);">フィールドセールス</td>
+            <td style="padding:10px 14px;text-align:center;"><span style="background:#DFF2E9;color:#0A3D26;border-radius:3px;padding:2px 9px;font-weight:600;">○ 可</span></td>
+            <td style="padding:10px 14px;text-align:center;"><span style="background:#DFF2E9;color:#0A3D26;border-radius:3px;padding:2px 9px;font-weight:600;">○ 可</span></td>
+            <td style="padding:10px 14px;color:var(--text2);">商談・提案・クロージングの役割は両モデル共通。1対多へのスキル転換は必要</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</div><!-- /page-hybrid -->
+
+
+<script>
+function showPage(id,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.page-nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+const QD={
+  A:{cls:'qu-A',qb:'qb-A',label:'A — 最優先投資領域',sub:'自社しか作れない × 賞味期限：長い',desc:'コマーシャルインサイトの源泉。購買基準を書き換える。PMM・エンジニア・CSの三者で作る。'},
+  B:{cls:'qu-B',qb:'qb-B',label:'B — タイミング資産',sub:'自社しか作れない × 賞味期限：短い',desc:'一次性は高いが鮮度命。機動力と配信速度が成否を分ける。'},
+  C:{cls:'qu-C',qb:'qb-C',label:'C — 辞書コンテンツ',sub:'誰でも作れる × 賞味期限：長い',desc:'SEO基盤として量が必要。AIと型で効率化する。差別化にはならない。'},
+  D:{cls:'qu-D',qb:'qb-D',label:'D — 作業コンテンツ',sub:'誰でも作れる × 賞味期限：短い',desc:'必要だが最小コストで。テンプレ化・AI活用で量産する。'},
+};
+function bM(hl){
+  return`<div class="mb"><div class="mt">企画4象限での位置づけ</div><div class="qax"><span>← 誰でも作れる</span><span>自社しか作れない →</span></div><div class="mg">${['A','B','C','D'].map(q=>{const m=QD[q],h=hl.includes(q);return`<div class="qu ${m.cls}${h?' hl':''}"><div><span class="qb ${m.qb}">${m.label}</span>${h?'<span class="qhere">◀ ここ</span>':''}</div><div class="qsub">${m.sub}</div><div class="qdesc">${m.desc}</div></div>`;}).join('')}</div></div>`;
+}
+
+const PEVO=`<div class="eb"><div class="et">神田昌典氏の思考の変遷</div><div class="er"><span class="ey">1999</span><span class="etx"><strong>旧PASONA（煽り型）</strong> 問題を煽り恐怖で購買を引き出す。B2Cの問題認知層に刺さる。長年書籍化を拒んでいたほど強力。</span></div><div class="er"><span class="ey">2016</span><span class="etx"><strong>新PASONA（共感型）</strong> 煽りをAffinityに転換。B2CのLP・メルマガでは引き続き有効。企画4象限ではD（作業コンテンツ）領域が主戦場。</span></div><div class="er"><span class="ey">2018</span><span class="etx"><strong>コマーシャルインサイトへの転換</strong> 『隠れたキーマンを探せ』監修。B2B高単価では感情訴求から「購買基準のリセット」へ。</span></div><div class="co">「<strong>コマーシャルインサイト以外のコンテンツをどんなに量産してもコモディティ化を促進するだけ</strong>」。PASONAは有効だが、<strong>B2B領域では企画4象限のAと組み合わせることが現代の設計</strong>。</div></div>`;
+
+const DATA={
+  'swot':{label:'SWOT分析',desc:'自社の強み（Strength）・弱み（Weakness）・市場機会（Opportunity）・脅威（Threat）の4軸で現状を整理する環境分析フレームワーク。戦略立案の出発点として使う。',m:[],r:[{t:'3C分析',d:'と並ぶ環境分析の基本。内部（強み・弱み）と外部（機会・脅威）を整理する'},{t:'STP',d:'の前提として市場機会（O）と競合脅威（T）を把握しどこで戦うかを決める'},{t:'バリュープロポジション',d:'の根拠となる自社の強み（S）を言語化する起点'},{t:'PMF',d:'達成前の自社ポジション確認にも活用する'}]},
+  '3c':{label:'3C分析',desc:'顧客（Customer）・競合（Competitor）・自社（Company）の3つの視点から市場環境を整理するフレームワーク。STPやICP設計の根拠データを導き出す。',m:[],r:[{t:'SWOT',d:'と並ぶ環境分析フレームワーク。顧客（Customer）・競合（Competitor）・自社（Company）の3軸'},{t:'STP',d:'のセグメンテーション・ターゲティングの根拠データを提供する'},{t:'ICP',d:'の設計にも顧客（C）の分析結果が直接活用される'},{t:'Speeda / Similarweb / Ahrefs',d:'が3C分析の競合・市場データ収集を支援するツール群'}]},
+  'tam':{label:'TAM / SAM / SOM',desc:'市場規模を3段階で定義する概念。TAM（Total Addressable Market）は理論上の全体市場、SAM（Serviceable Addressable Market）は実際に狙える市場、SOM（Serviceable Obtainable Market）は現実的に獲得可能な市場。GTM投資判断の根拠になる。',m:[],r:[{t:'GTM',d:'への投資判断の根拠。TAM（全体市場）→SOM（獲得可能市場）を示すことで経営層への説明責任を果たす'},{t:'STP',d:'のセグメンテーションで市場規模を定量化する際に使う'},{t:'イノベーター理論 / キャズム',d:'と組み合わせて「今どのフェーズで戦うか」を市場規模と合わせて判断する'}]},
+  'innovation-curve':{label:'イノベーター理論',desc:'新技術・製品の普及過程を5段階（イノベーター2.5%→アーリーアダプター13.5%→アーリーマジョリティ34%→レイトマジョリティ34%→ラガード16%）で説明するフレームワーク（E.ロジャーズ）。自社製品が市場のどのフェーズにいるかを診断する際に使う。',m:[],r:[{t:'キャズム',d:'と対でセット。イノベーター→アーリーアダプター→アーリーマジョリティ→レイトマジョリティ→ラガードの5段階'},{t:'PMF',d:'との関係が深い。PMF達成後にキャズムを越えてアーリーマジョリティへ届けるのがGTMの主目的'},{t:'STP',d:'のターゲティングで「今どの層を狙うか」を規定する根拠フレームワーク'}]},
+  'chasm':{label:'キャズム',desc:'イノベーター理論の拡張概念（J.ムーア）。アーリーアダプターとアーリーマジョリティの間に存在する「越えられない溝（キャズム）」のこと。PMFを達成しても、このキャズムを越えない限り大きな市場成長は起きない。B2Bスタートアップが直面する最大の壁の一つ。',m:[],r:[{t:'イノベーター理論',d:'の拡張概念。アーリーアダプターとアーリーマジョリティの間にある「越えられない溝」'},{t:'PMF',d:'を達成しても、キャズムを越えない限り大きな市場成長は起きない'},{t:'GTM',d:'でキャズムを越える戦略（ニッチ市場の制圧→拡大）を設計することが最重要課題の一つ'},{t:'ABM',d:'はキャズム越えのアプローチとして有効。特定の業界・アカウントを深耕して突破口を開く'}]},
+  'burning-needs':{label:'バーニングニーズ（Burning Needs）',desc:'「髪の毛に火が付いていて、今すぐ消すことが求められる」ような切迫・切実なニーズのこと。PMF達成に向けたCPFフェーズで最初に探すべき顧客の課題の質を表す概念。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【Nice to Have との違い】</strong><br>Nice to Have（あると嬉しいが、なくても困らない）ではなく、Must Have（業務上なくてはならない）なニーズを指す。B2B新規事業でありがちな失敗は、Nice to Haveなニーズに対してプロダクトを作り、GTMに投資してしまうこと。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【バーニングニーズのサイン】</strong><br>①過去にソリューションを探したことがあり諦めている ②モノがなくても口頭や営業資料の段階で買いたいと言う ③打ち合わせ中に顧客が身を乗り出してくる ④課題について話し始めると止まらない。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【SIerの新規事業への示唆】</strong><br>海外スタートアップ商材や新規事業の立ち上げ時、まず「この課題はバーニングニーズか？」を検証することが先決。バーニングニーズが確認できないままGTM施策（展示会・広告・MA）を動かしても機能しない。',m:[],r:[{t:'CPF',d:'バーニングニーズが存在するかを検証するフェーズ'},{t:'ECP',d:'バーニングニーズを持つ最初の顧客像がECP（アーリーカスタマー）'},{t:'PMF',d:'バーニングニーズを満たすプロダクトが市場に適合した状態'},{t:'JTBD',d:'バーニングニーズを「顧客が何の仕事をするために雇うか」の視点で言語化したもの'},{t:'ICP',d:'バーニングニーズを持つ顧客群の共通属性がICPの出発点になる'}]},
+  'cpf':{label:'CPF（Customer Problem Fit）',desc:'フィットジャーニーの第1フェーズ。「顧客に本当に切実な課題（バーニングニーズ）が存在するか」を検証する段階。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【バーニングニーズとは】</strong><br>「髪の毛に火が付いていて今すぐ消す必要がある」ような切迫したニーズ。Nice to Have（あると嬉しい）ではなくMust Have（なくてはならない）なニーズのこと。サインは「課題について話し始めると止まらない」「モノがなくても口頭段階で買いたいと言う」など。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主な活動】</strong><br>顧客インタビュー・PoCでの課題探索・仮説の言語化と精緻化。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【達成の指標】</strong><br>課題が実在すること、その課題が解決するに値する切実な事柄であること。',m:[],r:[{t:'PSF',d:'CPF達成後に進む次のフェーズ。課題に対する解決策を検証する'},{t:'バイヤーズジャーニー',d:'のAwareness（認知）フェーズに対応する'},{t:'ECP',d:'CPFフェーズで最初に向き合う顧客像。熱量の高いアーリーユーザー'},{t:'PoC',d:'課題探索のための受託やPoC実施がCPFの主要活動'}]},
+  'psf':{label:'PSF（Problem Solution Fit）',desc:'フィットジャーニーの第2フェーズ。「課題に対する解決策が顧客が求めるものか」を検証する段階。お金を払ってでも解決したいかを確認する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【重要な原則】</strong><br>この段階でいきなりプロダクトを作らない。口頭プレゼン・営業資料・ランディングページなどライトなアウトプットで検証し、「それだったらお金を出してでも欲しい」という反応を得てから作り始める。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主な活動】</strong><br>MVPの作成・営業資料/デモの作成・顧客インタビュー・プレ営業。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【達成の指標】</strong><br>熱狂的な数名の顧客が存在すること。',m:[],r:[{t:'CPF',d:'PSFの前提。課題の存在が確認されてから解決策を検証する'},{t:'SPF',d:'PSF達成後に進む次のフェーズ。解決策をプロダクト化できるか検証する'},{t:'MVP',d:'PSFフェーズで最小機能で作り始めるプロダクトの最初の形'},{t:'ECP',d:'PSFで最初に「熱狂的な数名」として選ぶのがECP（アーリーカスタマー）'}]},
+  'spf':{label:'SPF（Solution Product Fit）',desc:'フィットジャーニーの第3フェーズ。「課題に対する解決策をプロダクトとして実装できるか」を検証する段階。技術的・法的・ビジネス的に実現可能かを確認する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主な活動】</strong><br>プロトタイプの作成・共創パートナー顧客の発見。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【達成の指標】</strong><br>契約の基本合意書の締結・技術的/法的な基準のクリア・技術等の有効性の確認。',m:[],r:[{t:'PSF',d:'SPFの前提。解決策への顧客の受容性が確認されてからプロダクト化する'},{t:'PMF',d:'SPF達成後に進む最終フェーズ。プロダクトが市場に受け入れられるか検証する'},{t:'PoC',d:'SPFフェーズでの技術検証としてPoCが実施されることが多い'}]},
+  'pmf':{label:'PMF（Product Market Fit）',desc:'プロダクトが特定の市場ニーズに本当に合っている状態。「なくなったら困る」と感じる顧客が一定数いる状態が目安。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【フィットジャーニーにおける位置づけ】</strong><br>CPF（課題の存在確認）→ PSF（解決策の検証）→ SPF（プロダクト化の検証）→ PMF（市場適合の確認）→ GTM（スケール）→ Growth。GTMやSTP設計はPMF達成後に本格実行すべき。PMF未達のまま展示会・広告・MAに投資しても機能しない。PMF達成まで中央値で2年かかる。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【達成の指標】</strong><br>NPS・ショーン・エリステスト（「このプロダクトが使えなくなったら非常に残念」が40%以上）・リテンション・エンゲージメント。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【新規事業でよくある間違い】</strong><br>売れている既存商材と同じGTM手法を新規商材に適用してしまうこと。PMF未達の商材に営業研修・展示会・MA導入をかけても課題はプロダクトにある。まずCPF→PSF→SPFのフィット検証を経ることが必要。',m:[],r:[{t:'CPF / PSF / SPF',d:'PMFの前段階。この3フェーズを経てからPMFを検証する'},{t:'ECP',d:'PMF前に向き合う最初の顧客像。PMF達成後にICPへ発展させる'},{t:'ICP',d:'PMF達成後に定義する理想顧客プロファイル。PMF前はECPを使う'},{t:'イノベーター理論 / キャズム',d:'との関係が深い。PMFはキャズム越えの前提条件'},{t:'GTM',d:'はPMF達成後に設計・実行する。PMF未達のままGTMに投資しても効果が出ない'}]},
+  'ecp':{label:'ECP（Early Customer Profile）',desc:'Early Customer Profile（アーリーカスタマープロファイル）の略。PMF達成前（CPF〜PSF段階）に向き合うべき最初の顧客像の定義。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ICPとの本質的な違い】</strong><br>ICPはPMF達成後の成長フェーズで「理想的な顧客」を定義するツール。ECPはPMF達成前に「今すぐ検証に協力してくれる熱量の高い最初の顧客」を定義するツール。「Idealの前にEarlyがある」。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ECPの特徴】</strong><br>①バーニングニーズ（切実な課題）を持っている ②プロダクトが未完成でも試してくれるリスク許容度が高い ③フィードバックを積極的に提供してくれる ④社内でモビライザー（導入推進者）として動いてくれる。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【日本SIerへの示唆】</strong><br>海外スタートアップ商材や新規事業を展開する際、既存の売れ筋商材と同じICP・同じGTM手法を使おうとすることが多い。しかしPMF未達の新商材には先にECPを定義し、CPF→PSFの検証を経る必要がある。ECPで得た実績・事例がICPへのアプローチを可能にする。',m:[],r:[{t:'ICP',d:'ECPの次の段階。PMF達成後に定義する理想顧客プロファイル'},{t:'CPF / PSF',d:'ECPと向き合いながら進めるフィット検証フェーズ'},{t:'PMF',d:'ECPとの検証を経て到達するゴール。PMF後はICPにシフトする'},{t:'モビライザー',d:'ECPの重要な属性。社内で導入を推進してくれる人物'}]},
+  'dov':{label:'DoV（Definition of Value）',desc:'庭山一郎氏（シンフォニーマーケティング）が提唱するDoV-STP-M-Dモデルの起点概念。エンタープライズB2Bでは製品・サービスそのものではなく「自社が提供する価値の定義」から始めることが重要という考え方。STPやバリュープロポジションの設計根拠になる。',m:[],r:[{t:'庭山一郎氏（シンフォニーマーケティング）',d:'が提唱するDoV-STP-M-Dフレームワークの起点概念。エンタープライズB2Bでは「提供価値の定義」から始める'},{t:'バリュープロポジション',d:'と近い概念。DoVは内部向けの価値定義、バリュープロポジションは顧客向けの価値表現'},{t:'STP',d:'の前に行う。DoVなきSTPは「誰に何を伝えるか」が定まらない'},{t:'コマーシャルインサイト',d:'はDoVから導き出される。「顧客が気づいていない自社の価値」を言語化したもの'}]},
+  'stp':{label:'STP',desc:'Segmentation（市場の分割）→ Targeting（狙うセグメントの選択）→ Positioning（競合に対する自社の立ち位置の定義）の3ステップで市場戦略を設計するフレームワーク。マーケティング戦略の基本中の基本であり、GTM設計の根拠になる。',m:[],r:[{t:'DoV',d:'の後に行う。価値が定義されてからターゲット市場を設計する'},{t:'S→T→P',d:'Segmentation（市場分割）→ Targeting（狙う層の選択）→ Positioning（自社の立ち位置定義）'},{t:'ICP',d:'はSTPのTargetingを具体的な企業プロファイルに落とし込んだもの'},{t:'GTM',d:'の実行設計の根拠となる。STPなきGTMは「誰に何を売るか」が曖昧になる'}]},
+  'positioning-map':{label:'ポジショニングマップ',desc:'2つの軸（例：価格×機能の豊富さ）で自社と競合他社の立ち位置を可視化するツール。STPのPositioning（P）を具体化する際に使う。「競合と比べて自社はここが違う」という差別化ポイントを視覚的に示す。',m:[],r:[{t:'STP',d:'のP（Positioning）を2軸で可視化するツール。競合との差別化ポイントを明確にする'},{t:'3C / Similarweb / Ahrefs',d:'の競合データをもとに軸を設定する'},{t:'バリュープロポジション',d:'の根拠となる。「競合と比べてここが違う」を視覚的に示す'}]},
+  'whole-product':{label:'ホールプロダクト（Whole Product）',desc:'1960年代にセオドア・レビットが提唱したマーケティング概念。顧客が期待する価値を満たすには、製品そのもの（コアプロダクト）だけでなく、それを取り巻く補助製品・サービス・エコシステムを含めた「完全な製品」として設計する必要があるという考え方。キャズム理論と組み合わせてB2B製品のGTM設計に使われることが多い。4層構造で整理される。①コアプロダクト：製品本来の機能・特徴（例：クラウドの演算能力）②期待プロダクト：購入時に当然期待される標準的な機能・サービス（例：SLA・サポート）③拡張プロダクト：期待を超える付加価値（例：認証機能・業界特化テンプレート）④理想プロダクト：感動・ロイヤルティを生む要素（例：エコシステム・コミュニティ・パートナー網）。B2B SIerにとっては「導入支援・運用保守・教育・パートナー連携」がホールプロダクトの重要な構成要素になる。',m:[],r:[{t:'バリュープロポジション',d:'を設計する際の骨格として使う。どの層で差別化するかを明確にする'},{t:'キャズム',d:'越えにはホールプロダクトの完成度が鍵。Pragmatistはコアだけでなく全体的なサポート体制を重視する'},{t:'JTBD',d:'と組み合わせて「顧客がどの層の価値を求めているか」を整理できる'},{t:'ICP設計',d:'でターゲットに合わせてホールプロダクトの重点層を決める（例：エンタープライズは拡張・理想層が重要）'}]},
+  'value-prop':{label:'バリュープロポジション',desc:'「なぜ顧客は競合でなく自社を選ぶのか」を簡潔に言語化したもの。STPのPositioningを顧客向けに表現したもの。製品・サービスの機能ではなく、顧客が得られる価値・成果を中心に語る。メッセージングやコンテンツ設計の出発点になる。',m:[],r:[{t:'STP',d:'のPositioningを顧客向けに言語化したもの'},{t:'DoV',d:'と近い概念。DoVは内部向けの価値定義、バリュープロポジションは顧客向けの価値表現'},{t:'JTBD',d:'と組み合わせると「顧客が何のために買うか」に合わせた価値表現になり精度が上がる'},{t:'コマーシャルインサイト',d:'の原材料。バリュープロポジションを「顧客が気づいていない視点」で語るとコマーシャルインサイトになる'}]},
+  'jtbd':{label:'JTBD（Jobs To Be Done）',desc:'「顧客は製品を買うのではなく、片付けたい仕事（Job）があるから買う」という顧客行動の解釈フレームワーク（C.クリステンセン）。顧客が本当に達成したいことを起点に価値提案を設計することで、バリュープロポジションやICPの精度が上がる。',m:[],r:[{t:'バリュープロポジション',d:'の精度を上げる概念。顧客は製品を買うのではなく「仕事（Job）を完了させるため」に買うという視点'},{t:'ICP',d:'設計に活用できる。「どんなJobを持つ顧客が最も価値を感じるか」からICPを逆引きする'},{t:'コマーシャルインサイト',d:'設計の起点にもなる。「顧客が気づいていないJob」を提示することがコマーシャルインサイト'}]},
+  'mgmt-strategy':{label:'経営戦略',desc:'企業全体の中長期的な方向性・資源配分・競争優位の構築方針を定めるもの。事業戦略・GTM戦略・マーケティング戦略はすべてここから導かれる。ABMのような長期的な投資は経営戦略レベルのコミットがないと機能しない。',m:[],r:[{t:'事業戦略',d:'の上位に位置し、全社資源配分・中長期方針を決定する'},{t:'GTM',d:'の目標・市場定義のトップレベルの根拠を与える'},{t:'ABM',d:'の中長期時間軸を受け入れられるかが最大の組織ハードルとなる'},{t:'RevOps / CRO',d:'に収益目標・KPIの根拠を提供する'}]},
+  'biz-strategy':{label:'事業戦略',desc:'特定の事業・プロダクトにおける競争戦略のこと。どの市場でどう戦うか、どう差別化するかを定める。GTMのターゲット設定・価値提案・差別化軸はここから導き出される。PMMやPdMへのインプットになる。',m:[],r:[{t:'GTM',d:'のターゲット・価値提案・差別化軸を定義する源泉'},{t:'PMM',d:'に市場ポジショニングと競合優位性のインプットを提供する'},{t:'PdM',d:'にプロダクトロードマップの優先度を指示する'}]},
+  'gtm':{label:'GTM',desc:'Go-To-Market（市場参入戦略）の略。どの顧客に・どのような価値を・どのようなチャネルで・どのような体制で届けるかを定める戦略全体のこと。PMF達成後に設計し、Lead BasedとABMという2つの実行モデルを内包する。',m:[],r:[{t:'GTM Lead / CMO',d:'がGTM戦略全体を統括・推進するオーナー'},{t:'ABM',d:'はGTMのエンタープライズ向け実行モデル（GTMの下に位置する）'},{t:'Lead Based（デマンドジェネレーション）',d:'はGTMの広域市場向け実行モデル。ABMと並列する'},{t:'STPとバリュープロポジション',d:'がGTMの設計根拠となる'},{t:'キャズム',d:'を越えるための戦略としてGTMを設計することが重要'}]},
+  'abm':{label:'ABM',desc:'Account-Based Marketing（アカウントベースドマーケティング）の略。「リードを大量に獲得してファネルに流す」Lead Based型とは根本的に異なり、受注確度の高い特定企業（アカウント）を選定し、マーケティングと営業が一体となって戦略的にアプローチする運用モデル。GTMの下に位置し、エンタープライズ・高単価商材に特に有効。',m:[],r:[{t:'GTM',d:'の下に位置するエンタープライズ向け実行モデル。Lead Basedと並列する2つの実行アプローチの一つ'},{t:'ICP',d:'の設計が起点。理想顧客プロファイルを定義しTier分類・リソース配分につなげる'},{t:'uSonar',d:'が社内データの名寄せ・ホワイトスペース可視化というABMのデータインフラを担う'},{t:'Speeda',d:'がICP設計・ターゲット抽出の戦略インテリジェンスを提供する'},{t:'キャズム越え',d:'のアプローチとして有効。特定業界・アカウントを深耕して突破口を開く'}]},
+  'icp':{label:'ICP（理想顧客プロファイル）',desc:'Ideal Customer Profile（理想顧客プロファイル）の略。受注率・継続率・LTVが高い顧客に共通する属性（業種・規模・課題・技術スタック・組織文化・意思決定構造など）を定義したもの。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ターゲット市場とICPの違い】</strong><br>ターゲット市場はSAM（獲得しうる最大市場規模）の推定値。ICPはその中でも自社との親和性が特に高い顧客条件の定義。ターゲット市場の中にICPが存在する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ICPを定義する3ステップ】</strong><br>①定量・定性データを組み合わせて対象企業リストを作成（CRMのACV・LTV・継続率＋定性情報）②共通項を抽出（基本属性・技術属性・心理属性・ビジネス状況・リソース）③ICP適合度をインデックス化（スコアリングロジックを設計し誰が見ても同じ基準で判断できる状態をつくる）。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【重要】</strong><br>ICPは一次情報収集と組織横断での磨き込みで精度を高める。マーケだけで定義せず、最前線の営業・BDRを巻き込むことが不可欠。',m:[],r:[{t:'バイヤーペルソナ',d:'ICPが「どの企業か」を定義するのに対し、バイヤーペルソナは「その企業の誰か」を定義する。セットで使う'},{t:'ABM',d:'の起点概念。ICP定義なしにABMは機能しない'},{t:'ホワイトスペース',d:'ICPに該当するがまだ取引のない企業群。BDRのターゲットリストの源泉'},{t:'Tier設計',d:'ICPの中でも適合度・ポテンシャルでTier1〜3に優先順位をつける'},{t:'STP',d:'のTargetingを具体的な企業プロファイルに落とし込んだもの'}]},
+  'buyer-persona':{label:'バイヤーペルソナ（Buyer Persona）',desc:'ICPが「どの企業を対象にするか」を定義するのに対し、バイヤーペルソナは「その企業の中の誰に向き合うか」を明確にするための人物ペルソナ。部署・役職・責任範囲・課題・意思決定への関与の仕方・情報収集行動などを整理する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ICPとの関係】</strong><br>ICP=企業ペルソナ、バイヤーペルソナ=人物ペルソナ。セットで使う。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【バイヤーペルソナの3ステップ】</strong><br>①ICPのBuying Groupをマッピング（誰が意思決定に関与するかを特定）②役割に基づいてペルソナを作成（買う人・使う人・評価する人）③Buying Groupに合わせた価値の翻訳（役割ごとに伝えるべき価値・メッセージが異なる）。同じサービスでも現場担当者・部門長・情報システム部門にとっての価値は異なる。この翻訳精度がABMの成否を左右する。',m:[],r:[{t:'ICP',d:'とセットで使う。ICPが企業ペルソナ、バイヤーペルソナが人物ペルソナ'},{t:'DMU',d:'と近い概念。バイヤーペルソナは「誰か」、DMUは「どう関与するか」の視点'},{t:'Buying Group',d:'の各構成員をバイヤーペルソナとして定義する'},{t:'BDR',d:'がアプローチするキーパーソン候補の特定基準になる'},{t:'コマーシャルインサイト',d:'は役割ごとに価値を翻訳することで初めて刺さる'}]},
+  'dmu':{label:'DMU（Decision Making Unit）',desc:'Decision Making Unit（意思決定関与者）の略。B2B購買において意思決定プロセスに関与する人物を、その関与の仕方で分類したフレームワーク。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主な役割分類】</strong><br>Champion（社内推進者・モビライザー）：案件を社内で前進させる推進者。Economic Buyer（予算権限者）：最終的な予算承認を行う意思決定者。Influencer（影響者）：意思決定に影響を与えるが最終決裁権はない関係者。User（利用者）：実際に製品・サービスを使う人。Blocker（阻害者）：導入に反対・懐疑的な立場の人。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【Buying Groupとの違い】</strong><br>Buying Groupは「誰が関与しているか」という集合体。DMUは「その人物が意思決定プロセスでどのような役割・影響力を持つか」という分類視点。バイヤーペルソナは「誰か」、DMUは「どう関与するか」の違いに注意。Forrester推計では平均13名のステークホルダーが購買に関与する。',m:[],r:[{t:'Buying Group',d:'はDMUの構成員全体の集合体。DMUはその各人物の役割分類'},{t:'バイヤーペルソナ',d:'との違いは視点。バイヤーペルソナは「誰か」、DMUは「どう関与するか」'},{t:'モビライザー',d:'はDMUにおけるChampionの役割に対応する'},{t:'ABM',d:'ではDMUを把握することで誰にどんな価値を届けるかが設計できる'},{t:'コマーシャルインサイト',d:'はDMUの各役割に合わせて価値を翻訳することで機能する'}]},
+  'coverage':{label:'カバレッジ（Coverage）/ カバレッジ分析',desc:'ターゲットアカウントの中で、自社がどれだけ接点を持てているかを可視化する概念・分析手法。未接触の部署・未到達のキーパーソン・再提案余地のある関係者などの「接点の空白」を明らかにする。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【カバレッジ分析の流れ】</strong><br>①ICPリストと既存ハウスリード・過去商談を照合②ホワイトリスト（新規開拓）とハウスリード（既存接点資産）を分類③各アカウントの状態（未接触・接触済み・商談未達・過去失注）を把握。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【活用法】</strong><br>過去商談が多い→再攻略優先、ハウスリードが多い→リサイクル優先、未接触が多い→新規接点創出優先。カバレッジが可視化されていないと、活動量は増えても「どこに向かって進んでいるか」がわからなくなる。',m:[],r:[{t:'ホワイトスペース',d:'カバレッジ分析によって初めてホワイトスペースの実態が見える'},{t:'ABM',d:'のアカウントステータス管理の基盤となる概念'},{t:'BDR',d:'がカバレッジ分析をもとに優先的にアプローチするアカウントを選定する'},{t:'ICP',d:'で定義したターゲット企業群に対してカバレッジ分析を行う'}]},
+  'sequence':{label:'シーケンス（Sequence）',desc:'インサイドセールス・BDRがターゲット企業への接点創出に向けて、「いつ・どのチャネルで・どのような内容で接触するか」をあらかじめ順序化したワークフロー。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【目的】</strong><br>担当者ごとの行動品質のばらつきを抑え、ハイパフォーマーの行動習慣を組織レベルで再現可能な標準プロセスに変換すること。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【典型的な構成例】</strong><br>初日：手紙・電話・LinkedIn接続 → 2日目：電話・メール → 3日目：電話・Sales Navigatorメッセージ → …15日間程度の複数チャネル組み合わせ。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【効果】</strong><br>単一チャネルより複数チャネルを組み合わせることで顧客との接点数が2〜3倍向上するという検証結果がある。メッセージ設計では「相手にとって価値ある情報（課題文脈に沿った情報提供）」を起点にすることが重要。',m:[],r:[{t:'BDR',d:'がアウトバウンドの接点創出を再現可能にするための実行ツール'},{t:'カバレッジ',d:'分析でアプローチ対象を特定した後、シーケンスで実行する'},{t:'バイヤーペルソナ',d:'の役割・課題に合わせてシーケンスのメッセージを最適化する'},{t:'ABM',d:'のアカウントステータス前進を担保する実行手段の一つ'}]},
+  'recycle':{label:'リサイクル（Re-Cycle）/ ナーチャリング再循環',desc:'一度サクセスパス（商談・受注フロー）から外れたリードやアカウントを、廃棄するのではなく再び関係構築の流れに戻し、継続的に接点を持ち続ける仕組み・プロセスのこと。廃棄物の再利用という意味でのリサイクルではなく、「関係性の再循環」の概念。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【なぜ重要か】</strong><br>B2Bでは「今は検討していないが、半年後には課題が顕在化する」というケースが多い。過去商談・失注・ナーチャリング途中のリードを適切に再循環させることで、新規リード依存を減らしパイプラインを安定化できる。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【運用】</strong><br>インサイドセールス・マーケ・営業が共通ルールでリードデータを管理し、再循環できる状態をつくることが前提。MAのスコアリングやインテントシグナルを活用してリサイクルタイミングを判断する。',m:[],r:[{t:'ナーチャリング',d:'の延長概念。ナーチャリングはリード育成、リサイクルはサクセスパス離脱後の再循環'},{t:'MA',d:'でスコアリング・行動トリガーを設定してリサイクルを自動化する'},{t:'インテントシグナル',d:'でリサイクルの最適タイミング（関心再燃のサイン）を検知する'},{t:'BDR',d:'がカバレッジ分析でリサイクル対象（過去接点・過去商談）を特定する'}]},
+  'acv':{label:'ACV（Annual Contract Value）',desc:'Annual Contract Value（年間契約金額）の略。顧客1件が1年間に自社にもたらす契約金額。複数年契約の場合、総契約金額（TCV）を年数で割って算出する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【LTVとの違い】</strong><br>LTVは顧客の全期間の累積収益。ACVは1年単位のスナップショット。SaaSでは年次更新・拡張の管理指標としてACVが使われることが多い。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ICPとの関係】</strong><br>ACVが高い顧客の共通項を分析することがICP定義の起点となる。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【CACとの関係】</strong><br>ACV/CAC比率で、何年で顧客獲得コストを回収できるかの「回収期間（Payback Period）」を算出できる。回収期間が12ヶ月以内を健全の目安とすることが多い。',m:[],r:[{t:'LTV',d:'の構成要素。ACV×継続年数≒LTV（チャーンがない場合）'},{t:'CAC',d:'との比率でPayback Period（投資回収期間）を算出する'},{t:'ICP',d:'定義の定量指標。ACVが高い顧客の共通属性がICP条件になる'},{t:'Tier設計',d:'においてACVポテンシャルが高いアカウントをTier1に優先設定する'}]},
+  'bdr':{label:'BDR（役割）',desc:'Business Development Representative（ビジネス開発担当）の略。ABMにおけるアウトバウンド営業の主役。ICPで定義した戦略アカウントに対して能動的に接点を創出する役割。SDRがインバウンドリードを扱うのと対称的。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【エンタープライズBDRに求められるもの（SMB型BDRとの質的差異）】</strong><br>エンタープライズ領域のBDRは単なる接点創出だけでなく、①アカウントの深い理解②Buying Group・DMUの構造把握③バイヤーペルソナに合わせた価値翻訳④営業との密な連携⑤パートナー・社内人脈の活用⑥適切なタイミングの見極め、など立体的な動きが求められる。活動量だけでは押し切れず、「限られた企業にどれだけ深く向き合い精度高く接点をつくれるか」が問われる。戦略的思考力と価値翻訳スキルが必要。',m:[],r:[{t:'ABM',d:'の実行主役。Tier1アカウントへのアウトバウンドを主導する'},{t:'ICP / カバレッジ',d:'分析でターゲットリストと優先順位を特定する'},{t:'シーケンス',d:'で接点創出の型を設計・実行する'},{t:'バイヤーペルソナ / DMU',d:'を把握してキーパーソンへ精度高くアプローチする'},{t:'象限A・Bコンテンツ',d:'を武器にコマーシャルインサイトを届ける'}]},
+  'white-space':{label:'ホワイトスペース（White Space）',desc:'市場の中で自社がまだ開拓できていない未接点・未接触の優良顧客領域のこと。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【カバレッジ分析との関係】</strong><br>ホワイトスペースはカバレッジ分析によって可視化される。ICPリストと既存ハウスリード・過去商談を照合し、「ICPに該当するがまだ自社と接点のない企業群」がホワイトスペース。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ホワイトリストとハウスリードの分類】</strong><br>ホワイトリスト（新規開拓対象）とハウスリード（既存接点資産）を明確に分けて管理することが重要。過去商談や既存接点がある場合は、新規開拓より先に社内に眠っているリード資産を見直す方が早く成果につながることが多い。uSonarやFORCASなどのインテリジェンスツールで法人データと自社CRMを突き合わせてホワイトスペースを可視化する。',m:[],r:[{t:'カバレッジ',d:'分析によって初めてホワイトスペースの実態が見える'},{t:'ICP',d:'で定義した企業プロファイルに該当するが未接触の企業群がホワイトスペース'},{t:'BDR',d:'のアウトバウンドターゲットリストの主要な供給源'},{t:'uSonar / FORCAS',d:'で自社CRMと法人DBを突き合わせてホワイトスペースを可視化する'},{t:'TAM / SAM / SOM',d:'のSOM（獲得可能な市場）の中にホワイトスペースが存在する'}]},
+  'buying-group':{label:'Buying Group（購買グループ）',desc:'B2B購買において意思決定に関与する複数のステークホルダーの集合体。Forrester推計では平均13名が関与するとされる（書籍『隠れたキーマンを探せ！』では平均5.4人）。決裁者だけでなく、推進者（モビライザー）・懐疑者（IT・法務・調達）・阻害者も含め、グループ全体への働きかけが必要。1リード1商談ではなくアカウント単位で管理するABMの核心概念。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【Buying Groupの機能不全】</strong><br>関与者が増えると合意形成が困難になり、意思決定が停滞する。リスク回避のために「現状維持」や「最も安価な妥協案」が選ばれやすくなる。この機能不全を防ぐためにモビライザーへのコマーシャルコーチングとコレクティブラーニングが重要になる。',m:[],r:[{t:'ABM',d:'の管理単位。Buying Group全体への働きかけがABMの核心'},{t:'モビライザー',d:'Buying Group内で変革を推進するキーパーソン'},{t:'コレクティブラーニング',d:'Buying Group全体を共通ビジョンに束ねるプロセス'},{t:'DMU',d:'Buying Groupの各人物の意思決定における役割分類フレームワーク'},{t:'バイヤー相関図',d:'Buying Groupの人間関係・力学・意思決定ルートを可視化するツール'}]},
+  'mobilizer':{label:'モビライザー（Mobilizer）',desc:'Buying Groupの中で変化・購買を社内で推進するキーパーソン。必ずしも決裁権を持つ役員ではなく、現場の課題意識が強く、社内を動かせる人物。ABMではこのモビライザーを早期に特定し、コマーシャルインサイトで武装させることが戦略の核心。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【トーカーとの違い】</strong><br>トーカーは話しやすく情報を提供してくれるが、組織を動かさない。営業担当者はトーカーと関係を築きがちだが、成果につながらない。モビライザーはコマーシャルインサイトをぶつけたときに「反論や深い質問」で反応する人物。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【7つの顧客タイプ】</strong><br>モビライザー：やり手（Go-Getter）・教育者（Teacher）・懐疑派（Skeptic）。トーカー：案内役（Guide）・友だち（Friend）・上昇志向（Climber）・阻害者（Blocker）。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【タイプ別アプローチ】</strong><br>やり手：プロジェクト全体像を論理的に提示し変革効果を強調。教育者：ビジョンを現実的な実行計画に落とし込む。懐疑派：質問を促して懸念を全て吐き出させ信頼を獲得。',m:[],r:[{t:'コマーシャルインサイト',d:'をモビライザーにぶつけることで真のモビライザーを見極められる'},{t:'コマーシャルコーチング',d:'でモビライザーに社内説得の武器を与える'},{t:'Buying Group',d:'の中で変革を推進する中心人物'},{t:'バイヤー相関図',d:'でモビライザーの位置と影響力を可視化する'}]},
+  'commercial-insight':{label:'コマーシャルインサイト（Commercial Insight）',desc:'顧客のメンタルモデル（認識・常識）を転換させ、自社だけを想起させる商談直結型の知見・メッセージ。単なる製品説明（ソートリーダーシップ）ではなく、顧客に「自分たちは間違っていた」「現状維持こそが最大のリスク」と気づかせる洞察のこと。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【バリュープロポジションとの違い】</strong><br>バリュープロポジションは「自社の価値を伝える」。コマーシャルインサイトは「顧客の認識を変える」。既存の認識のまま自社の価値を語っても刺さらない。まず認識を転換してから自社ソリューションへ誘導するのがコマーシャルインサイトの流れ。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【作り方の4ステップ】</strong><br>①自社だけの独自の持続可能な強みは何か ②独自の強みで顧客に認識されていないものは ③顧客が自身のビジネスで理解していない点は ④何を伝えればメンタルモデルを転換できるか。',m:[],r:[{t:'モビライザー',d:'コマーシャルインサイトをぶつける最初の相手。反応で真のモビライザーを見極める'},{t:'バリュープロポジション',d:'との違い：バリュープロポジションは「価値を伝える」、コマーシャルインサイトは「認識を変える」'},{t:'SICフレームワーク',d:'のSpark（気づきを与える）フェーズで使うコンテンツの核心がコマーシャルインサイト'},{t:'コマーシャルコーチング',d:'でモビライザーにコマーシャルインサイトを武器として渡す'}]},
+  'commercial-coaching':{label:'コマーシャルコーチング（Commercial Coaching）',desc:'モビライザーに対して、社内を説得するために必要な「武器（ロジック・データ・ストーリー）」を与えること。営業担当者が商談を取るのではなく、モビライザーが社内で変革をリードできるように「コーチ」する役割に徹する考え方。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【提供する武器の例】</strong><br>①重要データ（現状維持のコストを示す数値）②関係者別の重点説得ポイントの伝授③社内稟議で使えるロジックとストーリー。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【なぜ必要か】</strong><br>練られたメッセージ（インサイト）がなければ、どれだけ優秀なモビライザーでも組織を動かすことは困難。モビライザーを見つけて終わりではなく、彼らを武装させることが営業の本当の役割。',m:[],r:[{t:'モビライザー',d:'コマーシャルコーチングの対象。武装させることで組織内の変革推進力を高める'},{t:'コマーシャルインサイト',d:'コマーシャルコーチングで渡す武器の核心'},{t:'コレクティブラーニング',d:'コマーシャルコーチングと組み合わせてBuying Group全体を動かす'},{t:'Buying Group',d:'コマーシャルコーチングの最終ゴールはBuying Group全体の合意形成'}]},
+  'collective-learning':{label:'コレクティブラーニング（Collective Learning）',desc:'モビライザーとともに購買グループ（Buying Group）全体に働きかけ、バラバラな意見・利害を持つグループを「共通のビジョンを持つ機能的集団」へと変革するプロセス。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【なぜ重要か】</strong><br>B2B購買では意思決定関与者が平均5.4人以上おり、それぞれ異なる立場・利害・判断基準を持つ。モビライザー1人を動かすだけでは不十分で、グループ全体が共通の課題認識と変革ビジョンを持つ「集団的学習」が起きて初めてDeal Qualityが上がる。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【効果】</strong><br>購買グループが機能し始めると、高額な取引の成功確率と将来的な支出意向（LTV）が向上する。',m:[],r:[{t:'Buying Group',d:'コレクティブラーニングの対象。グループ全体を機能的集団に変革する'},{t:'モビライザー',d:'コレクティブラーニングを牽引する社内変革のリーダー'},{t:'コマーシャルコーチング',d:'とセットで使う。コーチングで個人を武装し、コレクティブラーニングでグループを束ねる'},{t:'LTV',d:'購買グループが機能することで高額取引・継続率が向上しLTVが改善する'}]},
+  'buyer-map':{label:'バイヤー相関図（キーマンマップ）',desc:'組織図だけでは見えない「人間関係」「力学」「意思決定ルート」「各人物の自社への態度（肯定的/否定的）」を可視化するフレームワーク。「足（行動量）ではなく頭（戦略）で売る」ために、誰にどうアプローチし、どう進めるかをシミュレーションするための戦略地図。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【マッピングする情報】</strong><br>役職（組織上の立場）・関係性（誰が誰に影響力を持つか）・自社接点（誰と会えているか）・バロメーター（肯定的/否定的/中立）・モビライザーか否か・阻害者か否か。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【活用メリット】</strong><br>①隠れたキーマンや阻害者を含む実質的な決定プロセスの把握 ②最適なアプローチルートの設計 ③トーカーではなくモビライザーへのリソース集中。',m:[],r:[{t:'Buying Group',d:'バイヤー相関図はBuying Groupの全体像を可視化するツール'},{t:'モビライザー',d:'バイヤー相関図でモビライザーと阻害者を特定する'},{t:'DMU',d:'バイヤー相関図はDMUの役割分類を人間関係マップとして具体化したもの'},{t:'ABM',d:'のTier1アカウント攻略における必須実務ツール'}]},
+  'tier':{label:'Tier設計',desc:'ABMにおいてターゲットアカウントをICP適合度・売上ポテンシャル・LTVでTier1（最優先）・Tier2・Tier3に分類し、投下リソースを差別化する設計のこと。Tier1には専任BDRが1to1でアプローチし、Tier3は自動化で対応するなど、効率的なリソース配分を実現する。',m:[],r:[{t:'ABM',d:'のリソース配分の根拠。ICP適合度・LTV・売上ポテンシャルでTier1/2/3に分類する'},{t:'Speeda',d:'のICP適合度スコアがTier分類の定量基準となる'},{t:'uSonar',d:'のホワイトスペース分析でTier別の未接点企業数を把握する'}]},
+  'sic':{label:'SICフレームワーク',desc:'CEB（Corporate Executive Board、現Gartner）が著書『The Challenger Customer』（著：Matthew Dixon & Brent Adamson）で提唱したコンテンツ戦略フレームワーク。日本語版は神田昌典氏監修『隠れたキーマンを探せ！』。Buying Groupの合意形成プロセスを3段階で設計する。Spark（現状の問題に気づかせる）→ Introduce（解決策の論理的な提示）→ Confront（意思決定を後押しする）の順でコンテンツを設計し、ライティング手法を使い分ける。',m:[],r:[{t:'出所',d:'CEB（現Gartner）著『The Challenger Customer』（Dixon & Adamson著）で提唱。日本語版は神田昌典氏監修『隠れたキーマンを探せ！』'},{t:'コマーシャルインサイト',d:'がSparkフェーズの核心'},{t:'バイヤーズジャーニー',d:'と連動。Spark・Introduce・ConfrontはAwareness・Consideration・Decisionに対応する'},{t:'EPIC / PASTOR / SPICED / PASONA / PREP / AIDA / FAB',d:'はSICの各フェーズや用途に応じて使い分けるライティング戦術'}]},
+  'commercial-insight-sic':{label:'コマーシャルインサイト（SICにおける役割）',desc:'SICフレームワークにおけるコマーシャルインサイトは、Spark（気づき）フェーズの核心コンテンツ。「顧客が気づいていない事実」を提示することで購買基準そのものを書き換えるアプローチ。CEB（現Gartner）が提唱。PASONAのような「既知の問題を煽る」手法とは本質的に異なり、顧客が認識していなかったリスクや機会を示すことで、自社ソリューションが唯一の選択肢になるよう導く。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【SICでの使い分け】</strong><br>Spark：コマーシャルインサイトで現状認識を揺さぶる → Introduce：論理と根拠を重ねる（EPIC/SPICED）→ Confront：意思決定を後押しする（導入事例・ROI試算）。',m:['A'],r:[{t:'SICフレームワーク',d:'のSpark（気づき）フェーズの核心がコマーシャルインサイト'},{t:'コマーシャルインサイト（ABM）',d:'詳細な定義・作り方の4ステップはABMバンドのチップを参照'},{t:'企画4象限',d:'→ A（自社しか作れない × 長期資産）の設計思想そのもの'},{t:'PASONAとの本質的な違い',d:'「問題を煽る」vs「気づいていない事実で購買基準を書き換える」'}]},
+  'epic':{label:'EPIC（ライティング手法）',desc:'B2B向けの重量コンテンツ（ホワイトペーパー・提案書）に適したライティング構造。Empathy（共感）→ Problem（課題の深掘り）→ Insight（洞察・気づき）→ Call to action（行動喚起）の順で構成する。SICのIntroduce〜Confrontフェーズで使う。',m:['A'],r:[{t:'企画4象限',d:'→ A（自社しか作れない × 長期資産）のコンテンツ構成に最適なフレーム'},{t:'SIC',d:'のIntroduce〜Confrontフェーズ。ホワイトペーパー・提案書向き'},{t:'コマーシャルインサイト',d:'のInsightフェーズで論理的根拠を展開する'}]},
+  'pastor':{label:'PASTOR（ライティング手法）',desc:'Problem（問題提起）→ Amplify（問題の拡大）→ Story（解決のストーリー）→ Transformation（変化の提示）→ Offer（提案）→ Response（行動喚起）の頭文字を取ったライティングフレームワーク。メルマガやLPの導入部に適した共感ベースの構成。',m:['C','D'],r:[{t:'企画4象限',d:'→ CまたはD。メルマガ・LP導入など共感ベースのコンテンツ向け'},{t:'SIC',d:'のIntroduceフェーズ。メルマガ・LPの導入部分に最適'}]},
+  'spiced':{label:'SPICED（ライティング手法）',desc:'Situation（状況）→ Pain（痛み）→ Impact（影響）→ Critical event（重要イベント）→ Evidence（証拠）→ Decision（意思決定）の構造を持つB2B向けライティング・商談設計フレームワーク。Buying Groupの意思決定者・承認者への提案資料や決裁資料の構成に最適。',m:['A'],r:[{t:'企画4象限',d:'→ A（自社しか作れない × 長期資産）の決裁・提案資料に最適なフレーム'},{t:'SIC',d:'のConfront（意思決定・合意形成）フェーズで使う重量コンテンツ手法'},{t:'Buying Group',d:'の意思決定者・承認者への訴求を定量化・論理化するために使う'}]},
+  'prep':{label:'PREP法',desc:'Point（結論）→ Reason（理由）→ Example（具体例・根拠）→ Point（結論を繰り返す）の4ステップで構成するライティングフレームワーク。「結論ファースト」で短く明快に伝えられるため、速報レポート・イベントサマリー・ブログ記事・社内文書など幅広く使える。B2Bのビジネス文書の基本形として認知度が高い。',m:['B','C'],r:[{t:'企画4象限',d:'→ B（タイミング資産）・C（辞書コンテンツ）に向く。速報記事・イベントレポートの構成に最適'},{t:'SIC',d:'のSpark〜Introduceフェーズ。短く読まれやすい記事・レポートに使う'},{t:'SPICED / EPIC',d:'が重量コンテンツ向けなのに対し、PREPは軽量・速報系コンテンツ向け'},{t:'B象限コンテンツ',d:'（展示会レポート・速報調査）の本文構成として最も使いやすいフレーム'}]},
+  'aida':{label:'AIDA（ライティング手法）',desc:'Attention（注目）→ Interest（興味）→ Desire（欲求）→ Action（行動）の4段階で購買心理を動かす古典的なマーケティングフレームワーク。PASONAの前身とも言われる。広告コピー・メール件名・バナー文言など、短い文章で素早く行動を引き出す場面に向く。',m:['D'],r:[{t:'企画4象限',d:'→ D（作業コンテンツ）。広告クリエイティブ・メール件名・バナー文言に最適'},{t:'PASONA',d:'の前身にあたる古典的フレームワーク。PASONAはAIDAをセールスレター向けに拡張したもの'},{t:'SICのSpark（入口）',d:'前後のマイクロコピー（バナー・広告見出し）に活用する'},{t:'Google広告',d:'のクリエイティブ設計にAIDAの構造を当てはめることで訴求力が上がる'}]},
+  'fab':{label:'FAB（ライティング手法）',desc:'Feature（特徴・機能）→ Advantage（競合に対する優位性）→ Benefit（顧客が得られるメリット・成果）の3ステップで価値を伝えるフレームワーク。製品の「機能説明」で終わらず「顧客にとっての意味」まで落とし込む点が特徴。営業トーク・提案書・製品ページの構成に有効で、セールスとマーケが共通言語として使いやすい。',m:['A','B'],r:[{t:'企画4象限',d:'→ A（自社しか作れない × 長期資産）の提案書・製品ページ、B（タイミング資産）のリリース解説に向く'},{t:'バリュープロポジション',d:'の言語化に直結する。Feature→Advantage→Benefitの順で整理することでメッセージが顧客視点になる'},{t:'セールスイネーブルメント',d:'がFABフォーマットで製品説明トークを整備すると、BDR・フィールドセールスが使いやすい共通言語になる'},{t:'SPICED',d:'と組み合わせると効果的。FABで価値を整理してSPICEDで提案構成に落とし込む'}]},
+  'pasona':{label:'PASONA（ライティング手法）',desc:'神田昌典氏が提唱したセールスコピーライティングのフレームワーク。Problem（問題）→ Affinity（親近感）→ Solution（解決策）→ Offer（提案）→ Narrowing down（絞り込み）→ Action（行動喚起）の順で構成する（2016年の新版）。B2Cや問題認知済みの層への訴求に有効。B2B高単価ではコマーシャルインサイトと使い分けが重要。',m:['D'],x:PEVO,r:[{t:'企画4象限',d:'→ 主にD（作業コンテンツ）。問題を認識しているB2C層・背中押し系コンテンツに最適'},{t:'SICのSpark前後（入口）',d:'でLP・SNS広告・メルマガの導入部として有効'},{t:'コマーシャルインサイト（象限A）との使い分け',d:'PASONAは感情を動かす、コマーシャルインサイトは購買基準を書き換える'}]},
+  'whitepaper':{label:'ホワイトペーパー',desc:'自社の知見・調査・事例を体系的にまとめた中〜長文のドキュメント。B2Bマーケティングにおいて一次情報を届ける最も有効なフォーマット。見込み客がダウンロードすることでリード獲得の手段にもなり、BDRがアウトバウンドの起点として活用することもできる。象限Aのコマーシャルインサイト資産の代表例。',m:['A'],r:[{t:'企画4象限',d:'→ A（自社しか作れない × 賞味期限：長い）。最も投資すべきコマーシャルインサイト資産'},{t:'SIC',d:'のIntroduce・Confrontフェーズの主要コンテンツ'},{t:'BDR',d:'のアウトバウンド起点コンテンツとして設計する（「この調査を送ってアポを取る」）'}]},
+  'case-study':{label:'導入事例',desc:'自社製品・サービスを導入した顧客の課題・取り組み・成果をまとめたコンテンツ。「お客様の声」ではなく「導入前後の定量的な変化＋その背景」がセットになって初めて力を持つ。Buying Groupの懐疑的メンバー（IT・法務・調達部門）の不安を取り除く最強コンテンツ。自社にしか作れない一次情報資産。',m:['A'],r:[{t:'企画4象限',d:'→ A（自社しか作れない × 賞味期限：長い）'},{t:'SIC',d:'のConfront（意思決定支援）フェーズで決定的な役割を果たす'},{t:'Buying Group',d:'の懐疑的メンバー（IT・法務・調達）の安心材料として機能する'}]},
+  'evergreen':{label:'エバーグリーンコンテンツ',desc:'時間が経っても陳腐化しない、長期的に価値を持ち続けるコンテンツのこと。日本のコンテンツマーケティング界隈では「ストック型コンテンツ」とも呼ばれる。SEOの長期トラフィック基盤になる。一次情報を含む場合は象限A（最優先投資領域）、誰でも書ける解説記事は象限C（辞書コンテンツ）に分類される。トレンドコンテンツと対をなす概念。',m:['A','C'],r:[{t:'企画4象限',d:'→ AまたはC。一次情報を含む場合はA（最優先）、誰でも書ける解説記事はC（辞書）'},{t:'SEO',d:'の長期トラフィック基盤'},{t:'トレンドコンテンツ',d:'と対をなす。両方をバランスよく組み合わせることが重要'}]},
+  'trend-content':{label:'トレンドコンテンツ',desc:'時事ニュースや旬のトピックに便乗した短期的な賞味期限のコンテンツ。日本のコンテンツマーケティング界隈では「フロー型コンテンツ」とも呼ばれる。自社だけが作れる速報調査・イベントレポートは象限B（タイミング資産）、誰でも作れる時事便乗記事は象限D（作業コンテンツ）に分類される。Google Trendsで検索需要ピークを見極め、タイミングよく公開することが重要。',m:['B','D'],r:[{t:'企画4象限',d:'→ BまたはD。自社イベント・速報調査はB（タイミング資産）、時事便乗はD（作業コンテンツ）'},{t:'Google Trends / AIO',d:'で検索需要のピークを見極めタイムリーに制作・公開する'}]},
+  'cmo':{label:'CMO（Chief Marketing Officer）',desc:'最高マーケティング責任者。マーケティング戦略全体（ブランド・需要創出・コンテンツ・プロダクトマーケティングなど）の最高責任者。GTM Lead と同義または上位の役割として機能することが多い。',m:[],r:[{t:'GTM Lead',d:'と同義または上位の役割。マーケティング全体の最高責任者'},{t:'CRO',d:'と連携しマーケティング投資と収益の関係を経営に説明する'},{t:'DoV / STP',d:'の策定をリードしマーケティング戦略の根拠を作る'}]},
+  'cro':{label:'CRO（Chief Revenue Officer）',desc:'最高収益責任者。マーケティング・セールス・カスタマーサクセスを横断して収益全体の最大化に責任を持つ役職。RevOpsを主管し、パイプライン・LTV・NPSを一元管理する。日本ではCMOやCSO（Chief Sales Officer）が兼任する場合も多い。',m:[],r:[{t:'CMO',d:'と並ぶ収益責任者。マーケティング・セールス・CSを横断して収益最大化を担う'},{t:'RevOps',d:'を主管する立場。パイプライン・LTV・NPS全体を見る'},{t:'ABM',d:'の最上位オーナーになる場合も多い'}]},
+  'gtm-lead':{label:'GTM Lead',desc:'Go-To-Market戦略全体のオーナー。マーケティング・セールス・プロダクトを横断して調整し、市場参入戦略の設計・実行・改善を統括する役割。CMOが兼任する場合もある。',m:[],r:[{t:'GTM戦略',d:'全体のオーナー。Marketing・Sales・Productを横断調整する'},{t:'ABM',d:'戦略のオーナーシップを持ちTier設計・リソース配分を決定する'},{t:'CMO / CRO',d:'の下に位置するか、CMOを兼任する場合もある'}]},
+  'pmm':{label:'PMM（役割）',desc:'Product Marketing Manager（プロダクトマーケティングマネージャー）の略。プロダクトの価値を市場向けに言語化し、バリュープロポジション・ICP・メッセージングを定義する役割。PdMとセールスの橋渡しをする存在。コマーシャルインサイトの設計にも深く関与する。',m:[],r:[{t:'DoV / バリュープロポジション',d:'の定義と言語化を主導する役割'},{t:'JTBD',d:'分析を通じてプロダクトの価値を顧客視点で再定義する'},{t:'ICP / ABM',d:'のメッセージング・バイヤーペルソナ定義のベースを作る'},{t:'セールスイネーブルメント',d:'にピッチデッキ・バトルカード・EPICコンテンツを提供する'}]},
+  'pdm':{label:'PdM（役割）',desc:'Product Manager（プロダクトマネージャー）の略。プロダクトのロードマップ設計・機能優先度・PMF達成に最も責任を持つ役割。JTBDを設計基準として活用し、PMMにプロダクトの機能・価値を渡してマーケット向けメッセージに変換してもらう。',m:[],r:[{t:'PMF',d:'の達成に最も責任を持つ役割'},{t:'PMM',d:'にプロダクト機能・価値を渡しマーケット向けメッセージに変換してもらう'},{t:'JTBD',d:'をプロダクト設計の基準として活用する'}]},
+  'gtm-eng':{label:'GTMエンジニア（役割）',desc:'GTM戦略を技術的に支援するエンジニア職。MA・SFA・CRM・インテリジェンスツール（Speeda・uSonar）間のデータ連携・自動化・スコアリング実装・計測基盤構築を担う。マーケターが「やりたいこと」をシステムで実現する役割。',m:[],r:[{t:'MA / SFA / CRM',d:'のシステム間データ連携・統合・自動化を実装する'},{t:'uSonar',d:'のデータをCRM/MAに連携させる名寄せ統合を実装する'},{t:'Speeda',d:'のデータをCRMに連携させるAPI統合・スコアリング自動化を実装する'},{t:'GA4 / Looker Studio',d:'の計測基盤・ダッシュボードを構築する'}]},
+
+  'sdr':{label:'SDR（役割）',desc:'Sales Development Representative（インサイドセールス）の略。マーケティングが創出したインバウンドリード（MQL）を受け取り、ヒアリング・ナーチャリングを通じてSAL・SQLへと育成し、フィールドセールスにパスする役割。Lead Based型の実行主役。',m:[],r:[{t:'デマンドジェネレーション',d:'が創出したMQLを受け取りSALに育てるLead Based側の役割'},{t:'MQL / SQL / SAL',d:'の境界線でフィールドセールスへのパスを管理する'},{t:'MA',d:'でリードの行動履歴・スコアを確認しながらアプローチする'}]},
+  'field-sales':{label:'フィールドセールス（役割）',desc:'SQLを受け取り、商談・提案・クロージングを担う営業職。ABMではBDRと連携してBuying Group全体の関係構築を担い、SPICED・導入事例（象限A）を武器に意思決定を支援する。SFAで全商談活動を記録・管理する。',m:[],r:[{t:'ABM',d:'ではBDRと連携しBuying Group全体の関係構築・クロージングを担う'},{t:'SPICED / 導入事例（象限A）',d:'を活用してConfortフェーズ（意思決定支援）を推進する'},{t:'SFA',d:'で全商談活動を記録・管理する'}]},
+  'field-mkt':{label:'フィールドマーケティング（役割）',desc:'展示会・イベント・セミナーなどオフラインの接点を通じてリード獲得・アカウント関係深耕を担うマーケティング職。ABMと連動してTier1アカウント向けの1to1イベントを企画・実施することも多い。',m:[],r:[{t:'展示会（象限B）',d:'の企画・出展・リード獲得を主管する'},{t:'ABM Tier1',d:'向け1to1イベント・セミナーを企画・実施する'},{t:'バイヤーズジャーニー',d:'の認知・検討初期フェーズでのタッチポイントを設計する'}]},
+  'enablement':{label:'セールスイネーブルメント（役割）',desc:'BDR・SDR・フィールドセールスが成果を出すために必要なコンテンツ・ツール・トレーニング・プロセスを整備する役割。PMMからメッセージングを受け取り、SICフェーズ別にコンテンツを整理して営業現場に届ける。',m:[],r:[{t:'BDR / フィールドセールス',d:'に象限A・BのコンテンツをSICフェーズ別に整理して提供する'},{t:'PMM',d:'からメッセージングを受け取り現場向けに整理する'},{t:'バイヤーズジャーニー',d:'の各フェーズに合わせた武器を整備する'}]},
+  'cs':{label:'カスタマーサクセス（役割）',desc:'受注後の顧客のオンボーディング・活用促進・継続・アップセルを担い、LTVを最大化する役割。NPSを計測・改善し、顧客の成功体験を導入事例（象限A）として言語化する重要な情報源でもある。ABMのアカウント価値最大化フェーズと直結する。',m:[],r:[{t:'LTV',d:'の最大化が主ミッション。受注後のオンボーディング・活用促進・アップセルを担う'},{t:'NPS',d:'を計測・改善し顧客満足度とロイヤルティを高める'},{t:'ABM',d:'のナーチャリング・アカウント価値最大化フェーズと直結する'},{t:'導入事例（象限A）',d:'の制作の主要情報源。顧客の成功体験を言語化する役割を担う'}]},
+  'intent-data':{label:'インテントデータ',desc:'特定の企業・担当者が「どの課題・製品カテゴリに関心を持っているか」を、Web行動・検索履歴・コンテンツ消費等から推定したデータ。購買意欲の高いアカウントをタイムリーに特定し、優先的にアプローチする根拠として使う。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【日本での現実】</strong><br>海外大手（Bombora等）は英語サイト中心のデータ収集のため日本法人カバレッジが薄い。個人情報保護法・Cookie規制・特定電子メール法（オプトイン原則）により、海外型の「シグナル検知即アプローチ」は直接適用できない場合がある。日本ではファーストパーティデータとの組み合わせが現実解。',m:[],r:[{t:'インテントシグナル',d:'インテントデータを構成する個々の行動の痕跡（特定ページ閲覧・資料DL・検索キーワード等）'},{t:'ファーストパーティデータ',d:'自社が直接収集したデータ。日本では最も法的リスクが低く現実的な起点'},{t:'ABM / ICP',d:'と組み合わせ、優先アカウントのシグナルを優先的に検知する'},{t:'Sales Marker / FORCAS',d:'日本語対応のインテントデータSaaS。国内B2Bでの導入実績あり'}]},
+  'intent-signal':{label:'インテントシグナル',desc:'購買関心の「兆し」を示す具体的な行動の痕跡。自社Webの特定ページ閲覧・資料ダウンロード・セミナー参加・特定キーワードでの検索・競合製品の比較サイト訪問などが該当する。これらを組み合わせてスコアリングし、「今まさに検討している」アカウントを特定するのがインテントデータ活用の本質。日本では自社が直接取得できるファーストパーティシグナル（問合せ・資料DL履歴・MA行動スコア）の活用が最も現実的。',m:[],r:[{t:'インテントデータ',d:'の構成要素。複数のシグナルを組み合わせてスコアリングする'},{t:'MA（マーケティングオートメーション）',d:'で行動スコアリングし、高スコアのリードをSDR・BDRに渡す'},{t:'ダークファネル',d:'上のシグナル（レビューサイト閲覧・AI質問等）は原則として取得できない'}]},
+  'first-party-data':{label:'ファーストパーティデータ',desc:'自社が直接収集・保有するデータ。自社Webサイトの訪問履歴（GA4）・フォーム入力情報・セミナー参加者・メール開封・MA行動スコアなどが含まれる。Cookie規制・個人情報保護法の強化により、第三者データへの依存が難しくなる中で最も重要度が高まっているデータ種別。日本のインテントデータ活用の現実的な起点はここにある。',m:[],r:[{t:'サードパーティデータ',d:'との違いは収集主体。ファーストは自社、サードは第三者プロバイダー'},{t:'インテントデータ',d:'の日本における現実解はファーストパーティデータの高度活用'},{t:'MA / CRM',d:'と連携してファーストパーティシグナルをスコアリングする'}]},
+  'third-party-data':{label:'サードパーティデータ',desc:'Bombora・ZoomInfoなど第三者プロバイダーが収集・販売するデータ。数千サイト規模のコープ（データ収集ネットワーク）から得られる企業の行動データで、「どの企業が今ERPを調べているか」などを提供する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【日本での課題】</strong><br>①英語サイト中心のデータ収集のため日本法人カバレッジが薄い ②個人情報保護法・Cookie規制との整合性 ③特定電子メール法（オプトイン原則）により即時アプローチが制限される。導入前に法務確認と費用対効果の慎重な検証が必須。',m:[],r:[{t:'ファーストパーティデータ',d:'と組み合わせることで精度が上がるが、日本では法的・カバレッジ課題あり'},{t:'インテントデータ',d:'の主な供給源。日本ではBomboraより国内SaaSの方が現実的'},{t:'個人情報保護法',d:'Cookie規制・特定電子メール法との整合性を法務と必ず確認'}]},
+  'sales-marker':{label:'Sales Marker（インテントSaaS）',desc:'日本初のインテントセールスSaaSとして2021年設立。約500万法人DBとリアルタイム検索行動データを組み合わせ、「今まさに関連キーワードを検索している企業」を特定してアラートを出す。Salesforce連携対応。月額30万円〜。導入事例：商談件数3倍・新規売上5倍（株式会社グローバー）・MQL獲得率16%（業界水準の2〜3倍）。日本語データ・商習慣への対応が強み。',m:[],r:[{t:'インテントデータ',d:'の日本語対応SaaS。国内B2B企業の導入実績が増加中（2024年〜）'},{t:'ABM',d:'と組み合わせ、ICPアカウントのシグナルを優先的に検知するために使う'},{t:'BDR',d:'がシグナルを受け取り即アプローチするインテントセールスフローと連携'}]},
+  'forcas':{label:'FORCAS（ABM・インテントSaaS）',desc:'150万社以上の日本企業DBを持つABM特化のSaaS。企業分析・ターゲティング・インテントシグナルの可視化に強み。マーケティング主導の戦略立案に最適。月額20万円〜。CRM一体型でデータ連携不要。「興味シグナル」で購買関心の高い企業を特定する機能を持つ。',m:[],r:[{t:'インテントデータ',d:'の日本語対応SaaS。ABM戦略と組み合わせて使う'},{t:'uSonar',d:'との違いはABMとインテント特化の視点。FORCASはマーケ主導・uSonarはデータインフラ整備に強み'},{t:'ICP / Tier設計',d:'を支える企業DBとして活用できる'}]},
+  'leadfeeder':{label:'Leadfeeder（訪問企業特定）',desc:'自社Webサイトを訪問した企業をIPアドレスから特定するツール。「どの会社の人が製品ページを見たか」を可視化し、営業アラートとして活用する。月額3万円〜とスモールスタートが可能。ファーストパーティデータ活用の最初の一手として有効。Google Analytics（GA4）との連携が可能。',m:[],r:[{t:'ファーストパーティデータ',d:'の可視化ツール。自社サイト訪問企業を特定しインテントシグナルとして活用する'},{t:'インテントシグナル',d:'として「自社サイト閲覧」を営業アラートに変換する'},{t:'BDR / SDR',d:'へのホットリスト提供に使う。低コストで始められるインテント活用の入口'}]},
+  'demand-gen':{label:'デマンドジェネレーション（概念）',desc:'市場全体に対して広くリードを獲得・育成し、営業に安定的に案件を供給する活動の総称。SEO・広告・展示会・メルマガなど複数チャネルを組み合わせてファネルに流す。ABMがアカウント単位で深く攻めるのに対し、デマンドジェネレーションは広く浅く需要を掘り起こすアプローチ。',m:['C','D'],r:[{t:'企画4象限',d:'→ C・D領域のコンテンツを中心に動くLead Based型'},{t:'ABM',d:'と根本的に異なるアプローチ'},{t:'バイヤーズジャーニー',d:'の認知〜検討フェーズに対してコンテンツ・施策を打つ概念'}]},
+  'buyers-journey':{label:'バイヤーズジャーニー',desc:'買い手（バイヤー）が購買に至るまでの行動プロセスを「買い手視点」で表したもの。グローバル標準では7段階で整理される。①Awareness（認知）：課題や課題領域の存在を認識していない・初めて気づき始める ②Consideration（検討）：課題を認識し、解決方法を比較・評価し始めている ③Decision（意思決定）：ベンダー・ソリューションを比較し購入決定に向けて動く ④Purchase/Commit（購入・契約）：契約締結・導入準備 ⑤Adoption（導入・活用）：導入後の立ち上げ・初期運用 ⑥Value Realization/Expansion（成果実感・拡張）：利用成果を実感し追加導入を検討 ⑦Advocacy（推奨・リファレンス）：満足した顧客として他社に推薦・事例化に協力。「購買グループ（Buying Group）」には利用者・推薦者・決裁者など複数の関係者が関わる。',m:[],r:[{t:'カスタマージャーニー',d:'との違いは視点。バイヤーズジャーニーは「購買前〜購買後の買い手の行動」'},{t:'ファネル',d:'との違いは視点。ファネルは売り手視点の管理モデル、バイヤーズジャーニーは買い手視点'},{t:'SICフレームワーク',d:'と連動。Spark・Introduce・ConfrontはAwareness・Consideration・Decisionに対応する'},{t:'アドボカシー',d:'がバイヤーズジャーニーの最終ステージ。CSがここに導くことで紹介・口コミが生まれる'},{t:'PoC',d:'はDecision（意思決定）フェーズで実施されることが多い'}]},
+  'customer-journey':{label:'カスタマージャーニー',desc:'顧客が自社と関わるすべての接点・体験を時系列で可視化したもの。バイヤーズジャーニー（購買前）を包含し、購買後のオンボーディング・活用・継続・推薦まで含む。カスタマーサクセスが主管する購買後フェーズの設計や、NPS・LTV改善施策の根拠として使う。',m:[],r:[{t:'バイヤーズジャーニー',d:'の拡張版。購買後（オンボーディング・活用・更新・推薦）まで含む'},{t:'カスタマーサクセス',d:'が主管する購買後フェーズの設計に活用する'},{t:'NPS / LTV',d:'の改善施策の根拠となる'}]},
+  'funnel':{label:'ファネル（概念）',desc:'見込み客が認知から受注に至るまでのプロセスを漏斗（ファネル）の形で表した売り手視点の管理モデル。TOFU（上部：認知・課題発見）→ MOFU（中部：比較・検討）→ BOFU（下部：意思決定・購買）の3段階で構成される。ABMはファネルではなくアカウントステータスの「前進」で管理する点が異なる。',m:[],r:[{t:'TOFU / MOFU / BOFU',d:'ファネルの3段階。各段階でコンテンツ戦略・ゲーティング判断が変わる'},{t:'バイヤーズジャーニー',d:'との違いは視点。ファネルは売り手視点の管理モデル'},{t:'MQL / SQL / SAL',d:'がファネルの各段階の定義。責任境界線を明確にする'},{t:'ABM',d:'はファネル概念ではなく「アカウントステータスの前進」で管理する'}]},
+  'tofu':{label:'TOFU（Top of Funnel）',desc:'ファネルの上部（Top of Funnel）。認知・課題発見フェーズ。バイヤーがまだ課題を認識していないか、認識し始めた段階。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【コンテンツ戦略】</strong><br>フォームゲーティングは逆効果。SEOでオーガニック流入を獲得し、AIに引用させることが優先。ブログ記事・用語解説・入門ガイドなど誰でも作れる長期資産（象限C）が主戦場。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ゲーティング判断】</strong><br>フルオープンが原則。フォームを置くとAIにインデックスされず発見されなくなる。',m:['C'],r:[{t:'ファネル',d:'の上部。TOFU→MOFU→BOFUの順にバイヤーが購買意思決定へ進む'},{t:'象限C（辞書コンテンツ）',d:'がTOFUの主要コンテンツ領域。SEO・AIOで発見されることが最優先'},{t:'SEO / AIO',d:'TOFUではオーガニック流入とAI引用が最重要KPI'},{t:'デマンドジェネレーション',d:'がTOFUを主戦場とするLead Based型の需要創出活動'},{t:'バイヤーズジャーニー',d:'のAwareness（認知）フェーズと対応する'}]},
+  'mofu':{label:'MOFU（Middle of Funnel）',desc:'ファネルの中部（Middle of Funnel）。比較・検討フェーズ。バイヤーが課題を認識し、解決策・ベンダーを比較・評価し始めている段階。前半（比較・検討開始）と後半（ベンダー絞り込み）に分けて設計することが多い。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【コンテンツ戦略】</strong><br>前半：ガイド・テンプレート・ウェビナー録画など。エグゼクティブサマリー公開＋詳細版をソフトゲーティング。後半：ROIシミュレーター・競合比較・導入事例など象限Aの一次情報が刺さる段階。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ダークファネルとの関係】</strong><br>MOFUではバイヤーがベンダーに接触せずレビューサイト・AI検索・コミュニティで匿名調査を行う（ダークファネル）。比較リストに入るにはTOFUのオープンコンテンツとレビューサイトへの口コミ蓄積が前提条件。',m:['A','B'],r:[{t:'ファネル',d:'の中部。TOFUから引き継ぎ、BOFUへ渡す橋渡しフェーズ'},{t:'象限A（最優先投資領域）',d:'MOFU後半での競合比較・導入事例・市場調査が意思決定を動かす'},{t:'MQL / SQL / SAL',d:'MOFUでの行動スコアがMQL→SAL→SQLへの進行を決定する'},{t:'インテントシグナル',d:'MOFU段階のバイヤー行動（特定ページ閲覧・資料DL等）がインテントシグナルになる'},{t:'バイヤーズジャーニー',d:'のConsideration（検討）フェーズと対応する'}]},
+  'bofu':{label:'BOFU（Bottom of Funnel）',desc:'ファネルの下部（Bottom of Funnel）。意思決定・購買フェーズ。バイヤーがベンダーを絞り込み、最終的な購買意思決定を行う段階。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【コンテンツ戦略】</strong><br>詳細な価格試算・稟議用資料・実装ガイド・専門アセスメントなど。BOFUのみ戦略的ゲーティングが有効（CVR 79%）。真剣な購買意図を持つ相手だけが通過する設計にする。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ABMとの関係】</strong><br>ABMではBuying Group全体の合意形成がBOFUの課題。モビライザーへのコマーシャルコーチングと導入事例（象限A）が意思決定を後押しする最強コンテンツになる。',m:['A'],r:[{t:'ファネル',d:'の下部。MOFUから引き継ぎ受注へクローズする最終フェーズ'},{t:'象限A（最優先投資領域）',d:'BOFUでの導入事例・競合比較・ROI試算が決め手になる'},{t:'Buying Group / モビライザー',d:'BOFUでの合意形成にはBuying Group全体への働きかけが不可欠'},{t:'コマーシャルコーチング',d:'モビライザーに社内稟議の武器を渡しBOFUを突破させる'},{t:'バイヤーズジャーニー',d:'のDecision（意思決定）フェーズと対応する'}]},
+  'mql-sql':{label:'MQL / SQL / SAL',desc:'ファネル上でのリードの成熟度を定義する概念。MQL（Marketing Qualified Lead）はマーケが「商談化可能」と判断したリード、SAL（Sales Accepted Lead）は営業が「受け付ける」と判断した状態、SQL（Sales Qualified Lead）は「今すぐ商談できる」と判断したリード。各段階の定義を明確にすることで、マーケ・インサイド・フィールドセールスの責任境界線が明確になる。',m:[],r:[{t:'MQL（Marketing Qualified Lead）',d:'マーケティングが「商談化の可能性がある」と判断したリード。SDRへの引き渡し基準'},{t:'SAL（Sales Accepted Lead）',d:'SDRがMQLを受け取り「営業が受け付ける」と判断した状態'},{t:'SQL（Sales Qualified Lead）',d:'営業が「今すぐ商談できる」と判断したリード。フィールドセールスへのパス基準'},{t:'MOps / RevOps',d:'がMQL・SQL・SALの定義を設計・管理しファネル転換率を計測する'}]},
+  'pipeline':{label:'パイプライン（概念）',desc:'現在進行中の商談の総量・状態・予測受注額を管理する概念。SQLになった案件がパイプラインに入り、フィールドセールスが商談ステージを進める。RevOpsがパイプラインの健全性（量・質・速度）を計測し、受注予測を経営に報告する。ABMでは中長期的なパイプライン安定供給が目標の一つ。',m:[],r:[{t:'ファネル',d:'のSQL以降（商談段階）がパイプラインに該当する'},{t:'フィールドセールス',d:'が商談ステージを進め管理する'},{t:'RevOps / CRO',d:'がパイプライン全体の健全性・受注予測を経営に報告する'}]},
+
+  'poc':{label:'PoC（Proof of Concept）',desc:'Proof of Concept（概念実証）の略。本格導入の前に、製品・ソリューションが顧客の課題を実際に解決できるかを小規模・期間限定で検証するプロセス。B2B・SIer商材では商談プロセスの重要ステップとなり、PoCの成否が受注を大きく左右する。PoCの成功条件を事前に合意しておくことが重要。成功条件が曖昧なままPoCを進めると、顧客の判断基準が不明瞭になり失注リスクが高まる。',m:[],r:[{t:'バイヤーズジャーニー',d:'のDecision（意思決定）フェーズで実施されることが多い'},{t:'ホールプロダクト',d:'の拡張プロダクト・期待プロダクト層の完成度がPoCの評価に影響する'},{t:'KGI / KPI',d:'としてPoC後の継続利用率・業務活用定着率を設定することが推奨される'},{t:'カスタマーサクセス',d:'がPoC期間中の伴走・定着支援を担うことが多い'}]},
+  'advocacy':{label:'アドボカシー（Advocacy）',desc:'満足した顧客が自発的に他者へ推薦・紹介し、ブランドの伝道者（アドボケイト）となる状態。バイヤーズジャーニーの最終ステージ。顧客事例への協力・ユーザー会登壇・口コミ・NPS高評価などが代表的な表れ方。アドボカシーは獲得コスト（CAC）を下げる最も効果的な手段の一つ。満足した顧客が新規顧客を紹介する「紹介営業」は、SIerにとって伝統的に強いチャネルでもある。',m:[],r:[{t:'NPS',d:'が高い顧客がアドボケイトになりやすい。NPSスコアでアドボカシー候補を特定する'},{t:'LTV',d:'との相関が高い。アドボケイトになる顧客は継続率・拡張率も高い傾向'},{t:'CAC',d:'を下げる効果がある。紹介・口コミ経由のリードは獲得コストが低い'},{t:'カスタマーサクセス',d:'がアドボカシーを生み出す主要な責任部門'}]},
+  'plg':{label:'PLG（Product-Led Growth）',desc:'プロダクト体験そのものが顧客獲得・オンボーディング・拡大を主導する成長モデル。フリートライアル・フリーミアム・セルフサインアップなどが典型的な実装形態。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【GTM Motionとの違い】</strong><br>PLGは「成長の燃料源がプロダクトである」という事業・組織レベルの構造を指す。GTM MotionのProduct-Ledは「プロダクト体験を通じて顧客に届ける実行手段」のこと。PLGという成長モデルを採用した企業がProduct-Led Motionを選ぶことが多いが、同じ言葉で語られるため混同が生じる。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【向いている事業】</strong><br>セルフサービス型SaaS・開発者向けツール・消費者に近いB2B SaaS。Slack・Notion・Figmaが代表例。',m:[],r:[{t:'SLG',d:'と対比される成長モデル。PLGとSLGはハイブリッドで組み合わせることも多い（Product-Led Sales）'},{t:'GTM Motion（Product-Led）',d:'との混同注意。PLGは成長構造、Product-Led Motionは実行手段'},{t:'CAC',d:'が下がりやすいのがPLGの特徴。プロダクトが自己増殖的に顧客を獲得するため'},{t:'LTV',d:'の最大化にはPLGでもCS・拡張施策が必要'}]},
+  'slg':{label:'SLG（Sales-Led Growth）',desc:'営業チームが顧客獲得・拡大の主ドライバーとなる成長モデル。高単価・複雑商材・エンタープライズ向けB2B・SIer型ビジネスで一般的。営業担当者が顧客との関係構築から提案・クロージングまでを主導する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【GTM Motionとの違い】</strong><br>SLGは「成長の燃料源が営業チームである」という構造。Outbound-Led MotionやEvent-Led Motionがその実行手段になる。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【日本のSIerへの示唆】</strong><br>日本の伝統的なSIer・エンタープライズITはほぼSLGモデル。ABMはSLGをより精密・効率的に実行するための手法として機能する。',m:[],r:[{t:'PLG',d:'と対比される成長モデル。複雑商材・高単価商材ではSLGが基本'},{t:'ABM',d:'はSLGをアカウント単位で高度化する実行フレームワーク'},{t:'GTM Motion（Outbound-Led）',d:'がSLGの主な実行手段となることが多い'},{t:'CAC',d:'がPLGより高くなる傾向。その分LTV・単価を高くする必要がある'}]},
+  'clg':{label:'CLG（Community-Led Growth）',desc:'顧客・ユーザー・パートナーのコミュニティが成長の主ドライバーとなるモデル。知見共有・共創・口コミ・紹介を通じてロイヤルティと新規獲得を両立する。Salesforce（Trailblazer）・HubSpot・Atlassianが代表例。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【GTM Motionとの違い】</strong><br>CLGは成長モデル（構造）、Community-Led Motionはその実行手段。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【SIerへの示唆】</strong><br>ユーザー会・業界コミュニティ・パートナーエコシステムはCLGの要素を持つ。アドボカシーとの親和性が高い。',m:[],r:[{t:'PLG / SLG',d:'と組み合わせることが多い。コミュニティがPLGの口コミ効果を増幅する'},{t:'アドボカシー',d:'との相関が高い。CLGが育てたコミュニティはアドボケイトを生みやすい'},{t:'NPS',d:'の改善施策としてコミュニティ形成が有効'},{t:'GTM Motion（Community-Led）',d:'との混同注意。CLGは構造、Community-Led Motionは手段'}]},
+  'cac':{label:'CAC（Customer Acquisition Cost）',desc:'Customer Acquisition Cost（顧客獲得コスト）の略。新規顧客1件を獲得するのにかかった総コスト。計算式：営業・マーケ費用の合計 ÷ 獲得新規顧客数。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【事業モデル別の使い方】</strong><br>①SaaS・サブスクリプション型：LTV/CAC比率で健全性を測る。LTV/CACが3倍以上が目安。②SIer・プロジェクト型（単発受注）：継続課金がないためLTVが機能しにくく、CACと粗利率・受注率を主軸にする。③SIer（保守・運用契約込み）：継続収益部分でLTVを計算し、CACと組み合わせる。「なんでもLTV」にしてしまうと、単発案件をLTVとして計上し実態と乖離する危険がある。',m:[],r:[{t:'LTV',d:'とセットで使う。LTV/CAC比率（目安3倍以上）がSaaSの健全性指標'},{t:'LTV/CAC比率',d:'でビジネスの獲得効率を評価する'},{t:'PLG',d:'の成長モデルではCACが下がりやすい（プロダクトが自己増殖的に獲得するため）'},{t:'アドボカシー',d:'が高まると紹介経由リードが増えCACが下がる'}]},
+  'ltv-cac':{label:'LTV/CAC比率',desc:'顧客1件のLTV（生涯価値）をCAC（獲得コスト）で割った比率。ビジネスの獲得効率を示す最重要指標の一つ。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【目安】</strong><br>3倍以上：健全。1〜3倍：改善が必要。1倍以下：獲得するたびに赤字。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【注意点】</strong><br>LTV/CACが有効に機能するのは継続課金・繰り返し受注のある事業モデル。SIerの単発案件には直接適用できない。SaaS企業では投資家が最も注目する指標の一つ。',m:[],r:[{t:'LTV',d:'の計算精度がLTV/CAC比率の信頼性を決める'},{t:'CAC',d:'を下げる（PLG・アドボカシー活用）か、LTVを上げる（チャーン削減・アップセル）かが改善の2方向'},{t:'SaaS',d:'ではLTV/CAC 3倍以上が投資家の健全性判断の目安'},{t:'RevOps',d:'がLTV/CACを継続的に計測・改善する'}]},
+  'motion-inbound':{label:'Inbound-Led Motion（GTM Motion）',desc:'魅力的なコンテンツを通じて見込み顧客を引きつけ、ナーチャリングし、営業チームに引き渡すGTM実行手段。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主な施策】</strong><br>ホワイトペーパーDL・SEO記事・オウンドメディア・ウェビナー・比較資料。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主要KPI】</strong><br>サイト流入数・CVR・MQL→SQL率・商談数。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【オーナー】</strong><br>マーケティング（DG・PMM）／インサイドセールス連携。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【成長モデルとの関係】</strong><br>PLG（Product-Led Growth）やSLG（Sales-Led Growth）どちらの事業でも補完的に使われる。成長モデルのPLGと混同しないこと。',m:[],r:[{t:'PLG / SLG',d:'との違い：モーションは実行手段、成長モデルは事業構造。Inbound-Led MotionはどちらのGrowth Modelでも使われる'},{t:'デマンドジェネレーション',d:'の主要な実行形態'},{t:'SIC / コンテンツ戦略',d:'の設計がInbound-Led Motionの成否を左右する'},{t:'MQL / SQL',d:'への転換率がInbound-Led Motionの主要KPI'}]},
+  'motion-outbound':{label:'Outbound-Led Motion（GTM Motion）',desc:'特定アカウントに対して、営業・インサイドセールス・マーケが連携して攻めのアプローチを行うGTM実行手段。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主な施策】</strong><br>ABM・ターゲットリスト架電・パーソナライズドメール・LinkedIn接触。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主要KPI】</strong><br>架電件数・接触率・SAL数・アポ率・商談化率。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【オーナー】</strong><br>インサイドセールス／営業共同運営。日本のSIerではSLGモデルとの組み合わせが最も一般的。',m:[],r:[{t:'ABM',d:'はOutbound-Led Motionをアカウント単位で高度化したもの'},{t:'BDR',d:'がOutbound-Led Motionの主要な実行者'},{t:'SLG',d:'（成長モデル）との親和性が最も高いMotion'},{t:'インテントデータ',d:'でホットなアカウントを特定し、Outbound-Led Motionの精度を高める'}]},
+  'motion-event':{label:'Event-Led Motion（GTM Motion）',desc:'展示会・カンファレンス・ウェビナーなど、リアル/オンラインイベントで接点を作り、関係性を深めるGTM実行手段。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主な施策】</strong><br>展示会出展・自社セミナー・業界共催イベント・ウェビナーシリーズ。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主要KPI】</strong><br>参加者数・名刺数・商談化率・イベントROI。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【オーナー】</strong><br>マーケティング → 営業引き継ぎ。日本では展示会・セミナーがリード獲得の主要チャネルとして機能してきた。',m:[],r:[{t:'アドボカシー',d:'が育つとユーザー会・顧客事例登壇などEvent-Led Motionが強化される'},{t:'デマンドジェネレーション',d:'と組み合わせることで商談パイプラインを安定供給できる'},{t:'Buying Group',d:'の複数関係者に同時にリーチできるのがEvent-Led Motionの強み'}]},
+  'motion-product':{label:'Product-Led Motion（GTM Motion）',desc:'プロダクト体験を通じて顧客獲得・オンボーディング・拡大を主導するGTM実行手段。無料トライアル・フリーミアム・セルフサインアップ・プロダクト内メッセージ・利用分析が典型。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【PLGとの混同注意】</strong><br>PLG（Product-Led Growth）は事業・組織レベルの成長モデル（「成長の燃料源がプロダクト」という構造）。Product-Led Motionはその実行手段。PLGを採用した企業がProduct-Led Motionを選ぶことが多いが、PLGでない企業もProduct-Led Motionを一部取り入れることはある。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【KPI】</strong><br>サインアップ数・アクティブ率・トライアル→有料化率・PQL（Product Qualified Lead）。',m:[],r:[{t:'PLG',d:'（成長モデル）との混同注意。PLGは構造、Product-Led Motionは実行手段'},{t:'カスタマーサクセス',d:'がプロダクト活用定着・拡張を支援することでMotionが機能する'},{t:'LTV',d:'の最大化にはProduct-Led Motionだけでなく、CSの伴走が不可欠'}]},
+  'motion-partner':{label:'Partner-Led Motion（GTM Motion）',desc:'代理店・SI・リセラー・テクノロジーパートナーと協業し、共同で顧客基盤を開拓するGTM実行手段。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主な施策】</strong><br>共同ウェビナー・アライアンス販売・ソリューションパッケージ化・マーケットプレイス出展・紹介プログラム。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主要KPI】</strong><br>パートナー経由売上・共同施策リード数・パートナー獲得数・有効稼働率。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【オーナー】</strong><br>マーケティング（BD）／営業共同運営。SIerにとってはメーカーやベンダーとのアライアンスが典型的なPartner-Led Motion。',m:[],r:[{t:'ABM',d:'とPartner-Led Motionを組み合わせると、パートナー経由で戦略アカウントにアプローチできる'},{t:'CLG',d:'（Community-Led Growth）との親和性が高い。パートナーエコシステムがコミュニティを形成する'},{t:'ホワイトスペース',d:'の開拓においてパートナーが持つ顧客基盤を活用できる'}]},
+  'motion-community':{label:'Community-Led Motion（GTM Motion）',desc:'顧客・ユーザー・パートナーを巻き込み、知見共有や共創を通じてロイヤルティを高めるGTM実行手段。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主な施策】</strong><br>ユーザー会・Slack/Discordコミュニティ・顧客事例共有・共創プログラム。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主要KPI】</strong><br>コミュニティ会員数・参加率・紹介率・NPS。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【CLGとの混同注意】</strong><br>CLG（Community-Led Growth）は成長モデル（構造）、Community-Led Motionはその実行手段。',m:[],r:[{t:'CLG',d:'（成長モデル）との混同注意。CLGは構造、Community-Led Motionは実行手段'},{t:'アドボカシー',d:'を生み出す最も直接的なMotion。コミュニティがアドボケイトを育てる'},{t:'NPS',d:'の改善に有効。高NPSの顧客をコミュニティに巻き込む'}]},
+  'ltv':{label:'LTV（顧客生涯価値）',desc:'Life Time Value（顧客生涯価値）の略。1顧客が契約期間全体を通じて自社にもたらす累積収益のこと。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【事業モデル別の注意点】</strong><br>①SaaS・サブスク型：LTVが最も有効に機能する。継続課金があるため全期間の価値が計算できる。②SIer・プロジェクト型（単発受注）：継続課金がないためLTVが機能しにくい。CACと粗利率・受注率を主軸にする方が実態に近い。③SIer（保守・運用契約込み）：継続収益部分のみLTVを適用し、開発案件はCACと粗利で評価する。「なんでもLTV」にすると単発案件が過大評価され、意思決定が歪む。LTVが有効な前提条件は「顧客が繰り返し購買する、または継続課金される構造があること」。',m:[],r:[{t:'CAC',d:'とセットで使う。LTV/CAC比率（目安3倍以上）がSaaSの健全性指標'},{t:'LTV/CAC比率',d:'でビジネスの獲得効率を評価する'},{t:'ICP / Tier設計',d:'の定量基準。LTVが高い顧客の共通項がICPになる'},{t:'カスタマーサクセス',d:'がLTV最大化の主責任者（チャーン削減・アップセル）'},{t:'NPS',d:'はLTVに影響する先行指標'}]},
+  'nps':{label:'NPS（Net Promoter Score）',desc:'「この製品・サービスを友人や同僚に勧める可能性は0〜10点で何点か」という質問で顧客ロイヤルティを数値化する指標。9〜10点が推薦者（Promoter）、7〜8点が中立者、0〜6点が批判者。LTVの先行指標として使われる。',m:[],r:[{t:'カスタマーサクセス',d:'が計測・改善を主管する'},{t:'LTV',d:'の先行指標。NPSが高い顧客はチャーン率が低くアップセルにも応じやすい'},{t:'導入事例（象限A）',d:'の候補顧客はNPSが高い顧客から選ぶのが自然'}]},
+  'web-mkt':{label:'Webマーケティング（施策）',desc:'Webを中心としたマーケティング活動の総称。SEO・AIO・リスティング広告・コンテンツマーケティング・SNSなどのオンラインチャネルを活用してリードを獲得・育成する。デマンドジェネレーションの主要な実行手段であり、象限C（辞書コンテンツ）と象限D（キャンペーンLP）が主な活動領域。',m:['C','D'],r:[{t:'企画4象限',d:'→ C（辞書記事・SEO）とD（キャンペーンLP・広告）が主な活動領域'},{t:'バイヤーズジャーニー',d:'の認知フェーズでの主要タッチポイント'},{t:'GA4 / サーチコンソール',d:'で流入・CV・行動を計測する'}]},
+  'seo':{label:'SEO（施策）',desc:'Search Engine Optimization（検索エンジン最適化）の略。GoogleなどでWebページを上位表示させるための施策の総称。良質なコンテンツの作成・サイト構造の最適化・被リンク獲得などが主な手段。Googleが重視するE-E-A-T（経験・専門性・権威性・信頼性）を満たさない生成AIコンテンツの量産は、短期的なインデックス後に急落するリスクがある。エバーグリーンコンテンツが長期的なオーガニックトラフィックの基盤になる。',m:['C'],r:[{t:'企画4象限',d:'→ C（辞書コンテンツ・エバーグリーン）が主戦場'},{t:'AIO',d:'と連動。AI Overview対策として構造化・権威性の強化が求められる'},{t:'Ahrefs / ラッコキーワード',d:'でキーワード調査・競合分析を行う'}]},
+  'eeat':{label:'E-E-A-T',desc:'Experience（経験）・Expertise（専門性）・Authoritativeness（権威性）・Trustworthiness（信頼性）の頭文字。Googleが検索品質評価に使う基準。生成AIで記事を量産してもE-E-A-Tのない記事は短期的にインデックスされても3〜6ヶ月で急落するという実験データがある。著者情報・実体験・一次情報・外部からの被リンクがE-E-A-T向上の主な手段。',m:['A','C'],r:[{t:'SEO / AIO',d:'の品質評価基準。E-E-A-Tのないコンテンツはどれだけ量産しても長期的な検索流入は得られない'},{t:'企画4象限',d:'→ A（自社しか作れない一次情報）はE-E-A-Tが自然に高い。C（誰でも書ける辞書記事）はE-E-A-Tを意識して著者情報・専門家レビューを付加する必要がある'},{t:'コマーシャルインサイト',d:'はE-E-A-Tの最高峰。自社調査・失注分析・カスタマーボイスは他社が絶対に複製できない一次情報であり、権威性が自然に生まれる'},{t:'象限C（辞書コンテンツ）の注意点',d:'AIで草稿を作ること自体は問題ないが、著者情報・専門家レビュー・独自の視点を加えないとE-E-A-Tを満たせずに急落するリスクがある'}]},
+  'aio':{label:'AIO（施策）',desc:'AI Optimization（AI最適化）の略。GoogleのAI Overview（AIによる検索結果の要約表示）に自社コンテンツが取り上げられるための最適化施策。従来のSEOの延長線上にあり、E-E-A-T（Experience・Expertise・Authoritativeness・Trustworthiness）の強化が特に重要。生成AIで記事を量産してもE-E-A-Tのない記事は短期的にインデックスされても3〜6ヶ月で急落するという実験データがある（権威性ゼロ・著者情報なし・独自洞察なしの場合）。象限C（辞書コンテンツ）の新たな最適化対象。',m:['C'],r:[{t:'企画4象限',d:'→ C（辞書コンテンツ）の新たな最適化対象'},{t:'SEO',d:'の延長。AI Overviewへの掲載最適化が新たなオーガニック戦略'},{t:'Google Trends',d:'でAIに取り上げられやすいテーマを把握する'}]},
+  'google-ads':{label:'Google広告（施策）',desc:'Googleの広告プラットフォーム（旧Google AdWords）を活用したリスティング広告・ディスプレイ広告・動画広告などの総称。検索キーワードに連動した即時的なリード獲得に強い。SEOと組み合わせてデマンドジェネレーションを加速する。象限D（作業コンテンツ）のキャンペーンLPと連動する。',m:['D'],r:[{t:'企画4象限',d:'→ D（作業コンテンツ）と連動。キャンペーンLPへの送客が主な役割'},{t:'PASONAのライティング',d:'を広告クリエイティブ・LPに適用する'},{t:'GA4 / Looker Studio',d:'でコンバージョン・費用対効果を計測・可視化する'}]},
+  'exhibition':{label:'展示会（施策）',desc:'業界の展示会・見本市・カンファレンスへの出展を通じてリードを獲得し、アカウントとの関係を深める施策。自社だけが持てるオフラインの接点として一次性が高い（象限B）。ABMのTier1アカウントと直接会う重要な機会にもなる。ホワイトペーパー・導入事例（象限A）を配布コンテンツとして活用する。',m:['B'],r:[{t:'企画4象限',d:'→ B（タイミング資産）。自社だけが持てる接点だが鮮度命'},{t:'フィールドマーケティング',d:'が企画・運営・リード獲得を主管する'},{t:'象限A（ホワイトペーパー・導入事例）',d:'を展示会での配布・接点深耕に活用する'}]},
+  'campaign-mgmt':{label:'キャンペーン管理（Campaign Management）',desc:'マーケティング施策を「キャンペーン」という単位で体系的に設計・実行・計測・改善するプロセス全体のこと。個別の施策（広告・ウェビナー・展示会など）をオファリングやテーマで束ね、L1〜L5などの階層構造で管理することで、予算・成果・ROIを施策横断で可視化できる。MAツール・CRM・BIダッシュボードと連携して機能する。',m:[],r:[{t:'MOps',d:'がキャンペーン管理の設計・運用・計測を担う'},{t:'MA',d:'でキャンペーンの自動化・スコアリング・レポートを実行する'},{t:'UTMパラメータ',d:'でチャネル・キャンペーン・アクティビティごとの流入を計測する'},{t:'RevOps',d:'にキャンペーン単位のパイプライン貢献を報告する'}]},
+  'mktg-calendar':{label:'マーケティングカレンダー',desc:'GTM戦略・キャンペーン設計が定まった後に、「いつ・何を・誰に向けて・どのチャネルで」実行するかを時系列に落とした実行計画表。キャンペーン階層（Offering L2→キャンペーン L3→チャネル L4→アクティビティ L5）を時間軸に展開したもの。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【作るための前提条件】</strong><br>①ICP（誰に）②バリュープロポジション（何を伝えるか）③GTM Motion（どのチャネルで）④Offering/キャンペーン構造（L2〜L5）⑤PMF確認（そもそも売れるか）。これらが未定義のままカレンダーを作ると「日付だけある空のExcel」になる。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【現場でよくある問題】</strong><br>「マーケティングカレンダーを作りなさい」という指示が上から降りてくるが、GTM戦略・ICP・バリュープロポジションが定義されていないため、担当者が何を埋めればよいかわからない状態になる。「カレンダーを作れと言われたら、まずGTMがあるか確認する」のが正しい順序。責任の所在はカレンダーの担当者ではなく、上流の戦略未定義にある。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【運用】</strong><br>MOps/RevOpsが管理・更新する。四半期単位での見直しと、月次での施策調整が一般的。',m:[],r:[{t:'GTM',d:'マーケティングカレンダーの大前提。GTMなしでは「誰に・何を・どのチャネルで」が決まらない'},{t:'ICP',d:'カレンダーの「誰に」を定義する'},{t:'バリュープロポジション',d:'カレンダーの「何を伝えるか」を定義する'},{t:'キャンペーン管理',d:'カレンダーはキャンペーン階層（L2〜L5）を時間軸に展開したもの'},{t:'MOps / RevOps',d:'がマーケティングカレンダーの管理・更新・レポートを担う'},{t:'PMF',d:'PMF未達の商材をカレンダーに入れても機能しない。GTM前にPMFを確認する'}]},
+  'campaign-l2':{label:'Offering（L2）— キャンペーン階層',desc:'キャンペーン管理の第2階層。製品・ソリューションラインを指す。例：「Azure」「Microsoft 365」「Dynamics 365」「Security」など。GTMの実行単位であり、複数のキャンペーン（L3）を束ねる。',m:[],r:[{t:'GTM',d:'の製品・ソリューション単位と対応する'},{t:'キャンペーン（L3）',d:'を複数束ねて予算・目標を管理する'}]},
+  'campaign-l3':{label:'キャンペーン（L3）— キャンペーン階層',desc:'キャンペーン管理の第3階層。Offering（L2）の下に位置する「大きなテーマ」。例：「AI変革」「クラウド移行」「生産性向上」「セキュリティ強化」など。複数のチャネル（L4）を横断して展開される統一テーマのこと。',m:[],r:[{t:'Offering（L2）',d:'に属し、テーマ単位で複数チャネルを横断する'},{t:'チャネル（L4）',d:'（ウェビナー・展示会・広告など）に分岐して実行される'}]},
+  'campaign-l4':{label:'チャネル（L4）— キャンペーン階層',desc:'キャンペーン管理の第4階層。キャンペーン（L3）を実行するための接点・媒体。例：ウェビナー・展示会・メール・広告・BDR/SDR・パートナーなど。BDR/SDRはチャネルとして扱うか議論があるが、キャンペーンへの貢献を計測する観点から含める場合もある。',m:[],r:[{t:'アクティビティ（L5）',d:'と接続し、具体的なコンテンツ・施策として実行される'},{t:'UTMパラメータ',d:'でチャネルごとの流入・CV数を計測する'}]},
+  'campaign-l5':{label:'アクティビティ（L5）— キャンペーン階層',desc:'キャンペーン管理の第5階層（最小実行単位）。チャネル（L4）の下に位置する具体的な施策・コンテンツ。例：「2025年3月ウェビナー：AI活用事例」「展示会ブース出展：Interop 2025」など。UTMやMAのキャンペーンタグと直接紐づき、成果計測の最小単位になる。',m:[],r:[{t:'チャネル（L4）',d:'から派生する実行単位'},{t:'MA',d:'のプログラム・フォーム・メールと紐づけてリードを計測する'}]},
+  'utm':{label:'UTMパラメータ（Urchin Tracking Module）',desc:'URLに付加するトラッキング用パラメータ。utm_source（流入元）・utm_medium（媒体）・utm_campaign（キャンペーン名）・utm_content（広告種別）などで構成される。GA4やMAと連携し、どのキャンペーン・チャネル・アクティビティからリードが流入したかを計測するキャンペーン管理の基盤。',m:[],r:[{t:'GA4',d:'と連携してセッション・CV・コンバージョンパスを計測する'},{t:'キャンペーン管理',d:'の各階層（L3〜L5）と命名規則を一致させて運用する'},{t:'MOps',d:'がUTM命名規則の標準化と計測設計を担う'}]},
+  'clay':{label:'Clay（GTM実行自動化プラットフォーム）',desc:'「独自データを持ち、それに基づいて行動する」GTMを実現するためのデータ統合・自動化プラットフォーム。150以上のデータプロバイダーへのアクセス・AIエージェント（Claygent）・インテントシグナル追跡・CRM自動同期をノーコードで統合できる。ABMのターゲットリスト構築→インテントシグナル検知→パーソナライズドアウトリーチ→CRM更新まで一気通貫で自動化できる点が特徴。OpenAI・Anthropic・Ripplingなどが導入。日本語対応・日本法人データのカバレッジには確認が必要。',m:[],r:[{t:'MOps / RevOps',d:'が設計・管理するGTMワークフローの実行基盤として機能する'},{t:'インテントデータ',d:'の収集・スコアリング・アクション化を一体で担う'},{t:'ABM',d:'のアカウントリスト構築・エンリッチ・アウトリーチ自動化に活用される'},{t:'BDR',d:'のリサーチ・アウトリーチ準備を自動化し、本質的な営業活動に集中させる'},{t:'CRM / SFA',d:'と双方向で連携しデータを自動エンリッチ・同期する'}]},
+  'gtm-engineer':{label:'GTMエンジニア（GTM Engineer / GTME）',desc:'Go-To-Market戦略をデータ・自動化・AIで実装する新しい職種。マーケティング・セールス・オペレーションの境界を横断し、ClayやMAなどのツールを活用してGTMワークフローを設計・構築・改善する。従来のBDR・マーケターとは異なり、ノーコード〜軽度コーディングでデータパイプラインや自動化フローを自前で作れることが特徴。Clayがこの職種の普及を主導しており、「The GTM Engineer」というコミュニティ・メディアも展開している。',m:[],r:[{t:'Clay',d:'はGTMエンジニアの主要ツールであり、この職種の普及を主導している'},{t:'RevOps / MOps',d:'と役割が重複する部分があるが、より実装・自動化寄りの職種'},{t:'BDR',d:'の業務を自動化・効率化するワークフローを構築する立場'}]},
+  'mops':{label:'MOps（オペレーション）',desc:'Marketing Operations（マーケティングオペレーション）の略。MAツールの運用・データ管理・MQL定義・ファネル計測・レポート作成など、マーケティング活動を裏側から支える機能・役割のこと。RevOpsのマーケティング特化バージョン。',m:[],r:[{t:'RevOps',d:'のマーケティング特化バージョン'},{t:'MQL / SQL / SAL',d:'の定義設計とファネル転換率の計測・最適化を担う'},{t:'MA',d:'の運用・最適化・レポートを主管する'}]},
+  'revops':{label:'RevOps（オペレーション）',desc:'Revenue Operations（レベニューオペレーション）の略。マーケティング・セールス・カスタマーサクセスのデータ・プロセス・テクノロジーを統合し、収益全体を可視化・最適化する機能・役割のこと。CROに収益インサイトを提供し、パイプライン・LTV・NPS全体を一元管理する。',m:[],r:[{t:'CRO',d:'に収益インサイトを提供し意思決定を支援する'},{t:'ABM',d:'のアカウントステータス・パイプライン健全性を計測し経営に報告する'},{t:'LTV / NPS',d:'を含む収益全体の指標を一元管理する'}]},
+  'ma':{label:'MA（マーケティングオートメーション）',desc:'Marketing Automation（マーケティングオートメーション）の略。リードの行動データを収集・スコアリングし、セグメント別のメール配信・ナーチャリングを自動化するツールカテゴリ。代表例：Marketo Engage / HubSpot / Pardot / Eloquaなど。',m:[],r:[{t:'代表的なツール',d:'Marketo Engage / HubSpot / Pardot / Eloquaなど。カテゴリとして存在し各社が選択する'},{t:'デマンドジェネレーション',d:'のナーチャリング・リードスコアリングを自動実行する'},{t:'uSonar',d:'と連携することでアカウントスコアリング精度を高める'},{t:'MOps',d:'が運用・最適化・レポートを主管する'}]},
+  'sfa':{label:'SFA（営業支援システム）',desc:'Sales Force Automation（営業支援システム）の略。商談の進捗・活動履歴・パイプライン管理を行うツールカテゴリ。CRMと統合または同一プラットフォームで実装されることが多い。代表例：Salesforce Sales Cloud / HubSpot CRM / Microsoft Dynamicsなど。',m:[],r:[{t:'代表的なツール',d:'Salesforce Sales Cloud / HubSpot CRM / Microsoft Dynamicsなど'},{t:'CRM',d:'と統合または同一プラットフォームで実装されることが多い'},{t:'uSonar',d:'と連携することでCRM内のデータ品質が向上する'},{t:'ABM',d:'のアカウントプラン・Buying Group・カバレッジ管理の記録基盤'}]},
+  'crm':{label:'CRM（顧客管理システム）',desc:'Customer Relationship Management（顧客管理システム）の略。顧客・見込み客の情報・履歴・関係性を一元管理するツールカテゴリ。ABMではアカウント・Buying Group・エンゲージメント履歴の管理基盤になる。代表例：Salesforce / HubSpot CRM / Microsoft Dynamics 365など。',m:[],r:[{t:'代表的なツール',d:'Salesforce / HubSpot CRM / Microsoft Dynamics 365など'},{t:'uSonar',d:'と連携しアカウントデータをCRMに付与。名寄せ・クレンジングでデータ品質を担保する'},{t:'Speeda',d:'と連携しICP適合度スコアをCRM上に付与。ABMダッシュボードも利用可能'},{t:'カスタマーサクセス',d:'が活用し顧客の健全性・LTV・NPS推移を管理する'}]},
+  'looker':{label:'BIダッシュボード（Looker Studioなど）',desc:'Business Intelligence（ビジネスインテリジェンス）ツールの一種で、MA・SFA・CRM・GA4などの複数データソースを統合して可視化するダッシュボードツール。マーケ・セールス・経営へのレポーティングを自動化する。代表例：Looker Studio / Tableau / Power BIなど。',m:[],r:[{t:'代表的なツール',d:'Looker Studio / Tableau / Power BIなど。MAやCRMのデータを統合して可視化する'},{t:'GA4 / サーチコンソール',d:'のデータを接続しWebマーケティングダッシュボードを構築する'},{t:'SFA / CRM / MA',d:'のデータを連携してパイプライン・収益・LTVダッシュボードを構築する'},{t:'象限別コンテンツROI',d:'を可視化。「象限AのWPが何件の商談に貢献したか」を経営に示す'}]},
+  'speeda':{label:'Speeda（戦略インテリジェンス）',desc:'企業・業界・市場に関するグローバルな経済情報・調査レポートを提供するインテリジェンスプラットフォーム。ICP設計の根拠データとなる業界分析・競合分析・アカウントプラン作成に使う。Speedaが「外部の市場・競合情報を提供する戦略インプット」であるのに対し、uSonarは「社内データを整備するデータインフラ」という役割の違いがある。',m:[],r:[{t:'カテゴリの他ツール例',d:'日経テレコン / FactSet / Bloomberg。グローバル市場・経済情報の調査に強い系統'},{t:'uSonarとの役割の違い',d:'Speedaは市場調査・ICP設計・アカウントプランの「戦略インプット」。uSonarはCRMデータの「データインフラ整備」'},{t:'ABM / ICP / Tier設計',d:'を直接支える企業データ基盤。受注確度の高い企業を自動リストアップする'},{t:'3C分析 / TAM',d:'の市場・競合データ収集にも活用できる経済情報プラットフォーム'}]},
+  'usonar':{label:'uSonar（データインフラ）',desc:'国内820万拠点の法人データベース（LBC）を持つデータインフラツール。CRM・SFA内の顧客データの名寄せ・クレンジング・属性付与を行い、ABMに必要なホワイトスペース（未接点の優良企業）を可視化する。Speedaが「外部の戦略情報を提供」するのに対し、uSonarは「社内データの品質を担保・整備する」役割を担う。',m:[],r:[{t:'Speedaとの役割の違い',d:'uSonarはCRM/SFA内の既存データを名寄せ・クレンジングして整備する「データインフラ」。Speedaは外部の市場・競合情報を提供する「戦略インテリジェンス」'},{t:'カテゴリの他ツール例',d:'Sansan / 帝国データバンク。国内法人データ・名寄せに強い系統'},{t:'CRM / SFA',d:'と連携しアカウントデータを最新状態に保つ'},{t:'ABM',d:'のホワイトスペース可視化・ターゲットリスト精度向上を支えるデータインフラ'}]},
+  'ga4':{label:'GA4（自社計測）',desc:'Googleが提供するWebサイト・アプリの行動分析ツール。ページビュー・コンバージョン・流入チャネルなどを計測する。バイヤーズジャーニーのどのコンテンツ・チャネルが認知〜検討に貢献しているかを分析できる。Looker Studioと連携してダッシュボードを構築する。',m:[],r:[{t:'カテゴリの他ツール例',d:'Adobe Analytics / Contentsquare。自社サイトのアクセス解析・行動計測ツール系統'},{t:'バイヤーズジャーニー',d:'のどのコンテンツ・チャネルが認知〜検討に貢献しているかを計測する'},{t:'Looker Studio',d:'にGA4データを連携してダッシュボードを構築する'}]},
+  'gsc':{label:'Googleサーチコンソール（自社計測）',desc:'Googleが無料提供するSEO分析ツール。自社サイトの検索パフォーマンス（表示回数・クリック数・CTR・平均掲載順位）を把握できる。AIが生成したAI Overview（AIO）にどの程度取り上げられているかも確認できる。エバーグリーンコンテンツの長期パフォーマンス追跡に不可欠。',m:[],r:[{t:'SEO / AIO',d:'の自社検索パフォーマンス（表示回数・CTR・順位）を把握する基本ツール'},{t:'象限Cコンテンツ（エバーグリーン）',d:'の長期パフォーマンス追跡に活用する'}]},
+  'user-insight':{label:'User Insight（自社計測）',desc:'ユーザーのWebサイト上の行動を可視化するヒートマップ・導線分析ツール。どこでページから離脱しているか、どこをよく見ているかを視覚的に確認できる。カスタマージャーニーのWebタッチポイント改善や、象限DのLP改善に活用する。',m:[],r:[{t:'カスタマージャーニー',d:'のWebサイト上のタッチポイント分析に活用する（ヒートマップ・導線）'},{t:'象限DのLP改善',d:'にデータを活用する'}]},
+  'ahrefs':{label:'Ahrefs（競合・市場リサーチ）',desc:'SEO分析に特化した競合リサーチツール。被リンク・キーワード順位・競合コンテンツのトラフィック推計・コンテンツギャップ分析などが強み。象限C（辞書コンテンツ）のキーワード選定・競合分析に活用する。同系統のツール：Semrush / Mozなど。',m:[],r:[{t:'カテゴリの他ツール例',d:'Semrush / Moz。SEO特化の競合コンテンツ分析・被リンク調査ツール系統'},{t:'3C分析',d:'の競合（C）のデジタルマーケティング戦略を分析する際に活用する'},{t:'象限Cコンテンツ',d:'のキーワード選定・競合ギャップ分析に活用する'}]},
+  'similarweb':{label:'Similarweb（競合・市場リサーチ）',desc:'競合サイトのトラフィック量・流入チャネル構成（SEO・広告・SNS・直接流入など）を推計するツール。AhrefsがSEO特化なのに対し、Similarwebはチャネルミックス全体の把握が強み。3C分析の競合（C）のデジタル戦略分析や、TAM/SAMの市場規模推定にも活用できる。',m:[],r:[{t:'Ahrefsとの違い',d:'AhrefsはSEO特化（被リンク・キーワード）、Similarwebは競合サイト全体のトラフィック・チャネル構成を把握する'},{t:'3C分析',d:'の競合（C）のトラフィック・チャネル構成を把握する際に活用する'},{t:'TAM / SAM',d:'の市場規模推定に競合サイトのトラフィックデータを活用できる'}]},
+  'rakko':{label:'ラッコキーワード（競合・市場リサーチ）',desc:'Googleのサジェストキーワード・関連キーワード・共起語を一括取得できる日本語特化のキーワード調査ツール。SEOコンテンツのテーマ選定・見出し設計・ユーザーの検索意図の把握に活用する。象限C（辞書コンテンツ・エバーグリーン）の企画に欠かせない。',m:[],r:[{t:'SEO / コンテンツ制作',d:'のキーワード調査ツール。サジェスト・共起語を一括取得する'},{t:'象限Cコンテンツ（エバーグリーン）',d:'のテーマ選定・見出し設計に活用する'}]},
+  'gtrends':{label:'Google Trends（競合・市場リサーチ）',desc:'Googleの検索トレンドデータを無料で可視化するツール。特定キーワードの検索需要の時系列変化・地域別の関心度・関連トピックを把握できる。象限B・Dのトレンドコンテンツの公開タイミング最適化や、イノベーター理論と組み合わせて「市場の関心フェーズ」を診断する際に活用する。',m:[],r:[{t:'イノベーター理論 / キャズム',d:'と組み合わせて「市場の関心がどのフェーズにあるか」をトレンドで把握する'},{t:'象限B・Dのトレンドコンテンツ',d:'の公開タイミング最適化に使う'}]},
+
+  'customer-interview':{label:'顧客インタビュー',desc:'既存顧客・見込み顧客・解約顧客に対して1対1で行う定性調査。アンケートでは取れない「文脈・感情・意思決定の背景」を深く掘り下げる。B2Bマーケティングで最も重要な一次情報収集手段の一つ。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【実施タイミング】</strong><br>CPF（課題が本当に存在するかの検証）・PSF（解決策の妥当性確認）・ICP定義の精緻化・コマーシャルインサイト生成・ウィン/ロス分析のすべてのフェーズで有効。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【設計のポイント】</strong><br>①質問は「製品の評価」ではなく「仕事・課題・行動」にフォーカスする ②誘導質問を避け、相手の言葉で語らせる ③「なぜ？」を3回繰り返すことで表層ではなく根本動機に到達できる ④録音・文字起こしで後からパターンを抽出する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【推奨サンプル数】</strong><br>質的な飽和（同じパターンが繰り返し出始める）が目安。一般的に5〜15名で主要テーマが浮かび上がる。定量的検証はその後アンケートで行う。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【デプスインタビュー（DI）との関係】</strong><br>デプスインタビューは顧客インタビューの専門的な実施形式の一つ（DI / Depth Interview）。1対1・60〜90分という基本構造は同じだが、専門インタビュアー（調査会社または社内専任）が担い、深層心理・価値観・無意識の動機まで掘り下げることに特化している。クロス・マーケティング・電通マクロミルインサイト等の調査会社が提供するサービス形態。自社で実施する顧客インタビューより時間・費用コストが高いが、センシティブなテーマや新市場参入前の深い消費者理解が必要な場面で特に有効。JTBDインタビューやウィン/ロス分析もデプスインタビューの形式で実施されることが多い。',m:[],r:[{t:'CPF / PSF',d:'フィット検証フェーズの主要リサーチ手法。バーニングニーズの存在確認に不可欠'},{t:'JTBDインタビュー',d:'顧客インタビュー・デプスインタビューの形式で実施される「仕事」特化型フレームワーク'},{t:'ウィン/ロス分析',d:'受注・失注直後に行う顧客インタビュー・デプスインタビューの用途特化版'},{t:'ICP',d:'インタビューで得た定性情報がICPの「心理属性・ビジネス状況」を補完する'},{t:'コマーシャルインサイト',d:'インタビューで発見した「顧客が気づいていない事実」がコマーシャルインサイトの原材料になる'},{t:'バイヤーズジャーニー',d:'インタビューで購買前後の行動・感情を把握しジャーニーを実態に基づいて設計する'}]},
+
+  'jtbd-interview':{label:'JTBDインタビュー（Jobs To Be Done）',desc:'顧客が「製品を雇って片付けたい仕事（Job）」を明らかにする定性インタビュー手法。製品評価・機能要望ではなく、顧客が「どんな状況で・何を達成したくて・どんな基準で選んだか」に焦点を当てる。C.クリステンセン/T.ウルウィックが体系化。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【通常の顧客インタビューとの違い】</strong><br>通常のインタビューが「製品への満足度・改善要望」を聞くのに対し、JTBDインタビューは「製品を使い始めた前後の文脈・スイッチング動機・競合と見なしているもの」を深掘りする。「なぜその時に買ったか」の時系列を追うことで、購買の本質的な動機が浮かび上がる。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主なインタビュー設計】</strong><br>①最初に気づいたとき（First Thought）②他のソリューションを検討したか ③なぜ今のタイミングで決断したか ④使い始めてから何が変わったか。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【アウトプット】</strong><br>Jobステートメント（「〜するとき、私は〜したい、そうすることで〜できる」）・機会スコア（重要度×未充足度）。',m:[],r:[{t:'JTBD',d:'このインタビュー手法が基づくフレームワーク'},{t:'顧客インタビュー',d:'JTBDインタビューは顧客インタビューの特化形式。基本的な設計思想は共通'},{t:'バリュープロポジション',d:'Jobステートメントからバリュープロポジションを逆引きできる'},{t:'ICP',d:'同じJobを持つ顧客群がICPの「心理属性セグメント」になる'},{t:'アンケート調査',d:'JTBDインタビューで発見したJobを定量的に優先順位付けするために使う'}]},
+
+  'win-loss':{label:'ウィン/ロス分析（Win/Loss Analysis）',desc:'受注（Win）・失注（Loss）した案件の関係者に対して、商談直後にインタビューや調査を行い「なぜ選ばれた/選ばれなかったか」を把握するリサーチ手法。B2Bにおいて最も直接的な競合・バイヤー行動インテリジェンスの収集手段。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【なぜ重要か】</strong><br>10万件超のB2B案件分析によると、営業チームが失注理由として挙げる内容とバイヤーが実際に感じた理由が50〜70%の確率でズレている（Corporate Visions調査）。営業のフィードバックだけでは「価格問題」「機能不足」に帰結しがちだが、実際はメッセージングのズレ・Buying Groupへのアプローチ不足・差別化の失敗が多い。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【実施のベストプラクティス】</strong><br>①商談完了後できるだけ早く（2〜4週間以内）実施 ②自社営業ではなく第三者・PMM主導で実施すると本音が出やすい ③Win・Loss・No Decisionの全パターンを調査する ④SFAの失注理由タグと突き合わせて傾向を抽出する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【アウトプット】</strong><br>競合比較データ・メッセージング改善点・ICP精度向上のインプット・バトルカードの根拠・コマーシャルインサイトの素材。',m:[],r:[{t:'コマーシャルインサイト',d:'ウィン/ロス分析から得た「購買基準のリセットが起きた/起きなかった理由」がインサイトの素材になる'},{t:'ICP',d:'Winした案件の共通属性を分析することでICPの精度が上がる'},{t:'バトルカード',d:'ウィン/ロス分析の競合比較データがバトルカードの主要インプット'},{t:'PMM',d:'ウィン/ロス分析の設計・実施・アウトプット活用はPMMの重要な責務'},{t:'Buying Group',d:'ウィン/ロス分析でBuying Groupのどのメンバーが決め手になったかを把握できる'},{t:'セールスイネーブルメント',d:'分析結果をBDR・フィールドセールスの武器として整備する'}]},
+
+  'survey-research':{label:'アンケート調査',desc:'多数の対象者に構造化された質問を送付し、定量的なデータを収集するリサーチ手法。定性インタビューで発見した仮説を統計的に検証し、「どれくらいの割合の顧客が同じ課題を持つか」を把握する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【B2Bでの留意点】</strong><br>母集団が小さく、回答者の役職・決裁権限によって回答が大きく変わる。役職・会社規模・業種をセグメント変数として必ず設定する。質問数は多いほど回答率が落ちるため15問以内が目安。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主な用途】</strong><br>市場調査（TAM/SAM推計）・顧客満足度測定・ICP仮説の検証・コンテンツ需要調査（象限Aの一次情報資産として公開）・競合認知度調査。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ツール例】</strong><br>SurveyMonkey / Google Forms / Typeform / Qualtrics（エンタープライズ向け）。',m:[],r:[{t:'JTBDインタビュー',d:'定性で発見したJobを定量的に優先順位付けするためのセットで使う手法'},{t:'ショーン・エリステスト',d:'PMF測定に特化したアンケートの一形式'},{t:'TAM / SAM / SOM',d:'アンケートデータが市場規模推計のインプットになる'},{t:'象限A（コンテンツ資産）',d:'自社調査レポートとして公開することで一次情報コンテンツになる'},{t:'ICP',d:'アンケートで得た定量データがICPの共通属性を統計的に裏付ける'}]},
+
+  'nps-survey':{label:'NPS調査（Net Promoter Score）',desc:'「この製品・サービスを友人や同僚に推薦する可能性は0〜10点で何点か」という質問でロイヤルティを測定する定量リサーチ手法（F.ライクヘルド考案）。9〜10点：推薦者（Promoter）、7〜8点：中立者（Passive）、0〜6点：批判者（Detractor）。NPS = 推薦者% − 批判者%。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【B2Bでの実施設計】</strong><br>①定期実施（四半期・半期ごと）でトレンドを追う ②スコアだけでなく「その点数をつけた理由」の自由記述を必ず取得する ③役職・業種・Tier別にセグメントして分析する ④低スコア顧客へはCSが即フォローアップする体制を作る。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【PMF測定との関係】</strong><br>ショーン・エリステストとNPSは補完関係にある。ショーン・エリステストは「なくなったら困るか」という潜在需要の強度を測り、NPSは「使い続けているユーザーのロイヤルティ」を測る。',m:[],r:[{t:'NPS',d:'このリサーチで測定する指標そのもの'},{t:'カスタマーサクセス',d:'NPS調査の設計・実施・フォローアップを主管する'},{t:'LTV',d:'NPSはLTVの先行指標。NPSが高い顧客はチャーン率が低くアップセルに応じやすい'},{t:'PMF',d:'NPSはPMF達成度を継続的に追跡する指標の一つ'},{t:'ショーン・エリステスト',d:'PMF段階での「潜在的ロイヤルティ」を測るNPSの補完手法'}]},
+
+  'sean-ellis-test':{label:'ショーン・エリステスト（Sean Ellis Test）',desc:'「このプロダクトが使えなくなったら、あなたはどう感じますか？」という質問に対して「非常に残念」と答えた割合でPMF達成度を測定するアンケート手法（Dropbox元CMOのSean Ellisが考案）。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【判断基準】</strong><br>「非常に残念」が40%以上 → PMF達成の目安。40%未満 → PMF未達、プロダクトまたはターゲット顧客の見直しが必要。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【選択肢の構成】</strong><br>① 非常に残念 ② 少し残念 ③ 残念ではない（そこまで役に立っていない）④ すでに使っていない。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【実施上の注意】</strong><br>①コアバリューを実感しているユーザーに限定する（直近2週間以内に使ったユーザーが対象として適切）②サンプルサイズは最低40〜50名が必要 ③「非常に残念」と答えた人の自由記述から「誰が・なぜ価値を感じるか」を読み取ることがPMF後のICP精緻化に直結する。',m:[],r:[{t:'PMF',d:'ショーン・エリステストはPMF達成の主要な測定指標'},{t:'ECP',d:'テストで「非常に残念」と答えた顧客層がECPの実態を表す'},{t:'ICP',d:'PMF達成後、「非常に残念」回答者の共通属性がICPの出発点になる'},{t:'NPS調査',d:'の補完手法。NPSは継続利用者のロイヤルティ、ショーン・エリステストは潜在的な需要の強度を測る'},{t:'アンケート調査',d:'ショーン・エリステストはアンケートの一形式。実施設計はアンケート調査の基本に従う'}]},
+
+  'competitive-intel':{label:'競合インテリジェンス',desc:'競合他社の製品・価格・メッセージング・GTM戦略・強み・弱みを継続的に収集・分析・活用する情報活動全体のこと。単発の競合調査ではなく、常時アップデートされるインテリジェンスプログラムとして運用することが重要。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主な情報源】</strong><br>①ウィン/ロス分析（最も直接的）②レビューサイト（G2・IT Review・BOXIL等）③競合のWebサイト・コンテンツ ④求人情報（採用ポジションで戦略が見える）⑤Speeda・Ahrefs・Similarwebによるデジタル分析 ⑥営業からのヒアリング（SFAに記録）。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【活用先】</strong><br>バトルカード・コマーシャルインサイト設計・ポジショニングマップ・STPの差別化軸・セールスイネーブルメント。',m:[],r:[{t:'バトルカード',d:'競合インテリジェンスを営業が即使える形式に整理したアウトプット'},{t:'ウィン/ロス分析',d:'競合インテリジェンスの最も重要な一次情報源'},{t:'ポジショニングマップ',d:'競合インテリジェンスで収集した競合の立ち位置データを可視化する'},{t:'コマーシャルインサイト',d:'競合との比較における自社の独自性がコマーシャルインサイトの素材になる'},{t:'Speeda / Ahrefs / Similarweb',d:'競合インテリジェンスのデジタルデータ収集ツール'}]},
+
+  'battlecard':{label:'バトルカード（Battle Card）',desc:'競合他社と対峙する営業場面で即座に使えるよう、競合との比較・差別化ポイント・反論への返し方を1〜2ページに凝縮した営業支援ドキュメント。セールスイネーブルメントの中核コンテンツの一つ。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【記載項目の例】</strong><br>①競合の概要（強み・弱み・主な顧客層）②よく出る競合の主張とその切り返し ③自社が勝ちやすいシナリオ / 負けやすいシナリオ ④価格比較・機能比較 ⑤競合から乗り換えた事例の要点。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【作成のポイント】</strong><br>ウィン/ロス分析・競合インテリジェンス・実際の商談録音を根拠にすること。PMMが作成し、BDR・フィールドセールスと共同でブラッシュアップする。最低四半期ごとに更新する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【配置象限】</strong><br>企画4象限のA（自社にしか作れない一次情報）に位置する。</p>',m:['A'],r:[{t:'競合インテリジェンス',d:'バトルカードの根拠データ。インテリジェンスの質がバトルカードの精度を決める'},{t:'ウィン/ロス分析',d:'バトルカードの「切り返しトーク」の根拠が得られる最重要情報源'},{t:'セールスイネーブルメント',d:'バトルカードをBDR・フィールドセールスに届け活用を促す機能'},{t:'PMM',d:'バトルカードの設計・更新を主管する役割'},{t:'コマーシャルインサイト',d:'バトルカードで伝える差別化ポイントとコマーシャルインサイトは表裏一体'}]},
+
+  'tam-research':{label:'TAM/SAM調査',desc:'市場規模（TAM・SAM・SOM）を定量的に推計するリサーチ。GTM投資判断・ICP設計・経営への説明責任のために実施する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【2つのアプローチ】</strong><br>①トップダウン：業界レポート・市場調査会社データ（Speeda・Gartner・IDC等）から全体市場を推計し自社シェア比率を掛け合わせる。スピードが速いが精度は粗い。②ボトムアップ：ICP定義から対象企業数を積み上げ（uSonar等で抽出）、1社あたりの期待ACV × 対象企業数で算出する。実態に即した精度が高い推計が可能。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【SOMとの関係】</strong><br>TAM/SAMはマクロの市場規模を示すが、実際にリソースを集中すべきは現実的に獲得できるSOM（Serviceable Obtainable Market）。ICP × Tier設計 × 企業カバレッジKPIと組み合わせてSOMを具体化する。',m:[],r:[{t:'TAM / SAM / SOM',d:'このリサーチで推計する市場規模の概念フレームワーク'},{t:'ICP',d:'ボトムアップ推計のベースになる。ICP定義が精度を決める'},{t:'Speeda / uSonar',d:'トップダウン（Speeda）・ボトムアップ（uSonar）それぞれの推計に使う主要ツール'},{t:'アンケート調査',d:'一次データで市場規模・需要を推計する補完手段'},{t:'企業カバレッジ',d:'SOMの中で自社がまだカバーできていない割合の推計にTAM/SAM調査が必要'}]},
+};
+
+let cur=null;
+
+// ── ポップアップリサイズ ──
+(function(){
+  const handle = document.getElementById('popup-resize');
+  const popup  = document.getElementById('popup');
+  const body   = document.getElementById('popup-body');
+  let dragging = false, startX, startY, startW, startH;
+
+  handle.addEventListener('mousedown', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    dragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    startW = popup.offsetWidth;
+    startH = popup.offsetHeight;
+    document.body.style.userSelect = 'none';
+  });
+
+  document.addEventListener('mousemove', function(e){
+    if(!dragging) return;
+    const newW = Math.max(240, startW + (e.clientX - startX));
+    const newH = Math.max(120, startH + (e.clientY - startY));
+    popup.style.width  = newW + 'px';
+    popup.style.height = newH + 'px';
+    // bodyの高さを動的に調整（header分を引く）
+    const headerH = document.getElementById('popup-header').offsetHeight;
+    body.style.height = (newH - headerH - 36) + 'px';
+  });
+
+  document.addEventListener('mouseup', function(){
+    if(dragging){
+      dragging = false;
+      document.body.style.userSelect = '';
+    }
+  });
+
+  // タッチ対応
+  handle.addEventListener('touchstart', function(e){
+    e.stopPropagation();
+    const t = e.touches[0];
+    dragging = true;
+    startX = t.clientX; startY = t.clientY;
+    startW = popup.offsetWidth; startH = popup.offsetHeight;
+  });
+  document.addEventListener('touchmove', function(e){
+    if(!dragging) return;
+    const t = e.touches[0];
+    const newW = Math.max(240, startW + (t.clientX - startX));
+    const newH = Math.max(120, startH + (t.clientY - startY));
+    popup.style.width  = newW + 'px';
+    popup.style.height = newH + 'px';
+    const headerH = document.getElementById('popup-header').offsetHeight;
+    body.style.height = (newH - headerH - 36) + 'px';
+  });
+  document.addEventListener('touchend', function(){ dragging = false; });
+})();
+
+
+function closePopup(){
+  const p=document.getElementById('popup');
+  p.style.display='none';
+  p.classList.remove('show');
+  if(cur){cur.classList.remove('selected');cur=null;}
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  document.getElementById('popup-close').addEventListener('click',function(e){
+    e.stopPropagation();
+    closePopup();
+  });
+});
+
+function sel(el,event){
+  if(cur===el){closePopup();return;}
+  if(cur)cur.classList.remove('selected');
+  cur=el;el.classList.add('selected');
+  const d=DATA[el.dataset.id];if(!d)return;
+
+  // ポップアップ内容を構築
+  document.getElementById('popup-title').textContent=d.label;
+  const descHtml=d.desc?'<div style="font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--border2);">'+d.desc+'</div>':'';
+  const relsHtml=d.r.map(r=>'<div class="ri"><span class="rs">→</span><span class="rd"><span class="rt">'+r.t+'</span>：'+r.d+'</span></div>').join('');
+  const relsTitle=d.r.length>0?'<div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:8px;">他の用語との関係性</div>':'';
+  document.getElementById('popup-list').innerHTML=descHtml+relsTitle+relsHtml;
+  let ex='';
+  if(d.m&&d.m.length>0)ex+=bM(d.m);
+  if(d.x)ex+=d.x;
+  document.getElementById('popup-extra').innerHTML=ex;
+
+  // 位置計算
+  const p=document.getElementById('popup');
+  p.style.display='block';
+  const rect=el.getBoundingClientRect();
+  const scrollY=window.scrollY||document.documentElement.scrollTop;
+  const scrollX=window.scrollX||document.documentElement.scrollLeft;
+  const pw=p.offsetWidth;
+  const ph=p.offsetHeight;
+  const winW=window.innerWidth;
+  const winH=window.innerHeight;
+  const tail=document.getElementById('popup-tail');
+
+  // 上下判定：下に出すか上に出すか
+  const spaceBelow=winH-(rect.bottom);
+  const showAbove=spaceBelow < ph+20 && rect.top > ph+20;
+
+  let top, left;
+  if(showAbove){
+    top=rect.top+scrollY-ph-10;
+    tail.className='popup-tail tail-bottom';
+  } else {
+    top=rect.bottom+scrollY+10;
+    tail.className='popup-tail';
+  }
+
+  // 左右判定：右端からはみ出さないよう調整
+  left=rect.left+scrollX;
+  if(left+pw > scrollX+winW-16) left=scrollX+winW-pw-16;
+  if(left < scrollX+8) left=scrollX+8;
+
+  // tailの横位置をチップに合わせる
+  const tailX=rect.left+scrollX+rect.width/2-left-6;
+  tail.style.left=Math.max(8,Math.min(pw-24,tailX))+'px';
+
+  p.style.top=top+'px';
+  p.style.left=left+'px';
+  p.style.display='block';
+  p.classList.add('show');
+}
+
+// ポップアップ外クリックで閉じる
+document.addEventListener('click',function(e){
+  const p=document.getElementById('popup');
+  if(p.style.display==='none'||!p.classList.contains('show'))return;
+  if(p.contains(e.target))return;
+  if(e.target.classList.contains('nc'))return;
+  closePopup();
+});
+// ── パラダイムシフト診断 ──
+const answers = {};
+const results = {
+  // フェーズ判定ロジック：ABMスコア（B回答の数）で分類
+  get phase() {
+    const bCount = Object.values(answers).filter(v => v === 'B').length;
+    const aCount = Object.values(answers).filter(v => v === 'A').length;
+    if (bCount >= 3) return 2;
+    if (bCount >= 1 || aCount <= 2) return 1;
+    return 0;
+  }
+};
+
+const phaseData = [
+  {
+    cls: 'phase-0',
+    phase: 'フェーズ 0 — Lead Based 初期',
+    title: 'MQL重視・デマンドジェネレーション中心の段階',
+    desc: 'マーケティングがリードを量産してファネルに流す構造。MQL数・CPLがKPIの中心。フォームゲーティングでリードを取得し、SDRが受けて商談化するフローが基本。この段階では「マーケは認知・リード獲得、営業は商談化」という分業が固定されており、Buying Groupへの視点がまだ生まれていない。',
+    next: '次のアクション',
+    items: [
+      'ICPを定義する：どんな企業が最もLTVが高いか、受注しやすいかを過去データから整理する',
+      'Buying Groupを意識する：商談に誰が関与しているかをSFAに記録し始める',
+      'コンテンツ企画4象限を使ってAの象限に投資する計画を立てる',
+      'MQL数だけでなくMQL→SQL転換率・商談化率を計測し始める',
+    ]
+  },
+  {
+    cls: 'phase-1',
+    phase: 'フェーズ 1 — 移行期',
+    title: 'Lead BasedとABMが混在している段階',
+    desc: 'デマンドジェネレーションは継続しつつ、戦略アカウント向けにABM的なアプローチを試み始めている段階。ICPの定義は始まっているが、Tier設計・BDR体制・コマーシャルインサイト設計はまだ途上。マーケと営業の連携強化が課題になっていることが多い。フォームゲーティングとオープンコンテンツの使い分けが論点になり始めている。',
+    next: '次のアクション',
+    items: [
+      'Tier1アカウントを20〜30社に絞り込み、BDRがアウトバウンドする仕組みを作る',
+      '象限Aの一次情報コンテンツ（市場調査・競合比較・失注分析）を1本作る',
+      'コンテンツゲーティング戦略を見直す：象限C・DはフルオープンにしてAIOへの対応を始める',
+      'RevOps視点でマーケ・営業・CSのデータを統合し、パイプライン貢献度を可視化する',
+    ]
+  },
+  {
+    cls: 'phase-2',
+    phase: 'フェーズ 2 — ABM中心',
+    title: 'Buying Groupを起点にしたアカウント設計ができている段階',
+    desc: 'ICPとTier設計が確立し、BDRがコマーシャルインサイトを武器にアウトバウンドで戦略アカウントにアプローチしている。MQLよりもパイプライン創出量・商談化率・LTVがKPIの中心。コンテンツは象限Aに集中投資し、フォームゲーティングは一次情報のみに絞っている。マーケ・営業・CSがRevOps視点で一体化しつつある。',
+    next: '次のアクション',
+    items: [
+      'コマーシャルインサイトの継続的な生産体制を構築する（PMM・CS・エンジニアの三者連携）',
+      'Speeda・uSonarを活用してICP適合度スコアによるTier自動分類を実装する',
+      'モビライザーの特定とBuying Group全体のカバレッジ率をSFAで計測・管理する',
+      'AIOへの対応を強化し、コマーシャルインサイトがAI検索に引用されるよう構造化する',
+    ]
+  }
+];
+
+function answer(q, val) {
+  answers[q] = val;
+  const total = 4;
+  const answered = Object.keys(answers).length;
+
+  if (answered < total) {
+    // 次の質問へ
+    document.getElementById('q' + q).classList.remove('active');
+    document.getElementById('q' + (q + 1)).classList.add('active');
+  } else {
+    // 結果表示
+    const ph = results.phase;
+    const d = phaseData[ph];
+    document.getElementById('check-q').style.display = 'none';
+    const box = document.getElementById('check-result');
+    box.style.display = 'block';
+    box.innerHTML = `
+      <div class="check-result-box ${d.cls}">
+        <div class="check-result-phase">${d.phase}</div>
+        <div class="check-result-title">${d.title}</div>
+        <div class="check-result-desc">${d.desc}</div>
+        <div class="check-result-next">${d.next}</div>
+        <ul class="check-result-items">
+          ${d.items.map(i => '<li>' + i + '</li>').join('')}
+        </ul>
+        <button class="check-retry" onclick="retryCheck()">もう一度診断する</button>
+      </div>
+    `;
+  }
+}
+
+function retryCheck() {
+  Object.keys(answers).forEach(k => delete answers[k]);
+  document.querySelectorAll('.check-q').forEach(q => q.classList.remove('active'));
+  document.getElementById('q1').classList.add('active');
+  document.getElementById('check-q').style.display = 'block';
+  document.getElementById('check-result').style.display = 'none';
+}
+
+</script>
+<div style="margin-top:48px;padding:16px 0 24px;border-top:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span style="font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--text2);">MAPS</span>
+    <span style="font-size:10px;color:var(--text3);">Marketing Advice for Practical Steps</span>
+  </div>
+  <div style="font-size:10px;color:var(--text3);">© 2026 EY MARKETING — 本資料の無断転載・商用利用を禁じます</div>
+</div>
+
+</body>
+</html>
