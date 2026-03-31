@@ -154,6 +154,8 @@ body{background:#F5F4F0;background:var(--bg);color:var(--text1);font-family:'Not
 /* 限界グリッド */
 .limit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:start;}
 @media(max-width:600px){.limit-grid{grid-template-columns:1fr;}}
+@media(max-width:700px){.role-nav-grid{grid-template-columns:1fr 1fr !important;}}
+@media(max-width:420px){.role-nav-grid{grid-template-columns:1fr !important;}}
 .limit-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:16px;}
 .limit-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
 .limit-icon{font-size:26px;flex-shrink:0;line-height:1;}
@@ -358,6 +360,56 @@ body{background:#F5F4F0;background:var(--bg);color:var(--text1);font-family:'Not
   <div class="li"><div class="ld" style="background:#3A7A50"></div>リサーチ手法</div>
 </div>
 
+<!-- 初見ユーザー導線ガイド -->
+<div style="margin-bottom:14px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;">
+  <div style="padding:8px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:8px;">
+    <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);">どこから読むか — ロール別おすすめルート</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;">
+
+    <div style="padding:12px 14px;border-right:1px solid var(--border);">
+      <div style="font-size:11px;font-weight:700;color:var(--text1);margin-bottom:6px;">🧭 B2Bマーケ初学者</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);"><span style="background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:0 5px;font-size:9px;font-weight:700;color:var(--text2);flex-shrink:0;">01</span>環境分析から全体像を掴む</div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);"><span style="background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:0 5px;font-size:9px;font-weight:700;color:var(--text2);flex-shrink:0;">02</span>戦略FWで依存関係を理解</div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);"><span style="background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:0 5px;font-size:9px;font-weight:700;color:var(--text2);flex-shrink:0;">08</span>概念・プロセスで実務用語を把握</div>
+        <div style="font-size:10px;color:var(--text3);margin-top:4px;">→ その後 Goodbye MQL タブへ</div>
+      </div>
+    </div>
+
+    <div style="padding:12px 14px;border-right:1px solid var(--border);">
+      <div style="font-size:11px;font-weight:700;color:var(--text1);margin-bottom:6px;">✍️ コンテンツ担当</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);"><span style="background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:0 5px;font-size:9px;font-weight:700;color:var(--text2);flex-shrink:0;">04</span>SICフレームワークを理解する</div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);"><span style="background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:0 5px;font-size:9px;font-weight:700;color:var(--text2);flex-shrink:0;">05</span>ライティング手法を選ぶ</div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);"><span style="background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:0 5px;font-size:9px;font-weight:700;color:var(--text2);flex-shrink:0;">06</span>コンテンツ資産タイプを把握</div>
+        <div style="font-size:10px;color:var(--text3);margin-top:4px;">→ その後 コンテンツ企画4象限 / コンテンツ戦略 2026 タブへ</div>
+      </div>
+    </div>
+
+    <div style="padding:12px 14px;border-right:1px solid var(--border);">
+      <div style="font-size:11px;font-weight:700;color:var(--text1);margin-bottom:6px;">🎯 営業 / BDR担当</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);"><span style="background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:0 5px;font-size:9px;font-weight:700;color:var(--text2);flex-shrink:0;">03</span>ABMの概念・役割を理解する</div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);"><span style="background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:0 5px;font-size:9px;font-weight:700;color:var(--text2);flex-shrink:0;">07</span>役割・職種の定義を確認する</div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);"><span style="background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:0 5px;font-size:9px;font-weight:700;color:var(--text2);flex-shrink:0;">14</span>インテリジェンス基盤を把握</div>
+        <div style="font-size:10px;color:var(--text3);margin-top:4px;">→ その後 ハイブリッドGTM タブへ</div>
+      </div>
+    </div>
+
+    <div style="padding:12px 14px;">
+      <div style="font-size:11px;font-weight:700;color:var(--text1);margin-bottom:6px;">📊 マーケ責任者 / GTM設計者</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);"><span style="background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:0 5px;font-size:9px;font-weight:700;color:var(--text2);flex-shrink:0;">02</span>戦略FW・GTM定義を確認する</div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);"><span style="background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:0 5px;font-size:9px;font-weight:700;color:var(--text2);flex-shrink:0;">03</span>ABMモデルの全体像を把握</div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);"><span style="background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:0 5px;font-size:9px;font-weight:700;color:var(--text2);flex-shrink:0;">11</span>RevOps / MOps の役割を整理</div>
+        <div style="font-size:10px;color:var(--text3);margin-top:4px;">→ その後 ハイブリッドGTM / Goodbye MQL タブへ</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <div class="fs" style="margin-bottom:16px;padding:12px 14px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);">
 
   <!-- ① 戦略設計の依存関係 -->
@@ -369,7 +421,7 @@ body{background:#F5F4F0;background:var(--bg);color:var(--text1);font-family:'Not
     <span class="fc c-fw">GTM</span>
   </div>
   <div style="font-size:10px;color:var(--text3);margin-bottom:10px;line-height:1.6;padding-left:2px;">
-    ※ 製品戦略＝PdM/PMMが担うプロダクトロードマップ・機能優先度の定義。GTMはその下に位置する市場参入設計。
+    ※ 製品戦略＝PdM/PMMが担うプロダクトロードマップ・機能優先度の定義。GTMはその下に位置する市場投入・市場拡大の設計全体。PMF前は検証のため、PMF後は拡大のために設計される。
   </div>
 
   <!-- ② GTM設計に必須の定義フレームワーク -->
@@ -469,6 +521,8 @@ body{background:#F5F4F0;background:var(--bg);color:var(--text1);font-family:'Not
     <span class="nc c-fw" data-id="positioning-map" onclick="sel(this,event)">ポジショニングマップ</span>
     <span class="nc c-fw" data-id="value-prop" onclick="sel(this,event)">バリュープロポジション</span>
     <span class="nc c-fw" data-id="whole-product" onclick="sel(this,event)">ホールプロダクト</span>
+    <span class="nc c-fw" data-id="beachhead" onclick="sel(this,event)">ビーチヘッド戦略</span>
+    <span class="nc c-fw" data-id="bowling-pin" onclick="sel(this,event)">ボウリングピン戦略</span>
     <span class="nc c-fw" data-id="jtbd" onclick="sel(this,event)">JTBD</span>
     <span class="nc c-fw" data-id="mgmt-strategy" onclick="sel(this,event)">経営戦略</span>
     <span class="nc c-fw" data-id="biz-strategy" onclick="sel(this,event)">事業戦略</span>
@@ -1631,7 +1685,9 @@ const DATA={
   '3c':{label:'3C分析',desc:'顧客（Customer）・競合（Competitor）・自社（Company）の3つの視点から市場環境を整理するフレームワーク。STPやICP設計の根拠データを導き出す。',m:[],r:[{t:'SWOT',d:'と並ぶ環境分析フレームワーク。顧客（Customer）・競合（Competitor）・自社（Company）の3軸'},{t:'STP',d:'のセグメンテーション・ターゲティングの根拠データを提供する'},{t:'ICP',d:'の設計にも顧客（C）の分析結果が直接活用される'},{t:'Speeda / Similarweb / Ahrefs',d:'が3C分析の競合・市場データ収集を支援するツール群'}]},
   'tam':{label:'TAM / SAM / SOM',desc:'市場規模を3段階で定義する概念。TAM（Total Addressable Market）は理論上の全体市場、SAM（Serviceable Addressable Market）は実際に狙える市場、SOM（Serviceable Obtainable Market）は現実的に獲得可能な市場。GTM投資判断の根拠になる。',m:[],r:[{t:'GTM',d:'への投資判断の根拠。TAM（全体市場）→SOM（獲得可能市場）を示すことで経営層への説明責任を果たす'},{t:'STP',d:'のセグメンテーションで市場規模を定量化する際に使う'},{t:'イノベーター理論 / キャズム',d:'と組み合わせて「今どのフェーズで戦うか」を市場規模と合わせて判断する'}]},
   'innovation-curve':{label:'イノベーター理論',desc:'新技術・製品の普及過程を5段階（イノベーター2.5%→アーリーアダプター13.5%→アーリーマジョリティ34%→レイトマジョリティ34%→ラガード16%）で説明するフレームワーク（E.ロジャーズ）。自社製品が市場のどのフェーズにいるかを診断する際に使う。',m:[],r:[{t:'キャズム',d:'と対でセット。イノベーター→アーリーアダプター→アーリーマジョリティ→レイトマジョリティ→ラガードの5段階'},{t:'PMF',d:'との関係が深い。PMF達成後にキャズムを越えてアーリーマジョリティへ届けるのがGTMの主目的'},{t:'STP',d:'のターゲティングで「今どの層を狙うか」を規定する根拠フレームワーク'}]},
-  'chasm':{label:'キャズム',desc:'イノベーター理論の拡張概念（J.ムーア）。アーリーアダプターとアーリーマジョリティの間に存在する「越えられない溝（キャズム）」のこと。PMFを達成しても、このキャズムを越えない限り大きな市場成長は起きない。B2Bスタートアップが直面する最大の壁の一つ。',m:[],r:[{t:'イノベーター理論',d:'の拡張概念。アーリーアダプターとアーリーマジョリティの間にある「越えられない溝」'},{t:'PMF',d:'を達成しても、キャズムを越えない限り大きな市場成長は起きない'},{t:'GTM',d:'でキャズムを越える戦略（ニッチ市場の制圧→拡大）を設計することが最重要課題の一つ'},{t:'ABM',d:'はキャズム越えのアプローチとして有効。特定の業界・アカウントを深耕して突破口を開く'}]},
+  'chasm':{label:'キャズム',desc:'イノベーター理論の拡張概念（J.ムーア）。アーリーアダプターとアーリーマジョリティの間に存在する「越えられない溝（キャズム）」のこと。PMFを達成しても、このキャズムを越えない限り大きな市場成長は起きない。B2Bスタートアップが直面する最大の壁の一つ。',m:[],r:[{t:'イノベーター理論',d:'の拡張概念。アーリーアダプターとアーリーマジョリティの間にある「越えられない溝」'},{t:'PMF',d:'を達成しても、キャズムを越えない限り大きな市場成長は起きない'},{t:'ビーチヘッド戦略',d:'キャズムを越えるための具体的な実行戦略。特定ニッチへの一点集中が出発点'},{t:'GTM',d:'でキャズムを越える戦略（ニッチ市場の制圧→拡大）を設計することが最重要課題の一つ'},{t:'ABM',d:'はキャズム越えのアプローチとして有効。特定の業界・アカウントを深耕して突破口を開く'}]},
+  'beachhead':{label:'ビーチヘッド戦略（Beachhead Strategy）',desc:'キャズムを越えるための第一手として、広大な市場全体を一度に攻めるのではなく、特定のニッチ市場に全リソースを集中投下し「圧倒的No.1」を確立する戦略。ジェフリー・ムーア『Crossing the Chasm』が出典。日本語訳では「橋頭堡（きょうとうほ）」と訳される。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【なぜ必要か】</strong><br>キャズムの右側にいるアーリーマジョリティ（実利主義者）は「機能」ではなく「自分と同じ環境の成功事例」で動く。特定セグメントで圧倒的な実績を作ることで、同業他社が「あそこが使っているなら」と動き始める連鎖が生まれる。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ビーチヘッド選定の基準】</strong><br>①課題が切実である（バーニングニーズが存在する）②成功事例を作りやすい（協力的な担当者・短期での成果が見込める）③波及効果が高い（そこでの成功が隣接市場へ口コミや参照事例として広がりやすい）。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ホールプロダクトとの関係】</strong><br>ビーチヘッドを攻略するには、その業種特有の課題を100%解決するホールプロダクトを完成させることが前提条件になる。',m:[],r:[{t:'キャズム',d:'ビーチヘッド戦略が必要になる根拠。キャズムを越えるための具体的な実行手段'},{t:'ボウリングピン戦略',d:'ビーチヘッド確立後の展開戦略。1番ピンを倒して隣接市場へ連鎖させる'},{t:'ホールプロダクト',d:'ビーチヘッド攻略に不可欠。そのセグメントの課題を100%解決する完全な製品を準備する'},{t:'ICP / Tier設計',d:'どのセグメントをビーチヘッドにするかの選定基準がICP設計と直結する'}]},
+  'bowling-pin':{label:'ボウリングピン戦略（Bowling Pin Strategy）',desc:'ビーチヘッドで勝利した後、その成功を隣接市場へ連鎖的に展開する市場拡大の設計思想。ジェフリー・ムーアが提唱。ボウリングで1番ピンを倒すと他のピンが連鎖して倒れる構造に例えられる。「ファーストピンを狙え」という言葉はここから来ている。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【設計の考え方】</strong><br>①まず「1番ピン（ビーチヘッド）」を定義する ②1番ピンが倒れたとき、口コミ・成功事例・参照事例が波及しやすい「隣接セグメント（2番・3番ピン）」はどこかを事前に設計する ③リソースを分散させず、1番ピンに集中してから連鎖を起こす。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【隣接市場への波及パターン】</strong><br>業種横展開（製造業で成功→物流業へ）・部門横展開（マーケ部門で成功→営業部門へ）・規模横展開（SMBで成功→ミッドマーケットへ）。',m:[],r:[{t:'ビーチヘッド戦略',d:'ボウリングピン戦略の前提。まずビーチヘッド（1番ピン）を倒すことが出発点'},{t:'キャズム',d:'ボウリングピン戦略はキャズムを越えた後のメインストリーム市場拡大に有効'},{t:'GTM',d:'ボウリングピン戦略はGTMの市場拡大フェーズの設計に直結する'},{t:'ICP',d:'どのセグメントが2番・3番ピンになるかの設計はICPの発展的活用'}]},
   'burning-needs':{label:'バーニングニーズ（Burning Needs）',desc:'「髪の毛に火が付いていて、今すぐ消すことが求められる」ような切迫・切実なニーズのこと。PMF達成に向けたCPFフェーズで最初に探すべき顧客の課題の質を表す概念。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【Nice to Have との違い】</strong><br>Nice to Have（あると嬉しいが、なくても困らない）ではなく、Must Have（業務上なくてはならない）なニーズを指す。B2B新規事業でありがちな失敗は、Nice to Haveなニーズに対してプロダクトを作り、GTMに投資してしまうこと。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【バーニングニーズのサイン】</strong><br>①過去にソリューションを探したことがあり諦めている ②モノがなくても口頭や営業資料の段階で買いたいと言う ③打ち合わせ中に顧客が身を乗り出してくる ④課題について話し始めると止まらない。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【SIerの新規事業への示唆】</strong><br>海外スタートアップ商材や新規事業の立ち上げ時、まず「この課題はバーニングニーズか？」を検証することが先決。バーニングニーズが確認できないままGTM施策（展示会・広告・MA）を動かしても機能しない。',m:[],r:[{t:'CPF',d:'バーニングニーズが存在するかを検証するフェーズ'},{t:'ECP',d:'バーニングニーズを持つ最初の顧客像がECP（アーリーカスタマー）'},{t:'PMF',d:'バーニングニーズを満たすプロダクトが市場に適合した状態'},{t:'JTBD',d:'バーニングニーズを「顧客が何の仕事をするために雇うか」の視点で言語化したもの'},{t:'ICP',d:'バーニングニーズを持つ顧客群の共通属性がICPの出発点になる'}]},
   'cpf':{label:'CPF（Customer Problem Fit）',desc:'フィットジャーニーの第1フェーズ。「顧客に本当に切実な課題（バーニングニーズ）が存在するか」を検証する段階。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【バーニングニーズとは】</strong><br>「髪の毛に火が付いていて今すぐ消す必要がある」ような切迫したニーズ。Nice to Have（あると嬉しい）ではなくMust Have（なくてはならない）なニーズのこと。サインは「課題について話し始めると止まらない」「モノがなくても口頭段階で買いたいと言う」など。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主な活動】</strong><br>顧客インタビュー・PoCでの課題探索・仮説の言語化と精緻化。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【達成の指標】</strong><br>課題が実在すること、その課題が解決するに値する切実な事柄であること。',m:[],r:[{t:'PSF',d:'CPF達成後に進む次のフェーズ。課題に対する解決策を検証する'},{t:'バイヤーズジャーニー',d:'のAwareness（認知）フェーズに対応する'},{t:'ECP',d:'CPFフェーズで最初に向き合う顧客像。熱量の高いアーリーユーザー'},{t:'PoC',d:'課題探索のための受託やPoC実施がCPFの主要活動'}]},
   'psf':{label:'PSF（Problem Solution Fit）',desc:'フィットジャーニーの第2フェーズ。「課題に対する解決策が顧客が求めるものか」を検証する段階。お金を払ってでも解決したいかを確認する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【重要な原則】</strong><br>この段階でいきなりプロダクトを作らない。口頭プレゼン・営業資料・ランディングページなどライトなアウトプットで検証し、「それだったらお金を出してでも欲しい」という反応を得てから作り始める。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【主な活動】</strong><br>MVPの作成・営業資料/デモの作成・顧客インタビュー・プレ営業。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【達成の指標】</strong><br>熱狂的な数名の顧客が存在すること。',m:[],r:[{t:'CPF',d:'PSFの前提。課題の存在が確認されてから解決策を検証する'},{t:'SPF',d:'PSF達成後に進む次のフェーズ。解決策をプロダクト化できるか検証する'},{t:'MVP',d:'PSFフェーズで最小機能で作り始めるプロダクトの最初の形'},{t:'ECP',d:'PSFで最初に「熱狂的な数名」として選ぶのがECP（アーリーカスタマー）'}]},
@@ -1646,7 +1702,7 @@ const DATA={
   'jtbd':{label:'JTBD（Jobs To Be Done）',desc:'「顧客は製品を買うのではなく、片付けたい仕事（Job）があるから買う」という顧客行動の解釈フレームワーク（C.クリステンセン）。顧客が本当に達成したいことを起点に価値提案を設計することで、バリュープロポジションやICPの精度が上がる。',m:[],r:[{t:'バリュープロポジション',d:'の精度を上げる概念。顧客は製品を買うのではなく「仕事（Job）を完了させるため」に買うという視点'},{t:'ICP',d:'設計に活用できる。「どんなJobを持つ顧客が最も価値を感じるか」からICPを逆引きする'},{t:'コマーシャルインサイト',d:'設計の起点にもなる。「顧客が気づいていないJob」を提示することがコマーシャルインサイト'}]},
   'mgmt-strategy':{label:'経営戦略',desc:'企業全体の中長期的な方向性・資源配分・競争優位の構築方針を定めるもの。事業戦略・GTM戦略・マーケティング戦略はすべてここから導かれる。ABMのような長期的な投資は経営戦略レベルのコミットがないと機能しない。',m:[],r:[{t:'事業戦略',d:'の上位に位置し、全社資源配分・中長期方針を決定する'},{t:'GTM',d:'の目標・市場定義のトップレベルの根拠を与える'},{t:'ABM',d:'の中長期時間軸を受け入れられるかが最大の組織ハードルとなる'},{t:'RevOps / CRO',d:'に収益目標・KPIの根拠を提供する'}]},
   'biz-strategy':{label:'事業戦略',desc:'特定の事業・プロダクトにおける競争戦略のこと。どの市場でどう戦うか、どう差別化するかを定める。GTMのターゲット設定・価値提案・差別化軸はここから導き出される。PMMやPdMへのインプットになる。',m:[],r:[{t:'GTM',d:'のターゲット・価値提案・差別化軸を定義する源泉'},{t:'PMM',d:'に市場ポジショニングと競合優位性のインプットを提供する'},{t:'PdM',d:'にプロダクトロードマップの優先度を指示する'}]},
-  'gtm':{label:'GTM',desc:'Go-To-Market（市場参入戦略）の略。どの顧客に・どのような価値を・どのようなチャネルで・どのような体制で届けるかを定める戦略全体のこと。PMF達成後に設計し、Lead BasedとABMという2つの実行モデルを内包する。',m:[],r:[{t:'GTM Lead / CMO',d:'がGTM戦略全体を統括・推進するオーナー'},{t:'ABM',d:'はGTMのエンタープライズ向け実行モデル（GTMの下に位置する）'},{t:'Lead Based（デマンドジェネレーション）',d:'はGTMの広域市場向け実行モデル。ABMと並列する'},{t:'STPとバリュープロポジション',d:'がGTMの設計根拠となる'},{t:'キャズム',d:'を越えるための戦略としてGTMを設計することが重要'}]},
+  'gtm':{label:'GTM（Go-To-Market）',desc:'どの顧客に、どの価値を、どのオファーとして、どのチャネルと営業プロセスを通じて届け、受注・導入・拡張までを再現するための市場投入・市場拡大の設計全体。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【PMFとの関係】</strong><br>PMF前は仮説検証のために設計し、PMF後は拡大のために設計する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【GTMオーナー】</strong><br>CMOに限らず、事業責任者またはRevenue責任者（CRO）を含む。組織によってはGTM Leadという専任ロールが担う。',m:[],r:[{t:'STP / バリュープロポジション',d:'GTMの設計前提。これらが未定義のままGTMを設計しても機能しない'},{t:'ICP',d:'GTMの中核設計要素。誰に届けるかを定義する'},{t:'キャズム',d:'特に新規事業GTMで有効な戦略観点'},{t:'GTM Motion（Inbound-Led / Outbound-Led / Product-Led 等）',d:'GTMの実行手段。⑨ 施策・チャネルレイヤー参照'},{t:'PLG / SLG / CLG',d:'GTMの成長モデル。成長の主駆動力（プロダクト・営業・コミュニティ）を定義する。⑧b 概念・プロセス（成長モデル）参照'}]},
   'abm':{label:'ABM',desc:'Account-Based Marketing（アカウントベースドマーケティング）の略。「リードを大量に獲得してファネルに流す」Lead Based型とは根本的に異なり、受注確度の高い特定企業（アカウント）を選定し、マーケティングと営業が一体となって戦略的にアプローチする運用モデル。GTMの下に位置し、エンタープライズ・高単価商材に特に有効。',m:[],r:[{t:'GTM',d:'の下に位置するエンタープライズ向け実行モデル。Lead Basedと並列する2つの実行アプローチの一つ'},{t:'ICP',d:'の設計が起点。理想顧客プロファイルを定義しTier分類・リソース配分につなげる'},{t:'uSonar',d:'が社内データの名寄せ・ホワイトスペース可視化というABMのデータインフラを担う'},{t:'Speeda',d:'がICP設計・ターゲット抽出の戦略インテリジェンスを提供する'},{t:'キャズム越え',d:'のアプローチとして有効。特定業界・アカウントを深耕して突破口を開く'}]},
   'icp':{label:'ICP（理想顧客プロファイル）',desc:'Ideal Customer Profile（理想顧客プロファイル）の略。受注率・継続率・LTVが高い顧客に共通する属性（業種・規模・課題・技術スタック・組織文化・意思決定構造など）を定義したもの。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ターゲット市場とICPの違い】</strong><br>ターゲット市場はSAM（獲得しうる最大市場規模）の推定値。ICPはその中でも自社との親和性が特に高い顧客条件の定義。ターゲット市場の中にICPが存在する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ICPを定義する3ステップ】</strong><br>①定量・定性データを組み合わせて対象企業リストを作成（CRMのACV・LTV・継続率＋定性情報）②共通項を抽出（基本属性・技術属性・心理属性・ビジネス状況・リソース）③ICP適合度をインデックス化（スコアリングロジックを設計し誰が見ても同じ基準で判断できる状態をつくる）。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【重要】</strong><br>ICPは一次情報収集と組織横断での磨き込みで精度を高める。マーケだけで定義せず、最前線の営業・BDRを巻き込むことが不可欠。',m:[],r:[{t:'バイヤーペルソナ',d:'ICPが「どの企業か」を定義するのに対し、バイヤーペルソナは「その企業の誰か」を定義する。セットで使う'},{t:'ABM',d:'の起点概念。ICP定義なしにABMは機能しない'},{t:'ホワイトスペース',d:'ICPに該当するがまだ取引のない企業群。BDRのターゲットリストの源泉'},{t:'Tier設計',d:'ICPの中でも適合度・ポテンシャルでTier1〜3に優先順位をつける'},{t:'STP',d:'のTargetingを具体的な企業プロファイルに落とし込んだもの'}]},
   'buyer-persona':{label:'バイヤーペルソナ（Buyer Persona）',desc:'ICPが「どの企業を対象にするか」を定義するのに対し、バイヤーペルソナは「その企業の中の誰に向き合うか」を明確にするための人物ペルソナ。部署・役職・責任範囲・課題・意思決定への関与の仕方・情報収集行動などを整理する。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【ICPとの関係】</strong><br>ICP=企業ペルソナ、バイヤーペルソナ=人物ペルソナ。セットで使う。<br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:1px;">【バイヤーペルソナの3ステップ】</strong><br>①ICPのBuying Groupをマッピング（誰が意思決定に関与するかを特定）②役割に基づいてペルソナを作成（買う人・使う人・評価する人）③Buying Groupに合わせた価値の翻訳（役割ごとに伝えるべき価値・メッセージが異なる）。同じサービスでも現場担当者・部門長・情報システム部門にとっての価値は異なる。この翻訳精度がABMの成否を左右する。',m:[],r:[{t:'ICP',d:'とセットで使う。ICPが企業ペルソナ、バイヤーペルソナが人物ペルソナ'},{t:'DMU',d:'と近い概念。バイヤーペルソナは「誰か」、DMUは「どう関与するか」の視点'},{t:'Buying Group',d:'の各構成員をバイヤーペルソナとして定義する'},{t:'BDR',d:'がアプローチするキーパーソン候補の特定基準になる'},{t:'コマーシャルインサイト',d:'は役割ごとに価値を翻訳することで初めて刺さる'}]},
