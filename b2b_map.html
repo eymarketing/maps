@@ -340,6 +340,7 @@ body{background:#F5F4F0;background:var(--bg);color:var(--text1);font-family:'Not
   <button onclick="showPage('matrix',this)">コンテンツ4象限</button>
   <button onclick="showPage('content',this)">コンテンツ戦略 2026</button>
   <button onclick="showPage('stp',this)">STPと競争戦略</button>
+  <button onclick="showPage('abc',this)" style="border-color:#1D9E75;color:#0A3D26;background:#EAF3DE;">Account-Based Content</button>
 </div>
 
 <!-- ════════════════════════════════
@@ -3637,6 +3638,371 @@ function retryGPhase() {
 
 
 </script>
+
+<!-- ════════════════════════════════
+     PAGE: ABC Mini-Method
+════════════════════════════════ -->
+<div class="page" id="page-abc">
+<div class="page-title">Account-Based Content</div>
+<div class="page-sub">購買意向（Intent）別に3層でコンテンツを設計し、営業が実際に使いたくなる資産をつくる手法</div>
+
+<!-- 読み方ガイド -->
+<div style="margin-bottom:14px;padding:12px 16px;background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.3);border-radius:var(--radius);border-left:3px solid #1D9E75;">
+  <div style="font-size:11px;font-weight:700;color:#085041;margin-bottom:5px;letter-spacing:.04em;">Account-Based Content とは</div>
+  <div style="font-size:11px;color:var(--text2);line-height:1.8;">
+    ABM（Account-Based Marketing）の実行において、<strong>営業が実際に使いたくなるコンテンツ</strong>を設計・制作するための考え方である。Fullfunnel.io（Andrei Zinkevich / Vladimir Blagojevic）が実践・提唱するフレームワークを日本のB2B環境向けに再構成した。<br>
+    核心は「<strong>マーケがサイロで作るのではなく、営業と共同でアカウントクラスター起点に設計する</strong>」ことであり、インテント（購買意向）のレベルを3層に分けて目的・形式・測定指標を変える。
+  </div>
+</div>
+
+<!-- なぜ営業は使わないのか -->
+<div style="margin-bottom:14px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;">
+  <div style="padding:8px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);">
+    <span style="font-size:12px;font-weight:700;color:var(--text1);">00 — なぜ営業はマーケのコンテンツを使わないのか</span>
+  </div>
+  <div style="padding:14px 16px;">
+    <div style="font-size:11px;color:var(--text2);line-height:1.8;margin-bottom:12px;">
+      マーケが作ったコンテンツが営業に使われない理由は、<strong>誰のためのコンテンツか</strong>が曖昧なまま制作されることにある。特に1:Many（ICP全体向け）と1:Few（クラスター向け）は量が多くなるほど、営業が「自分のアカウントの課題と接続できない」と感じやすい。
+    </div>
+    <div style="compare-grid" style="display:flex;align-items:stretch;gap:8px;margin-bottom:12px;">
+      <div style="flex:1;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border2);">
+        <div style="font-size:12px;font-weight:700;padding:10px 14px;background:#FDE8E0;color:#5E2210;">❌ よくある失敗パターン</div>
+        <div style="font-size:11px;padding:8px 14px;border-top:1px solid var(--border);color:var(--text2);line-height:1.7;">マーケティングカレンダーを先に決め、テーマと形式を設定し、コンテンツを制作する。完成後に「営業、使ってください」と渡す。<br><br>→ 営業は使わない。なぜなら「どのアカウントの、どの課題に刺さるか」が自分では判断できないからである。</div>
+      </div>
+      <div style="display:flex;align-items:center;padding:0 6px;color:var(--text3);font-size:20px;flex-shrink:0;">→</div>
+      <div style="flex:1;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border2);">
+        <div style="font-size:12px;font-weight:700;padding:10px 14px;background:#DFF2E9;color:#0A3D26;">✅ Account-Based Contentの設計</div>
+        <div style="font-size:11px;padding:8px 14px;border-top:1px solid var(--border);color:var(--text2);line-height:1.7;">営業と共同でアカウントクラスター（業種 × 課題 × 規模）を先に定義する。「このクラスターのこの担当者が読んだら動く」を起点にコンテンツを設計する。<br><br>→ 営業が「あのアカウントに送ろう」と自発的に使うようになる。</div>
+      </div>
+    </div>
+    <div style="padding:8px 12px;background:var(--bg2);border-radius:var(--radius-sm);font-size:11px;color:var(--text2);line-height:1.7;">
+      ⚠️ <strong>1:1コンテンツ（商談中の個別アカウント向け）</strong>はそもそも営業と共同で設計するため「使われない」問題は起きにくい。問題が発生しやすいのは量産型の<strong>1:Many と 1:Few</strong>である。
+    </div>
+  </div>
+</div>
+
+<!-- 全体構造 -->
+<div style="margin-bottom:14px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;">
+  <div style="padding:8px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;justify-content:space-between;align-items:center;">
+    <span style="font-size:12px;font-weight:700;color:var(--text1);">01 — 全体構造：インテント × 目標 マトリクス</span>
+    <span style="font-size:10px;color:var(--text3);">縦軸＝購買意向の強さ　横軸＝コンテンツの目標</span>
+  </div>
+  <div style="padding:14px 16px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;">
+
+      <!-- 1:Many -->
+      <div style="background:#EAF3DE;border:1.5px solid #6DBF99;border-radius:var(--radius);overflow:hidden;">
+        <div style="background:#1D9E75;padding:10px 14px;">
+          <div style="font-size:18px;font-weight:700;color:#fff;line-height:1;">1:Many</div>
+          <div style="font-size:10px;color:rgba(255,255,255,.8);margin-top:2px;">ICP全体 / 認知フェーズ</div>
+        </div>
+        <div style="padding:12px 14px;">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#0F6E56;margin-bottom:5px;">インテント：低 / なし</div>
+          <div style="font-size:11px;color:#0A3D26;line-height:1.7;margin-bottom:8px;">今すぐ買う意向はないが将来のパイプライン候補。「知っている会社」になることが目的である。</div>
+          <div style="font-size:10px;font-weight:700;color:#3B6D11;margin-bottom:4px;">目標</div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="font-size:11px;color:#0A3D26;padding:4px 8px;background:rgba(255,255,255,.6);border-radius:4px;">認知の拡大（Awareness）</div>
+            <div style="font-size:11px;color:#0A3D26;padding:4px 8px;background:rgba(255,255,255,.6);border-radius:4px;">業界課題への問題提起</div>
+            <div style="font-size:11px;color:#0A3D26;padding:4px 8px;background:rgba(255,255,255,.6);border-radius:4px;">ベストプラクティス共有</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1:Few -->
+      <div style="background:#E1F5EE;border:1.5px solid #5DCAA5;border-radius:var(--radius);overflow:hidden;">
+        <div style="background:#0F6E56;padding:10px 14px;">
+          <div style="font-size:18px;font-weight:700;color:#fff;line-height:1;">1:Few</div>
+          <div style="font-size:10px;color:rgba(255,255,255,.8);margin-top:2px;">クラスター特化 / 検討フェーズ</div>
+        </div>
+        <div style="padding:12px 14px;">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#085041;margin-bottom:5px;">インテント：中程度</div>
+          <div style="font-size:11px;color:#04342C;line-height:1.7;margin-bottom:8px;">将来のパイプライン候補。業界・ユースケース別にクラスタリングし、具体的な業務課題に刺さるコンテンツで比較検討候補に入ることを狙う。</div>
+          <div style="font-size:10px;font-weight:700;color:#0F6E56;margin-bottom:4px;">目標</div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="font-size:11px;color:#04342C;padding:4px 8px;background:rgba(255,255,255,.6);border-radius:4px;">比較検討候補リスト入り</div>
+            <div style="font-size:11px;color:#04342C;padding:4px 8px;background:rgba(255,255,255,.6);border-radius:4px;">需要喚起（Demand Gen）</div>
+            <div style="font-size:11px;color:#04342C;padding:4px 8px;background:rgba(255,255,255,.6);border-radius:4px;">業界固有の解決策提示</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1:1 -->
+      <div style="background:#DFF2E9;border:1.5px solid #3B6D11;border-radius:var(--radius);overflow:hidden;">
+        <div style="background:#27500A;padding:10px 14px;">
+          <div style="font-size:18px;font-weight:700;color:#fff;line-height:1;">1:1</div>
+          <div style="font-size:10px;color:rgba(255,255,255,.8);margin-top:2px;">個別アカウント / 商談加速</div>
+        </div>
+        <div style="padding:12px 14px;">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#173404;margin-bottom:5px;">インテント：高い</div>
+          <div style="font-size:11px;color:#173404;line-height:1.7;margin-bottom:8px;">商談進行中または購買意向が高いアカウント。Buying Group全体の合意形成を設計し成約を加速する。</div>
+          <div style="font-size:10px;font-weight:700;color:#3B6D11;margin-bottom:4px;">目標</div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="font-size:11px;color:#173404;padding:4px 8px;background:rgba(255,255,255,.6);border-radius:4px;">商談機会の加速・成約</div>
+            <div style="font-size:11px;color:#173404;padding:4px 8px;background:rgba(255,255,255,.6);border-radius:4px;">マルチステークホルダー対応</div>
+            <div style="font-size:11px;color:#173404;padding:4px 8px;background:rgba(255,255,255,.6);border-radius:4px;">Buying Group合意形成</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="padding:8px 12px;background:rgba(29,158,117,.07);border:1px dashed #6DBF99;border-radius:var(--radius-sm);font-size:11px;color:#0A3D26;line-height:1.7;">
+      💡 3層は独立していない。1:Manyで認知を作り、エンゲージメントシグナルを検知したら1:Fewへ移行、高意向を確認したら1:1に切り替える。マーケの役割は<strong>各層で使えるアセットを設計・整備すること</strong>であり、営業はそれを会話の入口として使う。
+    </div>
+  </div>
+</div>
+
+<!-- STEP 02: クラスター定義 -->
+<div style="margin-bottom:14px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;">
+  <div style="padding:8px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);">
+    <span style="font-size:12px;font-weight:700;color:var(--text1);">02 — 営業と「クラスター」を定義する（Week 1）</span>
+  </div>
+  <div style="padding:14px 16px;">
+    <div style="font-size:11px;color:var(--text2);line-height:1.8;margin-bottom:12px;">
+      Account-Based Contentの出発点は、マーケティングカレンダーではなく<strong>営業との共同セッション</strong>である。「自分たちの最優先ターゲットは誰か」をクラスター（業種 × 課題 × 企業規模で切った顧客群）単位で合意することから始める。
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:7px;">🗣 セッションで聞く質問</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.6;border-left:2px solid #1D9E75;">「最優先ターゲットの前でキーノートを話すとしたら、何を話すか？」</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.6;border-left:2px solid #1D9E75;">「そのクラスターが今一番困っていることは何か？」</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.6;border-left:2px solid #1D9E75;">「どんな事例・コンテンツがあれば商談で使いたいか？」</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.6;border-left:2px solid #1D9E75;">「失注した案件で、あのコンテンツがあれば違ったというものはあるか？」</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:7px;">📋 クラスター定義シート（記入フォーマット）</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.7;"><strong style="color:var(--text1);">業種 / 業務領域：</strong>例）国内SaaS企業のマーケ部門</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.7;"><strong style="color:var(--text1);">代表的な課題（JTBD）：</strong>例）MQL偏重から脱却してパイプライン貢献を証明したい</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.7;"><strong style="color:var(--text1);">典型的なBuying Group：</strong>例）CMO（承認）＋ デマンドジェネレーション担当者（実行）＋ RevOps担当者（評価）</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.7;"><strong style="color:var(--text1);">1:Many → 1:1 移行シグナル：</strong>例）ウェビナー参加 / 料金ページ訪問 / 商談問合せ</div>
+        </div>
+      </div>
+    </div>
+    <div style="padding:8px 12px;background:#EAF3DE;border:1px solid #6DBF99;border-radius:var(--radius-sm);font-size:11px;color:#0A3D26;line-height:1.7;">
+      ✅ <strong>この週のゴール：</strong>営業と合意した「クラスター1つ」の課題・Buying Group・コンテンツアイデアをドキュメント化すること。最初から複数クラスターを設計しようとしないことが重要である。<strong>1つを深く作り、型を作ってから横展開する。</strong>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 03: 1:Many -->
+<div style="margin-bottom:14px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;">
+  <div style="padding:8px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);">
+    <span style="font-size:12px;font-weight:700;color:var(--text1);">03 — 1:Many コンテンツを設計する（Week 2〜）</span>
+  </div>
+  <div style="padding:14px 16px;">
+    <div style="font-size:11px;color:var(--text2);line-height:1.8;margin-bottom:12px;">
+      ICP全体に対して認知を作る層である。購買意向がない状態でも「あの会社は業界の課題をよく理解している」と思わせることが目的である。チャネルは商材・業種・ターゲットの職種によって大きく異なるため、後述の「チャネル選択の考え方」を参照して設計すること。
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#0F6E56;margin-bottom:7px;">✅ 推奨コンテンツ形式</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:#EAF3DE;border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:#0A3D26;">LinkedIn 思想リーダーシップ投稿</strong><br>クラスターの課題・業界トレンドを定期発信する。営業の個人アカウントからも同時発信することで接点が広がる。ただし<strong>LinkedIn普及率は業種・職種差が大きい</strong>（後述）。</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:#EAF3DE;border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:#0A3D26;">ウェビナー / オンライン勉強会（四半期ごと）</strong><br>事例紹介型より「ステップバイステップ形式」が参加率の高い傾向にある。録画の二次利用も可能である。</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:#EAF3DE;border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:#0A3D26;">メールニュースレター（週次）</strong><br>業界インサイト・ベストプラクティスを継続配信する。ゲーティング（フォーム入力）なしが基本であり、開封・クリックがインテントシグナルになる。</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:#EAF3DE;border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:#0A3D26;">業界・調査レポート（年1〜2本）</strong><br>自社にしか作れない一次情報コンテンツであり、AIO（AI検索）にも引用されやすく長期資産になる。</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:7px;">📊 測定指標</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:var(--text1);">ICP企業からのエンゲージメント率</strong><br>投稿へのいいね・コメント・シェアのうち、ICP企業ドメインからの反応数を計測する</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:var(--text1);">ウェビナー参加者のICP適合率</strong><br>「参加者数」ではなく「ICP企業から何社・何名が参加したか」で評価する</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:var(--text1);">ニュースレター開封率（ICP企業別）</strong><br>全体平均ではなく、ターゲットアカウントの担当者が開封しているかで判断する</div>
+        </div>
+        <div style="margin-top:8px;padding:8px 10px;background:#FEF0DC;border:1px solid #E8A840;border-radius:var(--radius-sm);font-size:10px;color:#5C3700;line-height:1.6;">
+          ⚠️ <strong>MQL / リード数で評価しない。</strong>1:Manyの成果は「ICP企業との接点形成数」と「エンゲージメントシグナル数」で測るべきである。
+        </div>
+      </div>
+    </div>
+
+    <!-- チャネル選択の考え方 -->
+    <div style="padding:12px 14px;background:#FDE8F2;border:1.5px solid #D97BA8;border-radius:var(--radius-sm);">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#6B1E38;margin-bottom:8px;">🗾 日本市場におけるチャネル選択の考え方</div>
+      <div style="font-size:11px;color:#3A0A1A;line-height:1.8;margin-bottom:10px;">
+        LinkedIn はマーケター・IT・コンサル・スタートアップ領域では有効なチャネルである一方、<strong>製造業・医療・建設・物流・小売など多くの業種ではほとんど普及していない</strong>。またアーリーアダプター層には届いても、レイトマジョリティ層には届かないケースが多い。クラスター定義の段階で「<strong>このバイヤーはどこにいるか</strong>」を営業と確認することが、チャネル設計の出発点である。
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="background:rgba(255,255,255,.6);border-radius:var(--radius-sm);padding:9px 11px;">
+          <div style="font-size:10px;font-weight:700;color:#6B1E38;margin-bottom:5px;">LinkedInが有効なクラスター例</div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="font-size:11px;color:#3A0A1A;line-height:1.5;">SaaS・IT・クラウド領域の担当者</div>
+            <div style="font-size:11px;color:#3A0A1A;line-height:1.5;">マーケ・人事・経営企画職</div>
+            <div style="font-size:11px;color:#3A0A1A;line-height:1.5;">スタートアップ・外資系企業の意思決定者</div>
+            <div style="font-size:11px;color:#3A0A1A;line-height:1.5;">コンサル・士業・専門サービス職</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.6);border-radius:var(--radius-sm);padding:9px 11px;">
+          <div style="font-size:10px;font-weight:700;color:#6B1E38;margin-bottom:5px;">LinkedIn以外が主軸になるクラスター例と代替チャネル</div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="font-size:11px;color:#3A0A1A;line-height:1.5;"><strong>製造業・建設・物流：</strong>業界専門誌・展示会・業界団体セミナー</div>
+            <div style="font-size:11px;color:#3A0A1A;line-height:1.5;"><strong>医療・介護：</strong>学会・専門メディア・メールマーケティング</div>
+            <div style="font-size:11px;color:#3A0A1A;line-height:1.5;"><strong>小売・流通：</strong>業界展示会・業界紙広告・メルマガ</div>
+            <div style="font-size:11px;color:#3A0A1A;line-height:1.5;"><strong>レイトマジョリティ全般：</strong>紹介・パートナー経由・SEO・展示会</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 04: 1:Few -->
+<div style="margin-bottom:14px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;">
+  <div style="padding:8px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);">
+    <span style="font-size:12px;font-weight:700;color:var(--text1);">04 — 1:Few コンテンツを設計する（Week 3〜）</span>
+  </div>
+  <div style="padding:14px 16px;">
+    <div style="font-size:11px;color:var(--text2);line-height:1.8;margin-bottom:12px;">
+      クラスターに特化した深掘りコンテンツである。「業界全般」ではなく「この業種のこのユースケースでの具体的な解決方法」を提示する層であり、<strong>営業が「このコンテンツをあのアカウントに送りたい」と思える粒度</strong>に仕上げることが重要である。
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#0F6E56;margin-bottom:7px;">✅ 推奨コンテンツ（日本市場）</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:#E1F5EE;border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:#085041;">業界 × ユースケース特化 How-Toコンテンツ</strong><br>タイトルに業種名・JTBDを入れることが重要である。例：「製造業の営業がABMパイロットを地域チームに横展開するための手順」</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:#E1F5EE;border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:#085041;">顧客事例（業種 × 課題別）</strong><br>動画インタビュー（5〜10分）＋テキストサマリー形式が効果的である。日本企業は社名公表に慎重なため、業界・規模・ユースケースで分類した匿名事例でも有効である。</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:#E1F5EE;border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:#085041;">クラスター招待制ウェビナー（1:Few専用）</strong><br>「この業種・この課題を持つ方限定」として小規模（20〜50名）で開催することで参加者の質が高まる。</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:#E1F5EE;border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:#085041;">コマーシャルインサイト資料（PMM・CS共同制作）</strong><br>製品紹介でも競合比較でもなく、顧客が気づいていない課題を可視化する「自社にしか言えない業界への提言」である。</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:7px;">🔧 営業活用：使い方のパターン</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:var(--text1);">アウトリーチの「入口」に使う</strong><br>「御社と同じ業種のBtoB SaaS企業がABMをどう実装したかをまとめた資料があります。もしよければ共有させてください」——LinkedIn DM・メール・電話いずれのチャネルでも、ピッチではなく価値提供から始める形である。</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:var(--text1);">フォローアップメールの添付</strong><br>展示会・ウェビナー後の名刺フォローに、汎用カタログではなく「その人の業種・課題に合ったコンテンツ」を添付する。</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:var(--text1);">アプローチのタッチポイント3〜4本目</strong><br>最初の接触（1:Many）→ 反応あり → 業種特化コンテンツ（1:Few）→ 反応あり → 1:1へ移行、という自然なフロー設計である。</div>
+        </div>
+        <div style="margin-top:8px;padding:8px 10px;background:#E1F5EE;border:1px solid #5DCAA5;border-radius:var(--radius-sm);font-size:10px;color:#085041;line-height:1.6;">
+          💡 <strong>日本市場特有の注意：</strong>「業種名・課題名」をタイトルに入れるだけで開封率・クリック率が大きく変わる。コンテンツのタイトル自体でターゲットを表現することが重要である。
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 05: 1:1 -->
+<div style="margin-bottom:14px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;">
+  <div style="padding:8px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);">
+    <span style="font-size:12px;font-weight:700;color:var(--text1);">05 — 1:1 コンテンツを設計する（高意向アカウント向け）</span>
+  </div>
+  <div style="padding:14px 16px;">
+    <div style="display:flex;gap:10px;margin-bottom:12px;">
+      <div style="flex:1;background:#DFF2E9;border:1px solid #6DBF99;border-radius:var(--radius-sm);padding:12px 14px;text-align:center;">
+        <div style="font-size:28px;font-weight:700;color:#1A8C50;line-height:1;">50%</div>
+        <div style="font-size:10px;color:#0A3D26;margin-top:4px;line-height:1.5;">Fullfunnel.io Q4 2025<br>有望リードからの成約率</div>
+      </div>
+      <div style="flex:3;font-size:11px;color:var(--text2);line-height:1.8;">Fullfunnel.ioが2025年の全商談コールを分析し「よく聞かれる質問パターン」を抽出した。質問タイプ別に専用デッキを作成し、顧客事例をユースケース・業種別にライブラリ化した結果として成約率が大幅に向上した。<strong>1:1コンテンツの核心は「個別最適化」ではなく「質問パターンの体系化」にある。</strong></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#0F6E56;margin-bottom:7px;">✅ 実装ステップ</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="display:flex;gap:8px;align-items:flex-start;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#27500A;color:#fff;font-size:9px;font-weight:700;flex-shrink:0;margin-top:1px;">1</span>
+            <div style="font-size:11px;color:var(--text2);line-height:1.6;padding:5px 9px;background:#DFF2E9;border-radius:var(--radius-sm);">全商談コールを録音・文字起こしする。ツールがない場合は営業に「よく聞かれた質問トップ10」を書き出してもらうことから始める。</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#27500A;color:#fff;font-size:9px;font-weight:700;flex-shrink:0;margin-top:1px;">2</span>
+            <div style="font-size:11px;color:var(--text2);line-height:1.6;padding:5px 9px;background:#DFF2E9;border-radius:var(--radius-sm);">質問を「カテゴリ」に分類する。例）「導入プロセス・期間」「効果測定の方法」「競合との違い」「社内承認の進め方」など6〜10カテゴリに集約する。</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#27500A;color:#fff;font-size:9px;font-weight:700;flex-shrink:0;margin-top:1px;">3</span>
+            <div style="font-size:11px;color:var(--text2);line-height:1.6;padding:5px 9px;background:#DFF2E9;border-radius:var(--radius-sm);">カテゴリ別に「回答デッキ」を作成する。5〜8スライドのミニデッキとし、事例・数値・プロセス図を含める。</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#27500A;color:#fff;font-size:9px;font-weight:700;flex-shrink:0;margin-top:1px;">4</span>
+            <div style="font-size:11px;color:var(--text2);line-height:1.6;padding:5px 9px;background:#DFF2E9;border-radius:var(--radius-sm);">顧客事例を業種 × ユースケース × 企業規模でタグ付けしてライブラリ化する。営業が自分で引ける状態にすることが重要である。</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:7px;">👥 Buying Group 別コンテンツ設計</div>
+        <div style="font-size:11px;color:var(--text2);line-height:1.7;margin-bottom:8px;">日本のB2B商談では意思決定者・影響者・利用者が異なる。各ステークホルダーが「自分ごと」と感じるコンテンツが必要である。</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:#C84820;">経営・予算承認者（CxO・部門長）向け</strong><br>ROI計算・リスク低減・他社事例・経営指標への影響。「なぜ今、この投資をすべきか」の論拠を示すコンテンツである。</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:#4A42A8;">評価・推薦者（マネージャー層）向け</strong><br>導入プロセス・工数・リスク・他ツールとの連携。「現場に落とせるか」という実務的な懸念事項を解消するコンテンツである。</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:#0B3D72;">エンドユーザー（現場担当者）向け</strong><br>操作性・学習コスト・日常業務での時短効果。「自分の仕事が楽になるか」が判断基準である。</div>
+          <div style="font-size:11px;color:var(--text2);padding:7px 10px;background:var(--bg2);border-radius:var(--radius-sm);line-height:1.6;"><strong style="color:#3B6D11;">情シス・法務・調達（ゲートキーパー）向け</strong><br>セキュリティ・契約条件・サポート体制。「社内稟議を通す材料」としての技術資料・FAQである。</div>
+        </div>
+      </div>
+    </div>
+    <div style="padding:8px 12px;background:#DFF2E9;border:1px solid #6DBF99;border-radius:var(--radius-sm);font-size:11px;color:#0A3D26;line-height:1.7;">
+      ✅ <strong>この層のゴール：</strong>商談中のアカウントで「次の質問が来る前に答えが届いている」状態を作ることである。Buying Groupの合意形成スピードを上げることが成約率向上の直接要因になる。
+    </div>
+  </div>
+</div>
+
+<!-- STEP 06: 週次シンク -->
+<div style="margin-bottom:14px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;">
+  <div style="padding:8px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);">
+    <span style="font-size:12px;font-weight:700;color:var(--text1);">06 — 週次 ABM シンクミーティングで3層を繋ぐ</span>
+  </div>
+  <div style="padding:14px 16px;">
+    <div style="font-size:11px;color:var(--text2);line-height:1.8;margin-bottom:12px;">3層コンテンツがサイロにならないようにする仕組みが週次シンクである。マーケと営業が<strong>同じアカウントリストを見ながら</strong>「今週どこからシグナルが来たか」「次のアクションは何か」を30分で合意する。</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;">
+      <div style="background:#E2EDF8;border:1px solid #7AAAD8;border-radius:var(--radius-sm);padding:10px 12px;">
+        <div style="font-size:10px;font-weight:700;color:#0B3D72;margin-bottom:5px;">📋 事前準備（マーケ担当）</div>
+        <div style="font-size:11px;color:#092A52;line-height:1.6;">ターゲットアカウントの今週のエンゲージメント一覧（LinkedIn反応・サイト訪問・メール開封）を集約してシェアする。</div>
+      </div>
+      <div style="background:#DFF2E9;border:1px solid #6DBF99;border-radius:var(--radius-sm);padding:10px 12px;">
+        <div style="font-size:10px;font-weight:700;color:#0A3D26;margin-bottom:5px;">🔄 会議中のアジェンダ</div>
+        <div style="font-size:11px;color:#0A3D26;line-height:1.6;">① 高シグナルアカウント確認 → ② アクション決定（1:Fewコンテンツ送付 / 1:1移行 / 保留）→ ③ 来週のコンテンツ確認</div>
+      </div>
+      <div style="background:#FEF0DC;border:1px solid #E8A840;border-radius:var(--radius-sm);padding:10px 12px;">
+        <div style="font-size:10px;font-weight:700;color:#5C3700;margin-bottom:5px;">⚡ 即アクションの例</div>
+        <div style="font-size:11px;color:#5C3700;line-height:1.6;">「A社がウェビナーに参加した → 翌日に担当営業がLinkedIn接続リクエスト＋業種特化事例を送る」という決まった手順を作る。</div>
+      </div>
+    </div>
+    <div style="padding:8px 12px;background:#EEEDF8;border-left:3px solid #4A42A8;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:11px;color:var(--text2);line-height:1.7;">
+      💡 <strong>実践例（Fullfunnel.io）：</strong>ウェビナー参加者リストを確認中に、プロダクトマーケターが「あの会社はDiscordコミュニティにいる」と気づき、Discordで先にメッセージを送ったところ2時間後に営業への紹介につながった。シンクミーティングがなければ埋もれていた情報である。
+    </div>
+  </div>
+</div>
+
+<!-- 実装チェックリスト -->
+<div style="margin-bottom:14px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;">
+  <div style="padding:8px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);">
+    <span style="font-size:12px;font-weight:700;color:var(--text1);">今週から始める実装チェックリスト</span>
+  </div>
+  <div style="padding:14px 16px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:7px;">📅 Week 1 — 設計フェーズ</div>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <label style="display:flex;align-items:flex-start;gap:8px;font-size:11px;color:var(--text2);padding:5px 0;border-bottom:1px dashed var(--border);cursor:pointer;line-height:1.5;"><input type="checkbox" style="margin-top:1px;flex-shrink:0;accent-color:#1D9E75;">営業とクラスター定義セッションを実施する（30〜60分）</label>
+          <label style="display:flex;align-items:flex-start;gap:8px;font-size:11px;color:var(--text2);padding:5px 0;border-bottom:1px dashed var(--border);cursor:pointer;line-height:1.5;"><input type="checkbox" style="margin-top:1px;flex-shrink:0;accent-color:#1D9E75;">ターゲットアカウントリスト（優先20〜50社）を作成する</label>
+          <label style="display:flex;align-items:flex-start;gap:8px;font-size:11px;color:var(--text2);padding:5px 0;border-bottom:1px dashed var(--border);cursor:pointer;line-height:1.5;"><input type="checkbox" style="margin-top:1px;flex-shrink:0;accent-color:#1D9E75;">クラスターの「Buying Groupマップ」を1枚作成する</label>
+          <label style="display:flex;align-items:flex-start;gap:8px;font-size:11px;color:var(--text2);padding:5px 0;cursor:pointer;line-height:1.5;"><input type="checkbox" style="margin-top:1px;flex-shrink:0;accent-color:#1D9E75;">週次シンクミーティングの定例を設定する</label>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:7px;">📅 Week 2〜4 — 制作フェーズ</div>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <label style="display:flex;align-items:flex-start;gap:8px;font-size:11px;color:var(--text2);padding:5px 0;border-bottom:1px dashed var(--border);cursor:pointer;line-height:1.5;"><input type="checkbox" style="margin-top:1px;flex-shrink:0;accent-color:#1D9E75;">1:Many：クラスター向けLinkedIn投稿テーマを10本ストックする</label>
+          <label style="display:flex;align-items:flex-start;gap:8px;font-size:11px;color:var(--text2);padding:5px 0;border-bottom:1px dashed var(--border);cursor:pointer;line-height:1.5;"><input type="checkbox" style="margin-top:1px;flex-shrink:0;accent-color:#1D9E75;">1:Few：業種 × ユースケース特化 How-Toを1本作成する</label>
+          <label style="display:flex;align-items:flex-start;gap:8px;font-size:11px;color:var(--text2);padding:5px 0;border-bottom:1px dashed var(--border);cursor:pointer;line-height:1.5;"><input type="checkbox" style="margin-top:1px;flex-shrink:0;accent-color:#1D9E75;">1:1：商談コールから「よく聞かれる質問」をリスト化する（10問）</label>
+          <label style="display:flex;align-items:flex-start;gap:8px;font-size:11px;color:var(--text2);padding:5px 0;cursor:pointer;line-height:1.5;"><input type="checkbox" style="margin-top:1px;flex-shrink:0;accent-color:#1D9E75;">1:1：最頻出の質問カテゴリ3つに回答デッキを作成する</label>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding:8px 12px;background:#EAF3DE;border:1px solid #6DBF99;border-radius:var(--radius-sm);font-size:11px;color:#0A3D26;line-height:1.7;">
+      ✅ <strong>1ヶ月後の成功指標：</strong>「営業がマーケのコンテンツを『あのアカウントに送ろう』と自発的に言い始めているか」——KPIの数字より、この行動変容が起きているかどうかで評価する。
+    </div>
+  </div>
+</div>
+
+<!-- 他タブへの接続 -->
+<div style="padding:10px 14px;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-sm);font-size:11px;color:var(--text2);line-height:1.8;">
+  📖 <strong style="color:var(--text1);">連動するMAPSの他タブ：</strong>
+  「<strong>コンテンツ4象限</strong>」（1:Many / 1:Fewのコンテンツ企画に活用）／
+  「<strong>Lead Based × ABM 設計ガイド</strong>」（1:1移行の判断基準とシーケンス設計）／
+  「<strong>Goodbye MQL</strong>」（インテントシグナルベースへの移行思想）／
+  「<strong>ECP → ICP</strong>」（クラスター定義の前提となるターゲット設計）
+</div>
+
+</div><!-- /page-abc -->
 
 <div style="margin-top:48px;padding:16px 0 24px;border-top:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
   <div style="display:flex;align-items:center;gap:10px;">
