@@ -2809,40 +2809,85 @@ body{background:#F5F4F0;background:var(--bg);color:var(--text1);font-family:'Not
 
     <!-- 基本構造 -->
     <div style="margin-bottom:24px;">
-      <div style="font-size:12px;font-weight:600;color:var(--text1);margin-bottom:12px;letter-spacing:.04em;">パラグラフライティングの基本構造</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+      <div style="font-size:12px;font-weight:600;color:var(--text1);margin-bottom:10px;letter-spacing:.04em;">パラグラフライティングの基本構造</div>
 
-        <div style="background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:14px 16px;">
-          <div style="font-size:11px;font-weight:700;color:var(--text1);margin-bottom:10px;">段落の3要素</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="display:flex;gap:10px;align-items:flex-start;">
-              <div style="flex-shrink:0;min-width:100px;font-size:11px;font-weight:700;color:#1A6DC8;background:#E2EDF8;border-radius:4px;padding:3px 8px;text-align:center;">① トピック文</div>
-              <div style="font-size:11px;color:var(--text2);line-height:1.6;">その段落で<strong>何を主張するか</strong>を最初の1文で宣言する。読者もAIも、この文で段落の内容を把握する。</div>
+      <!-- なぜ今これが重要か -->
+      <div style="margin-bottom:14px;padding:11px 14px;background:#F3F2FE;border-left:3px solid #4A42A8;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:11px;color:#2E297A;line-height:1.8;">
+        ページ評価は「キーワードマッチ」から<strong>「ユーザー行動」</strong>へ移行している。コンテンツによって閲覧者の目的を達成できたかどうか、UI/UXも含めた体験の質が問われる時代になった。検索キーワードを詰め込むだけのコンテンツが通用しなくなった今、<strong>論理的で読みやすい文章構造そのものが差別化になる</strong>。（<a href="https://webtan.impress.co.jp/e/2026/04/02/52289" target="_blank" rel="noopener" style="color:#4A42A8;text-decoration:underline;">渡辺隆広氏 / Web担当者Forum 2026</a>）
+      </div>
+
+      <!-- 2原則スライド -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+
+        <div style="background:var(--surface);border:1.5px solid #1A6DC8;border-radius:var(--radius);overflow:hidden;">
+          <div style="background:#1A6DC8;padding:7px 13px;display:flex;align-items:center;gap:8px;">
+            <span style="font-size:9px;font-weight:700;background:rgba(255,255,255,.25);color:#fff;border-radius:3px;padding:1px 6px;">原則 1/2</span>
+            <span style="font-size:12px;font-weight:700;color:#fff;">ひとつの段落に、ひとつの主張</span>
+          </div>
+          <div style="padding:11px 13px;">
+            <div style="font-size:11px;color:var(--text2);line-height:1.8;margin-bottom:10px;">1つのパラグラフで扱うトピックは<strong>必ず1つだけ</strong>。2つ目の主張が出てきた瞬間に新しい段落を始める。これだけで文章の論理が劇的に整理される。</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="display:flex;gap:9px;align-items:flex-start;">
+                <div style="flex-shrink:0;font-size:10px;font-weight:700;color:#1A6DC8;background:#E2EDF8;border-radius:3px;padding:2px 7px;min-width:72px;text-align:center;">① トピック文</div>
+                <div style="font-size:11px;color:var(--text2);line-height:1.6;"><strong>その段落で何を主張するか</strong>を最初の1文で宣言する。「〜が重要だ」「〜すべきだ」と結論から書く。「〜について考えてみましょう」のような曖昧な入り方はしない。</div>
+              </div>
+              <div style="display:flex;gap:9px;align-items:flex-start;">
+                <div style="flex-shrink:0;font-size:10px;font-weight:700;color:#0A3D26;background:#DFF2E9;border-radius:3px;padding:2px 7px;min-width:72px;text-align:center;">② 支持文</div>
+                <div style="font-size:11px;color:var(--text2);line-height:1.6;">主張を裏付ける<strong>根拠・データ・事例を2〜3文</strong>で続ける。「なぜなら〜」「例えば〜」「実際に〜というデータがある」の順で展開する。具体的な数値・出典・時点を入れるとAIにも引用されやすい。</div>
+              </div>
+              <div style="display:flex;gap:9px;align-items:flex-start;">
+                <div style="flex-shrink:0;font-size:10px;font-weight:700;color:#5C3700;background:#FEF0DC;border-radius:3px;padding:2px 7px;min-width:72px;text-align:center;">③ 結論文</div>
+                <div style="font-size:11px;color:var(--text2);line-height:1.6;">トピック文を<strong>別の言葉で言い換えて締める</strong>。「したがって〜」「つまり〜」「だからこそ〜」で始めることが多い。次の段落への橋渡しにもなる。</div>
+              </div>
             </div>
-            <div style="display:flex;gap:10px;align-items:flex-start;">
-              <div style="flex-shrink:0;min-width:100px;font-size:11px;font-weight:700;color:#0A3D26;background:#DFF2E9;border-radius:4px;padding:3px 8px;text-align:center;">② 支持文</div>
-              <div style="font-size:11px;color:var(--text2);line-height:1.6;">主張を裏付ける<strong>根拠・データ・事例</strong>を続ける。具体的な数値や時点（「2025年調査」等）を明記するとAIに引用されやすい。</div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:flex-start;">
-              <div style="flex-shrink:0;min-width:100px;font-size:11px;font-weight:700;color:#5C3700;background:#FEF0DC;border-radius:4px;padding:3px 8px;text-align:center;">③ 結論文</div>
-              <div style="font-size:11px;color:var(--text2);line-height:1.6;">主張を<strong>別の言葉で言い換えて</strong>締める。「だからこそ〜」「つまり〜」で始まることが多い。次の段落への橋渡しにもなる。</div>
+            <div style="margin-top:10px;padding:7px 10px;background:#E2EDF8;border-radius:5px;font-size:11px;color:#0B3D72;line-height:1.7;">
+              💬 「<strong>結論を最初に述べて、次にその理由や根拠を書き、段落の最後でもう1回伝えたいことを書く。これだけなんです</strong>」<br><span style="font-size:10px;color:var(--text3);">— <a href="https://webtan.impress.co.jp/e/2026/04/02/52289" target="_blank" rel="noopener" style="color:var(--text3);text-decoration:underline;">渡辺隆広氏（SEO歴30年）/ Web担当者Forum 2026</a></span>
             </div>
           </div>
         </div>
 
-        <div style="background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:14px 16px;">
-          <div style="font-size:11px;font-weight:700;color:var(--text1);margin-bottom:10px;">4つのルールとAI検索との関係</div>
-          <div style="display:flex;flex-direction:column;gap:7px;">
-            <div style="font-size:11px;color:var(--text2);line-height:1.6;padding:5px 8px;background:#E2EDF8;border-radius:4px;"><strong style="color:#1A6DC8;">Unity（統一性）</strong>：段落に主張は1つだけ → AIが「この段落は何について書いているか」を把握しやすくなる</div>
-            <div style="font-size:11px;color:var(--text2);line-height:1.6;padding:5px 8px;background:#DFF2E9;border-radius:4px;"><strong style="color:#0A5A30;">Coherence（一貫性）</strong>：接続表現で前後関係を明示 → AIが前後の論理を誤読しにくくなる</div>
-            <div style="font-size:11px;color:var(--text2);line-height:1.6;padding:5px 8px;background:#FEF0DC;border-radius:4px;"><strong style="color:#7A4800;">Development（展開性）</strong>：具体的な数値・根拠で展開 → AIに引用される「根拠ある主張」になる</div>
-            <div style="font-size:11px;color:var(--text2);line-height:1.6;padding:5px 8px;background:#ECEAE4;border-radius:4px;"><strong style="color:#3A3830;">Length（適切な長さ）</strong>：1段落＝1主張分の長さ → 読者がスキャンしやすく、離脱率が下がる</div>
+        <div style="background:var(--surface);border:1.5px solid #1A8C50;border-radius:var(--radius);overflow:hidden;">
+          <div style="background:#1A8C50;padding:7px 13px;display:flex;align-items:center;gap:8px;">
+            <span style="font-size:9px;font-weight:700;background:rgba(255,255,255,.25);color:#fff;border-radius:3px;padding:1px 6px;">原則 2/2</span>
+            <span style="font-size:12px;font-weight:700;color:#fff;">4つのルール — 特にCoherenceに注意</span>
+          </div>
+          <div style="padding:11px 13px;">
+            <div style="font-size:11px;color:var(--text2);line-height:1.8;margin-bottom:10px;">4つのルールのうち、<strong>特にCoherence（一貫性・結束性）が難しい</strong>。話を読者にとってスムーズで理解しやすい順序で並べることが求められる。接続表現の選択と段落の順序設計が品質を左右する。</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="padding:6px 9px;background:#E2EDF8;border-radius:4px;font-size:11px;color:var(--text2);line-height:1.6;"><strong style="color:#1A6DC8;">Unity（統一性）</strong>：1段落＝1主張。2つ目の主張が出てきたら即座に段落を分ける</div>
+              <div style="padding:6px 9px;background:#DFF2E9;border-radius:4px;font-size:11px;color:var(--text2);line-height:1.6;"><strong style="color:#0A5A30;">Coherence（一貫性）★最重要</strong>：「なぜなら」「一方で」「その結果」など接続表現で論理の流れを明示する。「が」の多用は論理を曖昧にする。読者が迷子にならない順序で書く</div>
+              <div style="padding:6px 9px;background:#FEF0DC;border-radius:4px;font-size:11px;color:var(--text2);line-height:1.6;"><strong style="color:#7A4800;">Development（展開性）</strong>：抽象的な主張だけで終わらない。具体的な数値・根拠・事例で必ず展開する</div>
+              <div style="padding:6px 9px;background:#ECEAE4;border-radius:4px;font-size:11px;color:var(--text2);line-height:1.6;"><strong style="color:#3A3830;">Length（適切な長さ）</strong>：最低3文・目安3〜5文。1〜2文では論理構造がない。長くなりすぎたら段落を分割する</div>
+            </div>
           </div>
         </div>
 
       </div>
-    </div>
 
+      <!-- Before / After -->
+      <div style="background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;">
+        <div style="padding:7px 13px;background:var(--bg2);border-bottom:1px solid var(--border2);font-size:11px;font-weight:700;color:var(--text1);">Before / After：よくある「日本語的な書き方」の問題</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+          <div style="padding:12px 14px;border-right:1px solid var(--border2);">
+            <div style="font-size:10px;font-weight:700;color:#C84820;margin-bottom:7px;">✗ Before（主張が最後に来る書き方）</div>
+            <div style="font-size:11px;color:var(--text2);line-height:1.8;background:#FDE8E0;border-radius:5px;padding:8px 10px;">
+              最近B2Bマーケティングでは様々な変化が起きています。デジタル化が進み、顧客の行動も変わってきました。こうした中で、コンテンツマーケティングが注目されています。特に一次情報が重要とされています。
+            </div>
+            <div style="margin-top:7px;font-size:10px;color:#C84820;line-height:1.6;">→ 主張が最後まで出てこない。どこが結論かわからない。読者もAIも「この段落は何が言いたいのか」を最後まで読まないとわからない。</div>
+          </div>
+          <div style="padding:12px 14px;">
+            <div style="font-size:10px;font-weight:700;color:#1A8C50;margin-bottom:7px;">✓ After（パラグラフライティング）</div>
+            <div style="font-size:11px;color:var(--text2);line-height:1.8;background:#DFF2E9;border-radius:5px;padding:8px 10px;">
+              <span style="display:block;margin-bottom:4px;"><strong style="color:#1A6DC8;">【トピック文】</strong>B2Bでは、自社にしか作れない一次情報コンテンツへの集中投資が最優先課題だ。</span>
+              <span style="display:block;margin-bottom:4px;"><strong style="color:#0A5A30;">【支持文①】</strong>B2B購買担当者の67%が「ベンダーの一次調査データ」を意思決定に活用している（Gartner, 2025）。</span>
+              <span style="display:block;margin-bottom:4px;"><strong style="color:#0A5A30;">【支持文②】</strong>一方、誰でも書ける解説記事はAIが代替するようになり、差別化にならない。</span>
+              <span style="display:block;"><strong style="color:#7A4800;">【結論文】</strong>したがって、限られたリソースは自社データや顧客インサイトを使った一次情報資産に集中させるべきだ。</span>
+            </div>
+            <div style="margin-top:7px;font-size:10px;color:#1A8C50;line-height:1.6;">→ 最初の1文で主張が明確。読者は「この段落は<strong>一次情報コンテンツへの集中投資</strong>について言っている」と即座にわかる。AIも引用しやすい。</div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- B2B ITサンプル -->
     <div style="margin-bottom:24px;">
       <div style="font-size:12px;font-weight:600;color:var(--text1);margin-bottom:6px;letter-spacing:.04em;">B2B IT領域での実践例：記事構成サンプル</div>
@@ -3752,7 +3797,7 @@ const DATA={
   'epic':{label:'EPIC（ライティング手法）',desc:'B2B向けの重量コンテンツ（ホワイトペーパー・提案書）に適したライティング構造。Empathy（共感）→ Problem（課題の深掘り）→ Insight（洞察・気づき）→ Call to action（行動喚起）の順で構成する。SICのIntroduce〜Confrontフェーズで使う。',m:['A'],r:[{t:'パラグラフライティング（構造基盤）',d:'→ EPICの各フェーズをパラグラフ単位で構成する。トピック文で「Empathy」「Problem」等を宣言する'},{t:'企画4象限',d:'→ 最優先投資領域（自社しか作れない × 長期資産）のコンテンツ構成に最適なフレーム'},{t:'SIC',d:'のIntroduce〜Confrontフェーズ。ホワイトペーパー・提案書向き'},{t:'コマーシャルインサイト',d:'のInsightフェーズで論理的根拠を展開する'}]},
   'pastor':{label:'PASTOR（ライティング手法）',desc:'Problem（問題提起）→ Amplify（問題の拡大）→ Story（解決のストーリー）→ Transformation（変化の提示）→ Offer（提案）→ Response（行動喚起）の頭文字を取ったライティングフレームワーク。メルマガやLPの導入部に適した共感ベースの構成。',m:['C','D'],r:[{t:'パラグラフライティング（構造基盤）',d:'→ PASTORの各フェーズをパラグラフ単位で組む。特にStory・Transformationは具体的根拠（支持文）で展開する'},{t:'企画4象限',d:'→ 辞書コンテンツまたは作業コンテンツ。メルマガ・LP導入など共感ベースのコンテンツ向け'},{t:'SIC',d:'のIntroduceフェーズ。メルマガ・LPの導入部分に最適'}]},
   'spiced':{label:'SPICED（ライティング手法）',desc:'Situation（状況）→ Pain（痛み）→ Impact（影響）→ Critical event（重要イベント）→ Evidence（証拠）→ Decision（意思決定）の構造を持つB2B向けライティング・商談設計フレームワーク。Buying Groupの意思決定者・承認者への提案資料や決裁資料の構成に最適。',m:['A'],r:[{t:'パラグラフライティング（構造基盤）',d:'→ Evidenceパートで「支持文（根拠・数値）＋結論文」の構造を使うと決裁資料の説得力が増す'},{t:'企画4象限',d:'→ 最優先投資領域（自社しか作れない × 長期資産）の決裁・提案資料に最適なフレーム'},{t:'SIC',d:'のConfront（意思決定・合意形成）フェーズで使う重量コンテンツ手法'},{t:'Buying Group',d:'の意思決定者・承認者への訴求を定量化・論理化するために使う'}]},
-  'paragraph-writing':{label:'パラグラフライティング（文章構造の基盤）',desc:'1960年代に体系化されたアカデミック・ライティングの手法。<strong>すべての修辞設計FW（EPIC・PASONA・PREP等）の土台</strong>となる文章の骨格設計。1段落＝1主張を徹底し、トピック文→支持文→結論文の3要素で構成する。GoogleのAIも人間の読者も、この構造を通じてコンテンツの品質を判断する。<br><br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:3px;">【3要素の役割】</strong><br>① トピック文（Topic Sentence）：段落の主張を最初の1文で宣言。読者にもAIにも「この段落は何について書いているか」を即座に伝える。<br>② 支持文（Supporting Sentences）：主張を裏付ける根拠・データ・事例。具体的な数値・出典・時点を明記するとAIに引用されやすい。<br>③ 結論文（Concluding Sentence）：主張を別の言葉で言い換えて締める。次の段落への橋渡しになる。<br><br><strong style="font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:3px;">【4つのルール（Unity・Coherence・Development・Length）】</strong><br>Unity（統一性）：1段落に主張は1つ / Coherence（一貫性）：接続表現で論理を明示 / Development（展開性）：具体的根拠で展開 / Length（適切な長さ）：1主張分の長さを守る',m:['A','B','C'],r:[{t:'EPIC / PASTOR / SPICED',d:'→ パラグラフライティングで骨格を作った上で、これらの修辞設計FWを重ねる'},{t:'PREP / PASONA / AIDA / FAB',d:'→ どのFWも「1主張＝1段落」の原則を守ることで論理が崩れない'},{t:'SIC・コマーシャルインサイト',d:'→ 戦略層。パラグラフライティングは戦略を文章に落とす「中間層」として機能する'},{t:'コンテンツ戦略 2026 タブ セクション04',d:'→ B2B IT領域での実践例・構成サンプルを参照'}]},
+  'paragraph-writing':{label:'パラグラフライティング（文章構造の基盤）',desc:'1960年代に体系化されたアカデミック・ライティングの手法。<strong>すべての修辞設計FW（EPIC・PASONA・PREP等）の土台</strong>となる文章の骨格設計。1段落＝1主張を徹底し、トピック文→支持文→結論文の3要素で構成する。「結論を最初に述べ、根拠で裏付け、最後にもう一度まとめる。これだけ」（渡辺隆広氏 / Web担当者Forum 2026）。GoogleのAIも人間の読者も、この構造でコンテンツの品質を判断する。<br><br><strong style=\"font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:3px;\">【3要素の役割と書き方】</strong><br>① <strong>トピック文（Topic Sentence）</strong>：段落の主張を最初の1文で宣言。「〜が重要だ」「〜すべきだ」のように結論から入る。曖昧な導入（「〜について考えてみましょう」）はNG。<br>② <strong>支持文（Supporting Sentences）2〜3文</strong>：主張を裏付ける根拠・データ・事例。「なぜなら〜」「例えば〜」「実際に〜というデータがある」の順で展開。具体的な数値・出典を入れるとAIにも引用されやすくなる。<br>③ <strong>結論文（Concluding Sentence）</strong>：トピック文を別の言葉で言い換えて締める。「したがって〜」「つまり〜」で意味を昇華させ、次の段落への橋渡しにする。<br><br><strong style=\"font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:3px;\">【Before / After：よくある書き方の問題】</strong><br><span style=\"display:block;background:#FDE8E0;border-radius:4px;padding:6px 9px;margin:4px 0;font-size:10.5px;color:#5E2210;line-height:1.7;\">✗ Before（日本語的な書き方）<br>「最近B2Bマーケティングでは様々な変化が起きています。デジタル化が進み、顧客行動も変わってきました。こうした中で、コンテンツマーケティングが注目されています。特に一次情報が重要とされています」<br><em>→ 主張が最後まで出てこない。どこが結論か読者にわからない。</em></span><span style=\"display:block;background:#DFF2E9;border-radius:4px;padding:6px 9px;margin:4px 0;font-size:10.5px;color:#0A2A18;line-height:1.7;\">✓ After（パラグラフライティング）<br>【トピック文】B2Bでは、自社にしか作れない一次情報コンテンツへの集中投資が最優先課題だ。<br>【支持文①】Gartner（2025）によれば、B2B購買担当者の67%が「ベンダーの一次調査データ」を意思決定に活用している。<br>【支持文②】一方、競合が量産できる解説記事はAIが代替するようになり差別化にならない。<br>【結論文】したがって、限られたリソースは自社データや顧客インサイトを使った一次情報資産に集中させるべきだ。</span><br><strong style=\"font-size:11px;color:var(--text1);display:inline-block;margin-top:6px;margin-bottom:3px;\">【4つのルール】</strong><br>Unity（統一性）：1段落に主張は1つ。2つ目の主張が出たら新しい段落にする ／ Coherence（一貫性）：「なぜなら」「例えば」「したがって」で論理の流れを明示する ／ Development（展開性）：抽象的な主張だけで終わらず具体的な根拠・数値・事例で展開する ／ Length（適切な長さ）：最低3文・目安3〜5文。1〜2文では論理構造がない',m:['A','B','C'],r:[{t:'EPIC / PASTOR / SPICED',d:'パラグラフライティングで骨格を作った上で、これらの修辞設計FWを重ねる。EPICの各フェーズをパラグラフ単位で構成する'},{t:'PREP / PASONA / AIDA / FAB',d:'どのFWも「1主張＝1段落」の原則を守ることで論理が崩れない。PREPのP（結論）がトピック文、R（理由）＋E（例）が支持文に対応する'},{t:'SIC・コマーシャルインサイト',d:'戦略層。パラグラフライティングは「何を書くか（戦略）」を「どう書くか（文章構造）」に落とす中間層として機能する'},{t:'コンテンツ戦略 2026 タブ セクション04',d:'B2B IT領域での実践例・構成サンプルを参照'}]},
   'prep':{label:'PREP法',desc:'Point（結論）→ Reason（理由）→ Example（具体例・根拠）→ Point（結論を繰り返す）の4ステップで構成するライティングフレームワーク。「結論ファースト」で短く明快に伝えられるため、速報レポート・イベントサマリー・ブログ記事・社内文書など幅広く使える。B2Bのビジネス文書の基本形として認知度が高い。',m:['B','C'],r:[{t:'パラグラフライティング（構造基盤）',d:'→ PREPはパラグラフライティングの「Unity（1段落＝1主張）」を自然に実践できるFW。P（結論）がトピック文、R（理由）＋E（例）が支持文、P（繰り返し）が結論文に対応する'},{t:'企画4象限',d:'→ タイミング資産・辞書コンテンツに向く。速報記事・イベントレポートの構成に最適'},{t:'SIC',d:'のSpark〜Introduceフェーズ。短く読まれやすい記事・レポートに使う'},{t:'SPICED / EPIC',d:'が重量コンテンツ向けなのに対し、PREPは軽量・速報系コンテンツ向け'},{t:'タイミング資産コンテンツ',d:'（展示会レポート・速報調査）の本文構成として最も使いやすいフレーム'}]},
   'aida':{label:'AIDA（ライティング手法）',desc:'Attention（注目）→ Interest（興味）→ Desire（欲求）→ Action（行動）の4段階で購買心理を動かす古典的なマーケティングフレームワーク。PASONAの前身とも言われる。広告コピー・メール件名・バナー文言など、短い文章で素早く行動を引き出す場面に向く。',m:['D'],r:[{t:'パラグラフライティング（構造基盤）',d:'→ AIDAは短いコピー向けのため段落構造との相性はゆるやかだが、LPなど長文化する場合はAの段落・Iの段落を独立させて構成する'},{t:'企画4象限',d:'→ 作業コンテンツ。広告クリエイティブ・メール件名・バナー文言に最適'},{t:'PASONA',d:'の前身にあたる古典的フレームワーク。PASONAはAIDAをセールスレター向けに拡張したもの'},{t:'SICのSpark（入口）',d:'前後のマイクロコピー（バナー・広告見出し）に活用する'},{t:'Google広告',d:'のクリエイティブ設計にAIDAの構造を当てはめることで訴求力が上がる'}]},
   'fab':{label:'FAB（ライティング手法）',desc:'Feature（特徴・機能）→ Advantage（競合に対する優位性）→ Benefit（顧客が得られるメリット・成果）の3ステップで価値を伝えるフレームワーク。製品の「機能説明」で終わらず「顧客にとっての意味」まで落とし込む点が特徴。営業トーク・提案書・製品ページの構成に有効で、セールスとマーケが共通言語として使いやすい。',m:['A','B'],r:[{t:'パラグラフライティング（構造基盤）',d:'→ FABの各要素（F・A・B）をそれぞれ独立したパラグラフに分けると、読者が3要素を整理して受け取りやすくなる'},{t:'企画4象限',d:'→ 最優先投資領域（自社しか作れない × 長期資産）の提案書・製品ページ、タイミング資産のリリース解説に向く'},{t:'バリュープロポジション',d:'の言語化に直結する。Feature→Advantage→Benefitの順で整理することでメッセージが顧客視点になる'},{t:'セールスイネーブルメント',d:'がFABフォーマットで製品説明トークを整備すると、BDR・フィールドセールスが使いやすい共通言語になる'},{t:'SPICED',d:'と組み合わせると効果的。FABで価値を整理してSPICEDで提案構成に落とし込む'}]},
