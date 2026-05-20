@@ -1927,8 +1927,8 @@ body{background:#F5F4F0;background:var(--bg);color:var(--text1);font-family:'Not
       </div>
       <div class="gtmphase-q" id="gq2">
         <div style="font-size:11px;color:var(--text3);margin-bottom:10px;">質問 2 / 4</div>
-        <div style="font-size:14px;font-weight:600;color:var(--text1);margin-bottom:6px;">「次はあそこ」と営業が予測でき、それが当たっていますか？</div>
-        <div style="font-size:11px;color:var(--text3);margin-bottom:12px;">※ 同業他社・同業務領域への横展開が「読める」という感覚</div>
+        <div style="font-size:14px;font-weight:600;color:var(--text1);margin-bottom:6px;">受注した企業と似た企業への横展開が、事前に予測できていますか？</div>
+        <div style="font-size:11px;color:var(--text3);margin-bottom:12px;">※ 同業・同業務領域への展開が「読める」手触り。予測して動いたら実際に当たるか</div>
         <div style="display:flex;flex-direction:column;gap:8px;">
           <button class="check-btn" onclick="gAnswer(2,'A')">✅ 当たっている。業種・業務領域の横展開パターンが見えている</button>
           <button class="check-btn" onclick="gAnswer(2,'B')">🔶 なんとなくわかるが、まだ仮説レベルで外れることも多い</button>
@@ -1937,8 +1937,8 @@ body{background:#F5F4F0;background:var(--bg);color:var(--text1);font-family:'Not
       </div>
       <div class="gtmphase-q" id="gq3">
         <div style="font-size:11px;color:var(--text3);margin-bottom:10px;">質問 3 / 4</div>
-        <div style="font-size:14px;font-weight:600;color:var(--text1);margin-bottom:6px;">受注・失注の後に「やっぱりそうだ」と腑に落ちる感覚がありますか？</div>
-        <div style="font-size:11px;color:var(--text3);margin-bottom:12px;">※ 勝ち負けの理由が「なんとなく」ではなく「わかる」という手触り</div>
+        <div style="font-size:14px;font-weight:600;color:var(--text1);margin-bottom:6px;">受注・失注の理由について、「なぜ勝ったか・なぜ負けたか」が説明できますか？</div>
+        <div style="font-size:11px;color:var(--text3);margin-bottom:12px;">※ 個人の感覚ではなく、チームで共有・言語化できるレベルか</div>
         <div style="display:flex;flex-direction:column;gap:8px;">
           <button class="check-btn" onclick="gAnswer(3,'A')">✅ ある。かつウィン/ロス分析で言語化・記録されている</button>
           <button class="check-btn" onclick="gAnswer(3,'B')">🔶 感覚はあるが、言語化・体系化まではできていない</button>
@@ -4209,7 +4209,7 @@ const gPhaseData = {
   }
 };
 
-const gQuestionLabels = ['自然流入の手触り', '横展開の予測精度', '受注・失注理由の腑落ち感', 'アップトレンドの手触り'];
+const gQuestionLabels = ['自然流入の手触り', '横展開の予測精度', '受注・失注理由の言語化', 'アップトレンドの手触り'];
 const gAnswerLabels = { A: '✅ データで証明できる', B: '🔶 感覚はあるが未言語化', C: '❓ ない・わからない' };
 
 function gAnswer(q, val) {
